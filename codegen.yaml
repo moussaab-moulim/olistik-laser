@@ -1,11 +1,17 @@
-# codegen.yaml
-schema: https://api.spacex.land/graphql/
-documents: ./src/**/**/graphql.ts
+overwrite: true
+schema:
+  - https://olistik-laser.prismic.io/graphql:
+      method: GET
+      headers:
+        Authorization: "Token ${PRISMIC_REPOSITORY_TOKEN}"
+        Prismic-Ref: "Yz256hAAACcAaxO5"
 generates:
-    ./__generated__/__types__.ts:
-        config:
-            onlyOperationTypes: true
-            preResolveTypes: true
-        plugins:
-            - typescript
-            - typescript-operations
+  # Schema
+  ./schema.graphql:
+    plugins:
+      - schema-ast
+  src/types/generated/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"

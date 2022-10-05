@@ -1,21 +1,39 @@
-import React from "react";
+import React, { Children } from "react";
 import { AppProps } from "next/app";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Link } from "@chakra-ui/react";
 import theme from "@definitions/chakra/theme";
 import "@styles/global.css";
-import { initializeApollo } from "@services/graphql";
-import { ApolloProvider } from "@apollo/client";
-import { appWithTranslation } from "@i18n";
-
+import { appWithTranslation } from "next-i18next";
+import NextLink from "next/link";
+import { PrismicProvider } from "@prismicio/react";
+import { PrismicPreview } from "@prismicio/next";
+import { repositoryName } from "../prismicio";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-    const apolloClient = initializeApollo();
     return (
         <ChakraProvider theme={theme}>
-            <ApolloProvider client={apolloClient}>
+            <PrismicProvider
+                internalLinkComponent={({ href, ...props }) => (
+                    <NextLink href={href} passHref>
+                        <Link {...props}>{props.children}</Link>
+                    </NextLink>
+                )}
+                externalLinkComponent={({ href, target, ...props }) => (
+                    <NextLink href={href} passHref target={target}>
+                        <Link>
+                            {props.children}
+                            <ExternalLinkIcon mx="2px" />
+                        </Link>
+                    </NextLink>
+                )}
+            >
                 <Component {...pageProps} />
-            </ApolloProvider>
+                <PrismicPreview repositoryName={repositoryName}>
+                    <Component {...pageProps} />
+                </PrismicPreview>
+            </PrismicProvider>
         </ChakraProvider>
     );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
