@@ -10,5 +10,19 @@
   "linked_documents": [],
   "lang": "en-us",
   "alternate_languages": [],
-  "data": {}
+  "data": {
+    "meta_title": "if",
+    "meta_description": "region",
+    "featured_image": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68"
+    },
+    "keywords": "pig",
+    "slices": []
+  }
 }

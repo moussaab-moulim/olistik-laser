@@ -117,23 +117,31 @@
             "thumbnails": []
           }
         },
-        "buttonLink": {
-          "type": "Link",
+        "background_color": {
+          "type": "Color",
           "config": {
-            "label": "Button Link",
-            "placeholder": "",
-            "select": null
-          }
-        },
-        "buttonText": {
-          "type": "Text",
-          "config": {
-            "label": "Button Text",
+            "label": "background color",
             "placeholder": ""
           }
         }
       },
-      "items": {},
+      "items": {
+        "button_label": {
+          "type": "Text",
+          "config": {
+            "label": "button label",
+            "placeholder": ""
+          }
+        },
+        "button_url": {
+          "type": "Link",
+          "config": {
+            "label": "button url",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
       "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     }
   ]

@@ -33,7 +33,7 @@ export const linkResolver = (doc: FilledLinkToDocumentField | Meta): string => {
 
 export const webLinkResolver: LinkResolverFunction = (doc) => {
     if (doc?.url?.includes("https://action:")) return "";
-    if (doc?.url?.includes("#")) return doc.url.replace("https://", "");
+    if (doc?.url?.includes("https://#")) return doc.url.replace("https://", "");
     return doc.url ?? "";
 };
 

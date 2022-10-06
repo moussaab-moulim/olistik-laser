@@ -6,14 +6,60 @@
   "slices": {
     "Hero": {
       "default": {
-        "primary": {}
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          }
+        }
+      },
+      "noActionHero": {
+        "primary": {
+          "text": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
       }
     },
     "TextWithImage": {
       "default": {
         "primary": {}
+      },
+      "rightText": {
+        "primary": {}
       }
     },
-    "Cta": {}
+    "Cta": {},
+    "Cards": {
+      "default": {
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          },
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        },
+        "items": {
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    }
   }
 }

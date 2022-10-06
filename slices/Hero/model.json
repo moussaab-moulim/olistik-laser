@@ -19,10 +19,12 @@
           }
         },
         "title": {
-          "type": "Text",
+          "type": "StructuredText",
           "config": {
             "label": "Title",
-            "placeholder": ""
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
           }
         },
         "text": {
@@ -92,12 +94,28 @@
             "multi": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
           }
         },
-        "backgroundImage": {
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "background_image": {
           "type": "Image",
           "config": {
             "label": "Background Image",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "background_color": {
+          "type": "Color",
+          "config": {
+            "label": "background color",
+            "placeholder": ""
           }
         }
       },

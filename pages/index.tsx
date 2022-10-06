@@ -22,11 +22,7 @@ const Home: NextPage<IProps> = ({ navigation, settings, home }: IProps) => {
     console.log("lcoales", router.locales);
     return (
         <Layout navigation={navigation} settings={mapPageSeo(home, settings)}>
-            <Header />
-            <Main />
-            <Cards />
-            <Spacer />
-            <Footer />
+            hello
         </Layout>
     );
 };

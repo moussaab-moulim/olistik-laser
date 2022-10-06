@@ -1,6 +1,134 @@
 {
   "slices": {
     "components": {
+      "cards": {
+        "library": "slices",
+        "id": "cards",
+        "name": "Cards",
+        "description": "Cards",
+        "model": {
+          "id": "cards",
+          "type": "SharedSlice",
+          "name": "Cards",
+          "description": "Cards",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Cards",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "multi": "heading1,heading2,heading3,strong,em"
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "A nice description of your feature",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                }
+              },
+              "items": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "button_label": {
+                  "type": "Text",
+                  "config": {
+                    "label": "button label",
+                    "placeholder": ""
+                  }
+                },
+                "button_url": {
+                  "type": "Link",
+                  "config": {
+                    "label": "button url",
+                    "placeholder": "",
+                    "select": null
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "title": [
+                  {
+                    "type": "paragraph",
+                    "text": "Ex irure enim ex duis sint quis cupidatat aliqua esse nostrud voluptate tempor Lorem mollit. Eiusmod consectetur labore quis. Amet reprehenderit laborum culpa ut incididunt.",
+                    "spans": []
+                  }
+                ],
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "text": "Enim veniam cupidatat qui laborum consequat duis anim. Excepteur aliqua magna cillum Lorem labore commodo nulla. Adipisicing ex esse cupidatat.",
+                    "spans": []
+                  }
+                ],
+                "button_label": "silk",
+                "button_url": {
+                  "link_type": "Web",
+                  "url": "http://twitter.com"
+                }
+              }
+            ],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Baseball",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "In in ex culpa velit incididunt cupidatat aliquip duis fugiat. Sint pariatur Lorem fugiat culpa fugiat enim laboris tempor aliquip sunt. Tempor Lorem anim incididunt eu dolore sunt occaecat anim laborum adipisicing.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "cards"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
       "cta": {
         "library": "slices",
         "id": "cta",
@@ -144,10 +272,12 @@
                   }
                 },
                 "title": {
-                  "type": "Text",
+                  "type": "StructuredText",
                   "config": {
                     "label": "Title",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
                   }
                 },
                 "text": {
@@ -217,12 +347,28 @@
                     "multi": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
                   }
                 },
-                "backgroundImage": {
+                "text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "text",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "background_image": {
                   "type": "Image",
                   "config": {
                     "label": "Background Image",
                     "constraint": {},
                     "thumbnails": []
+                  }
+                },
+                "background_color": {
+                  "type": "Color",
+                  "config": {
+                    "label": "background color",
+                    "placeholder": ""
                   }
                 }
               },
@@ -237,20 +383,26 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
-                "button_label": "evening",
+                "button_label": "none",
                 "button_url": {
                   "link_type": "Web",
-                  "url": "http://twitter.com"
+                  "url": "http://google.com"
                 }
               }
             ],
             "primary": {
-              "slice_id": "bicycle",
-              "title": "least",
+              "slice_id": "white",
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Shirt",
+                  "spans": []
+                }
+              ],
               "text": [
                 {
                   "type": "paragraph",
-                  "text": "Sint duis in esse cillum.",
+                  "text": "Tempor do ut amet velit ullamco enim.",
                   "spans": []
                 }
               ],
@@ -261,9 +413,9 @@
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8"
+                "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2"
               },
-              "background_color": "#11c509"
+              "background_color": "#57f960"
             },
             "slice_type": "hero"
           },
@@ -274,23 +426,31 @@
               {}
             ],
             "primary": {
-              "slice_id": "riding",
+              "slice_id": "chemical",
               "title": [
                 {
                   "type": "heading1",
-                  "text": "People",
+                  "text": "About",
                   "spans": []
                 }
               ],
-              "backgroundImage": {
+              "text": [
+                {
+                  "type": "paragraph",
+                  "text": "Irure exercitation amet voluptate. Consequat culpa veniam eu enim incididunt culpa nostrud.",
+                  "spans": []
+                }
+              ],
+              "background_image": {
                 "dimensions": {
                   "width": 900,
                   "height": 500
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055"
-              }
+                "url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa"
+              },
+              "background_color": "#c49bf1"
             },
             "slice_type": "hero"
           }
@@ -431,23 +591,31 @@
                     "thumbnails": []
                   }
                 },
-                "buttonLink": {
-                  "type": "Link",
+                "background_color": {
+                  "type": "Color",
                   "config": {
-                    "label": "Button Link",
-                    "placeholder": "",
-                    "select": null
-                  }
-                },
-                "buttonText": {
-                  "type": "Text",
-                  "config": {
-                    "label": "Button Text",
+                    "label": "background color",
                     "placeholder": ""
                   }
                 }
               },
-              "items": {},
+              "items": {
+                "button_label": {
+                  "type": "Text",
+                  "config": {
+                    "label": "button label",
+                    "placeholder": ""
+                  }
+                },
+                "button_url": {
+                  "type": "Link",
+                  "config": {
+                    "label": "button url",
+                    "placeholder": "",
+                    "select": null
+                  }
+                }
+              },
               "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
             }
           ]
@@ -458,26 +626,26 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
-                "button_label": "whole",
+                "button_label": "receive",
                 "button_url": {
                   "link_type": "Web",
-                  "url": "http://google.com"
+                  "url": "https://slicemachine.dev"
                 }
               }
             ],
             "primary": {
-              "slice_id": "couple",
+              "slice_id": "those",
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Wonderful",
+                  "text": "Product",
                   "spans": []
                 }
               ],
               "text": [
                 {
                   "type": "paragraph",
-                  "text": "Amet tempor est cupidatat aute officia ad est in.",
+                  "text": "Excepteur deserunt anim deserunt dolor sit consequat irure sunt cupidatat aliquip dolor voluptate dolore. Id laborum nostrud consequat esse aute laborum nisi.",
                   "spans": []
                 }
               ],
@@ -488,9 +656,9 @@
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764"
+                "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68"
               },
-              "background_color": "#ef96c3"
+              "background_color": "#e701a3"
             },
             "slice_type": "text_with_image"
           },
@@ -498,21 +666,27 @@
             "variation": "rightText",
             "version": "sktwi1xtmkfgx8626",
             "items": [
-              {}
+              {
+                "button_label": "circle",
+                "button_url": {
+                  "link_type": "Web",
+                  "url": "https://prismic.io"
+                }
+              }
             ],
             "primary": {
-              "slice_id": "affect",
+              "slice_id": "largest",
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Height",
+                  "text": "Morning",
                   "spans": []
                 }
               ],
               "text": [
                 {
                   "type": "paragraph",
-                  "text": "Culpa aliquip aute consectetur. Velit nulla sit laboris deserunt.",
+                  "text": "Ex est sunt non cupidatat anim laboris mollit nisi nulla nisi voluptate. Veniam culpa cupidatat elit fugiat ad minim aute irure veniam deserunt fugiat labore reprehenderit.",
                   "spans": []
                 }
               ],
@@ -523,13 +697,9 @@
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764"
+                "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b"
               },
-              "buttonLink": {
-                "link_type": "Web",
-                "url": "https://slicemachine.dev"
-              },
-              "buttonText": "effect"
+              "background_color": "#d05251"
             },
             "slice_type": "text_with_image"
           }
