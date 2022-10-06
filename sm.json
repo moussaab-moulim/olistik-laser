@@ -1,7 +1,6 @@
 {
-  "apiEndpoint": "https://olistik-laser.prismic.io/api/v2",
-  "libraries": [
-    "@/slices"
-  ],
-  "_latest": "0.5.0"
+    "apiEndpoint": "https://olistik-laser.prismic.io/api/v2",
+    "libraries": ["@/slices"],
+    "localSliceSimulatorURL": "http://localhost:3000/simulator",
+    "_latest": "0.5.0"
 }

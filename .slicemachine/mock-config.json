@@ -1,0 +1,19 @@
+{
+  "_cts": {
+    "post": {},
+    "page": {}
+  },
+  "slices": {
+    "Hero": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "TextWithImage": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Cta": {}
+  }
+}

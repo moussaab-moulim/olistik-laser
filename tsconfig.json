@@ -55,12 +55,15 @@
       "@services": [
         "src/services"
       ],
-      "@graphqlTypes/*": [
-        "__generated__/*"
+      "@customtypes/*": [
+        "src/types/generated/*",
+        "src/types/*"
       ],
-      "@graphqlTypes": [
-        "__generated__"
+      "@customtypes": [
+        "src/types/generated",
+        "src/types",
       ],
+ 
       "@i18n": [
         "./i18n"
       ]

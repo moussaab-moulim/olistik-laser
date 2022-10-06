@@ -1,0 +1,73 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "settings",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "site_name": "difficult",
+    "search_console_key": "spent",
+    "theme_color": "#c462af",
+    "logo": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a"
+    },
+    "logo_invert": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764"
+    },
+    "favico": {
+      "dimensions": {
+        "width": 16,
+        "height": 16
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+      "md": {
+        "dimensions": {
+          "width": 32,
+          "height": 32
+        },
+        "alt": null,
+        "copyright": null,
+        "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9"
+      },
+      "lg": {
+        "dimensions": {
+          "width": 180,
+          "height": 180
+        },
+        "alt": null,
+        "copyright": null,
+        "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2"
+      }
+    },
+    "domain": "battle",
+    "social_media": [
+      {
+        "icon": "north",
+        "link": {
+          "link_type": "Web",
+          "url": "https://prismic.io"
+        }
+      }
+    ]
+  }
+}

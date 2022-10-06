@@ -1,0 +1,341 @@
+"""DateTime"""
+scalar DateTime
+
+"""Raw JSON value"""
+scalar Json
+
+"""
+The `Long` scalar type represents non-fractional signed whole numeric values. Long can represent values between -(2^63) and 2^63 - 1.
+"""
+scalar Long
+
+type Meta {
+  """Alternate languages the document."""
+  alternateLanguages: [RelatedDocument!]!
+
+  """The first publication date of the document."""
+  firstPublicationDate: DateTime
+
+  """The id of the document."""
+  id: String!
+
+  """The language of the document."""
+  lang: String!
+
+  """The last publication date of the document."""
+  lastPublicationDate: DateTime
+
+  """The tags of the document."""
+  tags: [String!]!
+
+  """The type of the document."""
+  type: String!
+
+  """The uid of the document."""
+  uid: String
+}
+
+type Navigation implements _Document & _Linkable {
+  _linkType: String
+  _meta: Meta!
+  links: [NavigationLinks!]
+}
+
+"""A connection to a list of items."""
+type NavigationConnectionConnection {
+  """A list of edges."""
+  edges: [NavigationConnectionEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+  totalCount: Long!
+}
+
+"""An edge in a connection."""
+type NavigationConnectionEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Navigation!
+}
+
+type NavigationLinks {
+  label: Json
+  link: _Linkable
+  parent: String
+}
+
+type Page implements _Document & _Linkable {
+  _linkType: String
+  _meta: Meta!
+  featured_image: Json
+  keywords: String
+  meta_description: String
+  meta_title: String
+}
+
+"""A connection to a list of items."""
+type PageConnectionConnection {
+  """A list of edges."""
+  edges: [PageConnectionEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+  totalCount: Long!
+}
+
+"""An edge in a connection."""
+type PageConnectionEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Page!
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
+type Post implements _Document & _Linkable {
+  _linkType: String
+  _meta: Meta!
+}
+
+"""A connection to a list of items."""
+type PostConnectionConnection {
+  """A list of edges."""
+  edges: [PostConnectionEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+  totalCount: Long!
+}
+
+"""An edge in a connection."""
+type PostConnectionEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Post!
+}
+
+type Query {
+  _allDocuments(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortDocumentsBy, tags: [String!], tags_in: [String!], type: String, type_in: [String!]): _DocumentConnection!
+  allNavigations(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortNavigationy, tags: [String!], tags_in: [String!], uid: String, uid_in: [String!], where: WhereNavigation): NavigationConnectionConnection!
+  allPages(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortPagey, tags: [String!], tags_in: [String!], uid: String, uid_in: [String!], where: WherePage): PageConnectionConnection!
+  allPosts(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortPosty, tags: [String!], tags_in: [String!], uid: String, uid_in: [String!]): PostConnectionConnection!
+  allSettingss(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortSettingsy, tags: [String!], tags_in: [String!], uid: String, uid_in: [String!], where: WhereSettings): SettingsConnectionConnection!
+  page(lang: String!, uid: String!): Page
+}
+
+type RelatedDocument {
+  """The id of the document."""
+  id: String!
+
+  """The language of the document."""
+  lang: String!
+
+  """The type of the document."""
+  type: String!
+
+  """The uid of the document."""
+  uid: String
+}
+
+type Settings implements _Document & _Linkable {
+  _linkType: String
+  _meta: Meta!
+  domain: String
+  favico: Json
+  logo: Json
+  logo_invert: Json
+  search_console_key: String
+  site_name: String
+  social_media: [SettingsSocial_media!]
+  theme_color: String
+}
+
+"""A connection to a list of items."""
+type SettingsConnectionConnection {
+  """A list of edges."""
+  edges: [SettingsConnectionEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+  totalCount: Long!
+}
+
+"""An edge in a connection."""
+type SettingsConnectionEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Settings!
+}
+
+type SettingsSocial_media {
+  icon: String
+  link: _Linkable
+}
+
+enum SortDocumentsBy {
+  meta_firstPublicationDate_ASC
+  meta_firstPublicationDate_DESC
+  meta_lastPublicationDate_ASC
+  meta_lastPublicationDate_DESC
+}
+
+enum SortNavigationy {
+  meta_firstPublicationDate_ASC
+  meta_firstPublicationDate_DESC
+  meta_lastPublicationDate_ASC
+  meta_lastPublicationDate_DESC
+}
+
+enum SortPagey {
+  keywords_ASC
+  keywords_DESC
+  meta_description_ASC
+  meta_description_DESC
+  meta_firstPublicationDate_ASC
+  meta_firstPublicationDate_DESC
+  meta_lastPublicationDate_ASC
+  meta_lastPublicationDate_DESC
+  meta_title_ASC
+  meta_title_DESC
+}
+
+enum SortPosty {
+  meta_firstPublicationDate_ASC
+  meta_firstPublicationDate_DESC
+  meta_lastPublicationDate_ASC
+  meta_lastPublicationDate_DESC
+}
+
+enum SortSettingsy {
+  domain_ASC
+  domain_DESC
+  meta_firstPublicationDate_ASC
+  meta_firstPublicationDate_DESC
+  meta_lastPublicationDate_ASC
+  meta_lastPublicationDate_DESC
+  search_console_key_ASC
+  search_console_key_DESC
+  site_name_ASC
+  site_name_DESC
+}
+
+input WhereNavigation {
+  links: WhereNavigationLinks
+}
+
+input WhereNavigationLinks {
+  """label"""
+  label_fulltext: String
+
+  """link"""
+  link: String
+  parent: String
+  parent_fulltext: String
+}
+
+input WherePage {
+  keywords: String
+  keywords_fulltext: String
+  meta_description: String
+  meta_description_fulltext: String
+  meta_title: String
+  meta_title_fulltext: String
+}
+
+input WhereSettings {
+  domain: String
+  domain_fulltext: String
+  search_console_key: String
+  search_console_key_fulltext: String
+  site_name: String
+  site_name_fulltext: String
+  social_media: WhereSettingsSocial_media
+}
+
+input WhereSettingsSocial_media {
+  icon: String
+  icon_fulltext: String
+
+  """link"""
+  link: String
+}
+
+"""A prismic document"""
+interface _Document {
+  _meta: Meta!
+}
+
+"""A connection to a list of items."""
+type _DocumentConnection {
+  """A list of edges."""
+  edges: [_DocumentEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+  totalCount: Long!
+}
+
+"""An edge in a connection."""
+type _DocumentEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: _Document!
+}
+
+"""An external link"""
+type _ExternalLink implements _Linkable {
+  _linkType: String
+  target: String
+  url: String!
+}
+
+"""A linked file"""
+type _FileLink implements _Linkable {
+  _linkType: String
+  name: String!
+  size: Long!
+  url: String!
+}
+
+"""A linked image"""
+type _ImageLink implements _Linkable {
+  _linkType: String
+  height: Int!
+  name: String!
+  size: Long!
+  url: String!
+  width: Int!
+}
+
+"""A prismic link"""
+interface _Linkable {
+  _linkType: String
+}
+
+input similar {
+  documentId: String!
+  max: Int!
+}

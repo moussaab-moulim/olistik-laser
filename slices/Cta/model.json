@@ -1,0 +1,74 @@
+{
+    "id": "cta",
+    "type": "SharedSlice",
+    "name": "Cta",
+    "description": "Cta",
+    "variations": [
+        {
+            "id": "default",
+            "name": "Default",
+            "docURL": "...",
+            "version": "sktwi1xtmkfgx8626",
+            "description": "Cta",
+            "primary": {
+                "slice_id": {
+                    "type": "Text",
+                    "config": {
+                        "label": "slice id",
+                        "placeholder": ""
+                    }
+                },
+                "title": {
+                    "type": "StructuredText",
+                    "config": {
+                        "label": "title",
+                        "placeholder": "",
+                        "allowTargetBlank": true,
+                        "multi": "heading2,heading3,heading4,heading5,heading6,heading1,em,strong"
+                    }
+                },
+                "text": {
+                    "type": "StructuredText",
+                    "config": {
+                        "label": "Text",
+                        "placeholder": "",
+                        "allowTargetBlank": true,
+                        "multi": "heading3,strong,em,paragraph"
+                    }
+                },
+                "sub_text": {
+                    "type": "Text",
+                    "config": {
+                        "label": "Sub text",
+                        "placeholder": ""
+                    }
+                },
+                "background_color": {
+                    "type": "Color",
+                    "config": {
+                        "label": "background color",
+                        "placeholder": ""
+                    }
+                }
+            },
+            "items": {
+                "button_label": {
+                    "type": "Text",
+                    "config": {
+                        "label": "button label",
+                        "placeholder": ""
+                    }
+                },
+                "button_url": {
+                    "type": "Link",
+                    "config": {
+                        "label": "button url",
+                        "placeholder": "",
+                        "select": null
+                    }
+                }
+            },
+            "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+        }
+    ]
+}
