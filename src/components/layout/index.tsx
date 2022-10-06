@@ -113,7 +113,6 @@ export const Layout = ({ navigation, settings, children }: IProps) => {
                         "Poppins-SemiBold",
                         "Poppins-SemiBoldItalic",
                         "Poppins-Thin",
-                        "Poppins-ThinItalic",
                     ].map((font) => ({
                         rel: "preload",
                         href: `/assets/fonts/Poppins/${font}.woff2`,
