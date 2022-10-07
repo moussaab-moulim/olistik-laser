@@ -12,6 +12,7 @@ import { LinkResolverFunction } from "@prismicio/helpers";
 import { CreateClientConfig, enableAutoPreviews } from "@prismicio/next";
 import { FilledLinkToDocumentField } from "@prismicio/types";
 import sm from "./sm.json";
+import { PageDocument } from "@customtypes/rest";
 
 /**
  * The project's Prismic repository name.
@@ -19,7 +20,9 @@ import sm from "./sm.json";
 export const repositoryName = getRepositoryName(sm.apiEndpoint);
 const accessToken = process.env.PRISMIC_REPOSITORY_TOKEN;
 
-export const linkResolver = (doc: FilledLinkToDocumentField | Meta): string => {
+export const linkResolver = (
+    doc: FilledLinkToDocumentField | Omit<PageDocument, "data">,
+): string => {
     const langPrefix = doc.lang === "fr" ? "/" : "/en";
     if (doc.uid === "home") {
         return `${langPrefix}`;

@@ -2,7 +2,7 @@ import { Footer } from "@components/footer";
 import { Header } from "@components/header";
 import { CustomNavigation, PageSeo } from "@customtypes/common";
 import { NextSeo } from "next-seo";
-import React, { ReactElement, ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 interface IProps {
     navigation: CustomNavigation;

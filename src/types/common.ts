@@ -6,6 +6,7 @@ import {
     _ExternalLink,
     _Linkable,
 } from "@customtypes/graphql";
+import { PageDocument as _PageDocument } from "@customtypes/rest";
 import { ImageField } from "@prismicio/types";
 
 export interface PageSeo {
