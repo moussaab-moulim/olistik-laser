@@ -4,7 +4,9 @@ import {
     createClient as prismicClient,
     getRepositoryName,
 } from "@prismicio/client";
-
+import { createPrismicLink } from "apollo-link-prismic";
+import * as prismic from "@prismicio/client";
+import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { LinkResolverFunction } from "@prismicio/helpers";
 
 import { CreateClientConfig, enableAutoPreviews } from "@prismicio/next";
@@ -14,6 +16,9 @@ import sm from "./sm.json";
 /**
  * The project's Prismic repository name.
  */
+export const repositoryName = getRepositoryName(sm.apiEndpoint);
+const accessToken = process.env.PRISMIC_REPOSITORY_TOKEN;
+
 export const linkResolver = (doc: FilledLinkToDocumentField | Meta): string => {
     const langPrefix = doc.lang === "fr" ? "/" : "/en";
     if (doc.uid === "home") {
@@ -37,8 +42,6 @@ export const webLinkResolver: LinkResolverFunction = (doc) => {
     return doc.url ?? "";
 };
 
-export const repositoryName = getRepositoryName(sm.apiEndpoint);
-
 // Update the routes array to match your project's route structure
 /** @type {prismic.ClientConfig['routes']} **/
 const routes = [
@@ -53,17 +56,19 @@ const routes = [
  *
  * @param config {prismicNext.CreateClientConfig} - Configuration for the Prismic client.
  */
-export const createClient = (config: CreateClientConfig): Client => {
+export const createRestClient = (config?: CreateClientConfig): Client => {
     const client = prismicClient(sm.apiEndpoint, {
         routes,
+        accessToken,
         ...config,
     });
-
-    enableAutoPreviews({
-        client,
-        previewData: config.previewData,
-        req: config.req,
-    });
-
     return client;
 };
+
+export const graphqlClient = new ApolloClient({
+    link: createPrismicLink({
+        uri: prismic.getGraphQLEndpoint(repositoryName),
+        accessToken,
+    }),
+    cache: new InMemoryCache(),
+});

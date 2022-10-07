@@ -1,7 +1,7 @@
 import { Query, Scalars, Settings } from "@customtypes/graphql";
-import { client } from "apollo-client";
 
 import gql from "graphql-tag";
+import { graphqlClient } from "prismicio";
 import { CustomNavigation } from "src/types/common";
 
 export const metaQuery = `
@@ -22,7 +22,7 @@ _meta {
 export const fetchSettings = async (
     lang: Scalars["String"],
 ): Promise<Settings> => {
-    const { data, errors = null } = await client.query<{
+    const { data, errors = null } = await graphqlClient.query<{
         allSettingss: Query["allSettingss"];
     }>({
         query: gql`
@@ -63,7 +63,7 @@ export const fetchSettings = async (
 export const fetchNavigation = async (
     lang: Scalars["String"],
 ): Promise<CustomNavigation> => {
-    const { data, errors = null } = await client.query<{
+    const { data, errors = null } = await graphqlClient.query<{
         allNavigations: Query["allNavigations"];
     }>({
         query: gql`
