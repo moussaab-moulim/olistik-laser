@@ -29,10 +29,7 @@ const Home: NextPage<IProps> = ({ navigation, settings, home }: IProps) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps<IProps> = async ({
-    locale,
-    locales,
-}) => {
+export const getStaticProps: GetStaticProps<IProps> = async ({ locale }) => {
     const settings: Settings = await fetchSettings(locale ?? "fr");
     const navigation: CustomNavigation = await fetchNavigation(locale ?? "fr");
     const home: Page = await fetchPage("home", locale ?? "fr");
