@@ -19,7 +19,7 @@ interface IProps {
 }
 const Home: NextPage<IProps> = ({ navigation, settings, home }: IProps) => {
     const router = useRouter();
-    console.log("lcoales", router.locales);
+    console.log("locales", router.locales);
     return (
         <Layout navigation={navigation} settings={mapPageSeo(home, settings)}>
             hello
