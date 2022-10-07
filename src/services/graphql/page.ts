@@ -1,13 +1,13 @@
 import { Page, Query, Scalars } from "@customtypes/graphql";
-import { client } from "apollo-client";
 import gql from "graphql-tag";
+import { graphqlClient } from "prismicio";
 import { metaQuery } from "./common";
 
 export const fetchPage = async (
     uid: Scalars["ID"],
     lang: Scalars["String"],
 ): Promise<Page> => {
-    const { data, errors = null } = await client.query<{
+    const { data, errors = null } = await graphqlClient.query<{
         page: Query["page"];
     }>({
         query: gql`
