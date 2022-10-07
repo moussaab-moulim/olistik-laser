@@ -12,21 +12,16 @@ import { Page, Settings } from "@customtypes/graphql";
 import { fetchPage } from "@services/graphql/page";
 import { CustomNavigation } from "@customtypes/common";
 import { createRestClient } from "prismicio";
+import { PageDocument } from "@customtypes/rest";
 
 interface IProps {
     navigation: CustomNavigation;
     settings: Settings;
-    home: Page;
-    apiRest: any;
+    home: PageDocument;
 }
-const Home: NextPage<IProps> = ({
-    navigation,
-    settings,
-    home,
-    apiRest,
-}: IProps) => {
+const Home: NextPage<IProps> = ({ navigation, settings, home }: IProps) => {
     const router = useRouter();
-    console.log("rest", apiRest);
+
     console.log("home", home);
 
     return (
@@ -47,20 +42,16 @@ export const getStaticProps: GetStaticProps<IProps> = async ({
 
     const settings: Settings = await fetchSettings(locale);
     const navigation: CustomNavigation = await fetchNavigation(locale);
-    const apiRest: Omit<Page, "_meta"> = (
-        await client.getByUID("page", "home", {
-            lang: locale,
-        })
-    ).data;
+    const home = await client.getByUID<PageDocument>("page", "home", {
+        lang: locale,
+    });
 
-    const home: Page = await fetchPage("home", locale);
     return {
         props: {
             ...(await serverSideTranslations(locale, ["common"])),
             navigation,
             settings,
             home,
-            apiRest,
         },
     };
 };
