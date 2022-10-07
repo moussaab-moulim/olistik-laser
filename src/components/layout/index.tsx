@@ -11,7 +11,7 @@ interface IProps {
 }
 
 export const Layout = ({ navigation, settings, children }: IProps) => {
-    console.log("fdhfjd", navigation);
+    // console.log("fdhfjd", navigation);
     return (
         <div className="">
             <NextSeo
@@ -134,10 +134,10 @@ export const Layout = ({ navigation, settings, children }: IProps) => {
                 ]}
             />
             <Header
-            /*   navigation={navigation}
+                navigation={navigation}
                 logo={settings.logo}
                 site_name={settings.site_name}
-                social_media={settings.social_media ?? []} */
+                social_media={settings.social_media ?? []}
             />
             <main>{children}</main>
             <Footer />

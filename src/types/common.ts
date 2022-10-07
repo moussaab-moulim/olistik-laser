@@ -1,7 +1,9 @@
 import {
     Maybe,
+    Meta,
     Navigation,
     NavigationLinks,
+    Page,
     _Document,
     _ExternalLink,
     _Linkable,
@@ -34,3 +36,4 @@ export interface CustomNavigationLink extends Omit<NavigationLinks, "link"> {
 export interface CustomNavigation extends Omit<Navigation, "links"> {
     links?: Maybe<CustomNavigationLink[]>;
 }
+export type CustomPage = Omit<Page, "_meta">;

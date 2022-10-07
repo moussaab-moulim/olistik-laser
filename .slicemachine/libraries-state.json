@@ -240,7 +240,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/Cta/default/preview.png",
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Cta\\default\\preview.png",
             "width": 3024,
             "height": 638
           }
@@ -461,7 +461,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/Hero/default/preview.png",
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Hero\\default\\preview.png",
             "width": 2946,
             "height": 1666
           }
@@ -710,7 +710,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/TextWithImage/default/preview.png",
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\TextWithImage\\default\\preview.png",
             "width": 3024,
             "height": 1448
           }

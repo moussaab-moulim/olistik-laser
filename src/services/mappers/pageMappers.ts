@@ -1,4 +1,4 @@
-import { PageSeo } from "src/types/common";
+import { CustomPage, PageSeo } from "src/types/common";
 import { linkResolver } from "prismicio";
 import { Settings } from "@customtypes/graphql";
 import { PageDocument } from "@customtypes/rest";

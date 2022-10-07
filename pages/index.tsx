@@ -1,16 +1,17 @@
 import React from "react";
 import { Spacer, Flex } from "@chakra-ui/react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { SliceZone } from "@prismicio/react";
+import { components } from "../slices/";
 
-import { Header, Main, Cards, Footer } from "@components";
 import { useRouter } from "next/router";
 import { GetStaticProps, NextPage } from "next";
 import { Layout } from "@components/layout";
 import { mapPageSeo } from "@services/mappers/pageMappers";
 import { fetchNavigation, fetchSettings } from "@services/graphql/common";
-import { Page, Settings } from "@customtypes/graphql";
+import { Settings } from "@customtypes/graphql";
 import { fetchPage } from "@services/graphql/page";
-import { CustomNavigation } from "@customtypes/common";
+import { CustomNavigation, CustomPage } from "@customtypes/common";
 import { createRestClient } from "prismicio";
 import { PageDocument } from "@customtypes/rest";
 
@@ -26,7 +27,7 @@ const Home: NextPage<IProps> = ({ navigation, settings, home }: IProps) => {
 
     return (
         <Layout navigation={navigation} settings={mapPageSeo(home, settings)}>
-            hello
+            <SliceZone slices={home.data.slices} components={components} />
         </Layout>
     );
 };
