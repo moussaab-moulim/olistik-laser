@@ -73,6 +73,7 @@ type Page implements _Document & _Linkable {
   keywords: String
   meta_description: String
   meta_title: String
+  slices: [PageSlices!]
 }
 
 """A connection to a list of items."""
@@ -108,6 +109,141 @@ type PageInfo {
   """When paginating backwards, the cursor to continue."""
   startCursor: String
 }
+
+union PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesText_with_image
+
+type PageSlicesCards {
+  label: String
+  type: String
+  variation: PageSlicesCardsVariation
+}
+
+type PageSlicesCardsDefault {
+  items: [PageSlicesCardsDefaultItems!]
+  primary: PageSlicesCardsDefaultPrimary
+}
+
+type PageSlicesCardsDefaultItems {
+  button_label: String
+  button_url: _Linkable
+  description: Json
+  title: Json
+}
+
+type PageSlicesCardsDefaultPrimary {
+  description: Json
+  title: Json
+}
+
+union PageSlicesCardsVariation = PageSlicesCardsDefault
+
+type PageSlicesCta {
+  label: String
+  type: String
+  variation: PageSlicesCtaVariation
+}
+
+type PageSlicesCtaDefault {
+  items: [PageSlicesCtaDefaultItems!]
+  primary: PageSlicesCtaDefaultPrimary
+}
+
+type PageSlicesCtaDefaultItems {
+  button_label: String
+  button_url: _Linkable
+}
+
+type PageSlicesCtaDefaultPrimary {
+  background_color: String
+  slice_id: String
+  sub_text: String
+  text: Json
+  title: Json
+}
+
+union PageSlicesCtaVariation = PageSlicesCtaDefault
+
+type PageSlicesHero {
+  label: String
+  type: String
+  variation: PageSlicesHeroVariation
+}
+
+type PageSlicesHeroDefault {
+  items: [PageSlicesHeroDefaultItems!]
+  primary: PageSlicesHeroDefaultPrimary
+}
+
+type PageSlicesHeroDefaultItems {
+  button_label: String
+  button_url: _Linkable
+}
+
+type PageSlicesHeroDefaultPrimary {
+  background_color: String
+  background_image: Json
+  slice_id: String
+  text: Json
+  title: Json
+}
+
+type PageSlicesHeroNoactionhero {
+  primary: PageSlicesHeroNoactionheroPrimary
+}
+
+type PageSlicesHeroNoactionheroPrimary {
+  background_color: String
+  background_image: Json
+  slice_id: String
+  text: Json
+  title: Json
+}
+
+union PageSlicesHeroVariation = PageSlicesHeroDefault | PageSlicesHeroNoactionhero
+
+type PageSlicesText_with_image {
+  label: String
+  type: String
+  variation: PageSlicesText_with_imageVariation
+}
+
+type PageSlicesText_with_imageDefault {
+  items: [PageSlicesText_with_imageDefaultItems!]
+  primary: PageSlicesText_with_imageDefaultPrimary
+}
+
+type PageSlicesText_with_imageDefaultItems {
+  button_label: String
+  button_url: _Linkable
+}
+
+type PageSlicesText_with_imageDefaultPrimary {
+  background_color: String
+  image: Json
+  slice_id: String
+  text: Json
+  title: Json
+}
+
+type PageSlicesText_with_imageRighttext {
+  items: [PageSlicesText_with_imageRighttextItems!]
+  primary: PageSlicesText_with_imageRighttextPrimary
+}
+
+type PageSlicesText_with_imageRighttextItems {
+  button_label: String
+  button_url: _Linkable
+}
+
+type PageSlicesText_with_imageRighttextPrimary {
+  background_color: String
+  image: Json
+  slice_id: String
+  text: Json
+  title: Json
+}
+
+union PageSlicesText_with_imageVariation = PageSlicesText_with_imageDefault | PageSlicesText_with_imageRighttext
 
 type Post implements _Document & _Linkable {
   _linkType: String

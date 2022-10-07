@@ -85,6 +85,7 @@ export type Page = _Document &
         keywords?: Maybe<Scalars["String"]>;
         meta_description?: Maybe<Scalars["String"]>;
         meta_title?: Maybe<Scalars["String"]>;
+        slices?: Maybe<Array<PageSlices>>;
     };
 
 /** A connection to a list of items. */
@@ -118,6 +119,170 @@ export type PageInfo = {
     /** When paginating backwards, the cursor to continue. */
     startCursor?: Maybe<Scalars["String"]>;
 };
+
+export type PageSlices =
+    | PageSlicesCards
+    | PageSlicesCta
+    | PageSlicesHero
+    | PageSlicesText_With_Image;
+
+export type PageSlicesCards = {
+    __typename?: "PageSlicesCards";
+    label?: Maybe<Scalars["String"]>;
+    type?: Maybe<Scalars["String"]>;
+    variation?: Maybe<PageSlicesCardsVariation>;
+};
+
+export type PageSlicesCardsDefault = {
+    __typename?: "PageSlicesCardsDefault";
+    items?: Maybe<Array<PageSlicesCardsDefaultItems>>;
+    primary?: Maybe<PageSlicesCardsDefaultPrimary>;
+};
+
+export type PageSlicesCardsDefaultItems = {
+    __typename?: "PageSlicesCardsDefaultItems";
+    button_label?: Maybe<Scalars["String"]>;
+    button_url?: Maybe<_Linkable>;
+    description?: Maybe<Scalars["Json"]>;
+    title?: Maybe<Scalars["Json"]>;
+};
+
+export type PageSlicesCardsDefaultPrimary = {
+    __typename?: "PageSlicesCardsDefaultPrimary";
+    description?: Maybe<Scalars["Json"]>;
+    title?: Maybe<Scalars["Json"]>;
+};
+
+export type PageSlicesCardsVariation = PageSlicesCardsDefault;
+
+export type PageSlicesCta = {
+    __typename?: "PageSlicesCta";
+    label?: Maybe<Scalars["String"]>;
+    type?: Maybe<Scalars["String"]>;
+    variation?: Maybe<PageSlicesCtaVariation>;
+};
+
+export type PageSlicesCtaDefault = {
+    __typename?: "PageSlicesCtaDefault";
+    items?: Maybe<Array<PageSlicesCtaDefaultItems>>;
+    primary?: Maybe<PageSlicesCtaDefaultPrimary>;
+};
+
+export type PageSlicesCtaDefaultItems = {
+    __typename?: "PageSlicesCtaDefaultItems";
+    button_label?: Maybe<Scalars["String"]>;
+    button_url?: Maybe<_Linkable>;
+};
+
+export type PageSlicesCtaDefaultPrimary = {
+    __typename?: "PageSlicesCtaDefaultPrimary";
+    background_color?: Maybe<Scalars["String"]>;
+    slice_id?: Maybe<Scalars["String"]>;
+    sub_text?: Maybe<Scalars["String"]>;
+    text?: Maybe<Scalars["Json"]>;
+    title?: Maybe<Scalars["Json"]>;
+};
+
+export type PageSlicesCtaVariation = PageSlicesCtaDefault;
+
+export type PageSlicesHero = {
+    __typename?: "PageSlicesHero";
+    label?: Maybe<Scalars["String"]>;
+    type?: Maybe<Scalars["String"]>;
+    variation?: Maybe<PageSlicesHeroVariation>;
+};
+
+export type PageSlicesHeroDefault = {
+    __typename?: "PageSlicesHeroDefault";
+    items?: Maybe<Array<PageSlicesHeroDefaultItems>>;
+    primary?: Maybe<PageSlicesHeroDefaultPrimary>;
+};
+
+export type PageSlicesHeroDefaultItems = {
+    __typename?: "PageSlicesHeroDefaultItems";
+    button_label?: Maybe<Scalars["String"]>;
+    button_url?: Maybe<_Linkable>;
+};
+
+export type PageSlicesHeroDefaultPrimary = {
+    __typename?: "PageSlicesHeroDefaultPrimary";
+    background_color?: Maybe<Scalars["String"]>;
+    background_image?: Maybe<Scalars["Json"]>;
+    slice_id?: Maybe<Scalars["String"]>;
+    text?: Maybe<Scalars["Json"]>;
+    title?: Maybe<Scalars["Json"]>;
+};
+
+export type PageSlicesHeroNoactionhero = {
+    __typename?: "PageSlicesHeroNoactionhero";
+    primary?: Maybe<PageSlicesHeroNoactionheroPrimary>;
+};
+
+export type PageSlicesHeroNoactionheroPrimary = {
+    __typename?: "PageSlicesHeroNoactionheroPrimary";
+    background_color?: Maybe<Scalars["String"]>;
+    background_image?: Maybe<Scalars["Json"]>;
+    slice_id?: Maybe<Scalars["String"]>;
+    text?: Maybe<Scalars["Json"]>;
+    title?: Maybe<Scalars["Json"]>;
+};
+
+export type PageSlicesHeroVariation =
+    | PageSlicesHeroDefault
+    | PageSlicesHeroNoactionhero;
+
+export type PageSlicesText_With_Image = {
+    __typename?: "PageSlicesText_with_image";
+    label?: Maybe<Scalars["String"]>;
+    type?: Maybe<Scalars["String"]>;
+    variation?: Maybe<PageSlicesText_With_ImageVariation>;
+};
+
+export type PageSlicesText_With_ImageDefault = {
+    __typename?: "PageSlicesText_with_imageDefault";
+    items?: Maybe<Array<PageSlicesText_With_ImageDefaultItems>>;
+    primary?: Maybe<PageSlicesText_With_ImageDefaultPrimary>;
+};
+
+export type PageSlicesText_With_ImageDefaultItems = {
+    __typename?: "PageSlicesText_with_imageDefaultItems";
+    button_label?: Maybe<Scalars["String"]>;
+    button_url?: Maybe<_Linkable>;
+};
+
+export type PageSlicesText_With_ImageDefaultPrimary = {
+    __typename?: "PageSlicesText_with_imageDefaultPrimary";
+    background_color?: Maybe<Scalars["String"]>;
+    image?: Maybe<Scalars["Json"]>;
+    slice_id?: Maybe<Scalars["String"]>;
+    text?: Maybe<Scalars["Json"]>;
+    title?: Maybe<Scalars["Json"]>;
+};
+
+export type PageSlicesText_With_ImageRighttext = {
+    __typename?: "PageSlicesText_with_imageRighttext";
+    items?: Maybe<Array<PageSlicesText_With_ImageRighttextItems>>;
+    primary?: Maybe<PageSlicesText_With_ImageRighttextPrimary>;
+};
+
+export type PageSlicesText_With_ImageRighttextItems = {
+    __typename?: "PageSlicesText_with_imageRighttextItems";
+    button_label?: Maybe<Scalars["String"]>;
+    button_url?: Maybe<_Linkable>;
+};
+
+export type PageSlicesText_With_ImageRighttextPrimary = {
+    __typename?: "PageSlicesText_with_imageRighttextPrimary";
+    background_color?: Maybe<Scalars["String"]>;
+    image?: Maybe<Scalars["Json"]>;
+    slice_id?: Maybe<Scalars["String"]>;
+    text?: Maybe<Scalars["Json"]>;
+    title?: Maybe<Scalars["Json"]>;
+};
+
+export type PageSlicesText_With_ImageVariation =
+    | PageSlicesText_With_ImageDefault
+    | PageSlicesText_With_ImageRighttext;
 
 export type Post = _Document &
     _Linkable & {
