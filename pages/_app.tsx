@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import { AppProps } from "next/app";
 import { ChakraProvider, Link } from "@chakra-ui/react";
 import theme from "@definitions/chakra/theme";
@@ -27,7 +27,6 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     </NextLink>
                 )}
             >
-                <Component {...pageProps} />
                 <PrismicPreview repositoryName={repositoryName}>
                     <Component {...pageProps} />
                 </PrismicPreview>
