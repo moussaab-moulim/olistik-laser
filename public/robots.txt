@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://laser.olistik.ch
+
+# Sitemaps
+Sitemap: https://laser.olistik.ch/sitemap.xml
