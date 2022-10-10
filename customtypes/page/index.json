@@ -54,6 +54,9 @@
             },
             "text_with_image": {
               "type": "SharedSlice"
+            },
+            "faq": {
+              "type": "SharedSlice"
             }
           }
         }

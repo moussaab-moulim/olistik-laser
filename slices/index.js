@@ -2,14 +2,16 @@
 
 import Cards from "./Cards";
 import Cta from "./Cta";
+import Faq from "./Faq";
 import Hero from "./Hero";
 import TextWithImage from "./TextWithImage";
 
-export { Cards, Cta, Hero, TextWithImage };
+export { Cards, Cta, Faq, Hero, TextWithImage };
 
 export const components = {
     cards: Cards,
     cta: Cta,
+    faq: Faq,
     hero: Hero,
     text_with_image: TextWithImage,
 };

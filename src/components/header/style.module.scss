@@ -1,0 +1,115 @@
+.navWrapper {
+    background-color: rgba(0, 0, 0, 0.5);
+
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+
+    .navMain {
+        font-family: "Playfair Display", serif;
+        padding: 0 20px;
+        height: 72px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo {
+            flex-basis: 50%;
+        }
+        .SideNav {
+            display: none;
+        }
+
+        .navBurger {
+            flex-basis: 50%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+
+    .navBottom {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        bottom: 0;
+        ul {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            align-items: center;
+
+            li {
+                padding: 15px 0;
+                flex-basis: 50%;
+                background-color: #f8e0de;
+                border-right: 1px solid white;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .navCollapse {
+        width: 100%;
+        background-color: black;
+        position: fixed;
+        top: 72px;
+        left: 0;
+        bottom: 0;
+        padding: 120px 0 180px 0;
+        display: flex;
+        justify-content: space-around;
+        ul {
+            font-size: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            justify-items: center;
+            align-items: center;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .navWrapper {
+        .navMain {
+            .logo {
+                flex-basis: auto;
+            }
+            .SideNav {
+                flex-basis: auto;
+                display: flex;
+                height: 100%;
+                ul {
+                    display: flex;
+                    height: 100%;
+                    .navItem {
+                        font-size: 20px;
+                        padding: 20px 25px;
+                        transition: all 0.2s ease;
+                        &:hover {
+                            background-color: rgba(0, 0, 0, 0.8);
+                        }
+                    }
+
+                    .navAction {
+                        padding: 25px 10px;
+                        font-family: "Open Sans", sans-serif;
+                        // a[href^="tel:"]
+                        // .navAction:nth-child(1) {
+                        //     background-color: red;
+                        // }
+                    }
+                }
+            }
+            .navBurger {
+                display: none;
+            }
+        }
+
+        .navBottom {
+            display: none;
+        }
+    }
+}

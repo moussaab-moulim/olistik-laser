@@ -38,7 +38,13 @@ type Meta {
 type Navigation implements _Document & _Linkable {
   _linkType: String
   _meta: Meta!
+  action_group: [NavigationAction_group!]
   links: [NavigationLinks!]
+}
+
+type NavigationAction_group {
+  button_label: String
+  button_url: _Linkable
 }
 
 """A connection to a list of items."""
@@ -61,7 +67,7 @@ type NavigationConnectionEdge {
 }
 
 type NavigationLinks {
-  label: Json
+  label: String
   link: _Linkable
   parent: String
 }
@@ -110,32 +116,7 @@ type PageInfo {
   startCursor: String
 }
 
-union PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesText_with_image
-
-type PageSlicesCards {
-  label: String
-  type: String
-  variation: PageSlicesCardsVariation
-}
-
-type PageSlicesCardsDefault {
-  items: [PageSlicesCardsDefaultItems!]
-  primary: PageSlicesCardsDefaultPrimary
-}
-
-type PageSlicesCardsDefaultItems {
-  button_label: String
-  button_url: _Linkable
-  description: Json
-  title: Json
-}
-
-type PageSlicesCardsDefaultPrimary {
-  description: Json
-  title: Json
-}
-
-union PageSlicesCardsVariation = PageSlicesCardsDefault
+union PageSlices = PageSlicesCta | PageSlicesFaq | PageSlicesHero | PageSlicesText_with_image
 
 type PageSlicesCta {
   label: String
@@ -162,6 +143,32 @@ type PageSlicesCtaDefaultPrimary {
 }
 
 union PageSlicesCtaVariation = PageSlicesCtaDefault
+
+type PageSlicesFaq {
+  label: String
+  type: String
+  variation: PageSlicesFaqVariation
+}
+
+type PageSlicesFaqDefault {
+  items: [PageSlicesFaqDefaultItems!]
+  primary: PageSlicesFaqDefaultPrimary
+}
+
+type PageSlicesFaqDefaultItems {
+  button_label: String
+  button_link: _Linkable
+  list_text: Json
+  list_title: Json
+}
+
+type PageSlicesFaqDefaultPrimary {
+  slice_id: String
+  text: Json
+  title: Json
+}
+
+union PageSlicesFaqVariation = PageSlicesFaqDefault
 
 type PageSlicesHero {
   label: String
@@ -377,11 +384,20 @@ enum SortSettingsy {
 }
 
 input WhereNavigation {
+  action_group: WhereNavigationAction_group
   links: WhereNavigationLinks
 }
 
+input WhereNavigationAction_group {
+  button_label: String
+  button_label_fulltext: String
+
+  """button_url"""
+  button_url: String
+}
+
 input WhereNavigationLinks {
-  """label"""
+  label: String
   label_fulltext: String
 
   """link"""

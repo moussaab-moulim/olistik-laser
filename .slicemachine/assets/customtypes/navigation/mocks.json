@@ -13,18 +13,21 @@
   "data": {
     "links": [
       {
-        "label": [
-          {
-            "type": "heading3",
-            "text": "Bound",
-            "spans": []
-          }
-        ],
+        "label": "earth",
         "link": {
           "link_type": "Web",
-          "url": "https://prismic.io"
+          "url": "http://google.com"
         },
-        "parent": "mission"
+        "parent": "future"
+      }
+    ],
+    "action_group": [
+      {
+        "button_label": "bank",
+        "button_url": {
+          "link_type": "Web",
+          "url": "https://prismic.io"
+        }
       }
     ],
     "slices": []

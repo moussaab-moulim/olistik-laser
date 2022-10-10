@@ -13,20 +13,25 @@ import { Settings } from "@customtypes/graphql";
 import { fetchPage } from "@services/graphql/page";
 import { CustomNavigation, CustomPage } from "@customtypes/common";
 import { createRestClient } from "prismicio";
-import { PageDocument } from "@customtypes/rest";
+import {
+    NavigationDocument,
+    PageDocument,
+    SettingsDocument,
+} from "@customtypes/rest";
 
 interface IProps {
-    navigation: CustomNavigation;
-    settings: Settings;
+    navigation: NavigationDocument;
+    settings: SettingsDocument;
     home: PageDocument;
 }
 const Home: NextPage<IProps> = ({ navigation, settings, home }: IProps) => {
     const router = useRouter();
 
-    console.log("home", home);
-
     return (
-        <Layout navigation={navigation} settings={mapPageSeo(home, settings)}>
+        <Layout
+            navigation={navigation.data}
+            settings={mapPageSeo(home, settings)}
+        >
             <SliceZone slices={home.data.slices} components={components} />
         </Layout>
     );
@@ -41,8 +46,15 @@ export const getStaticProps: GetStaticProps<IProps> = async ({
 
     const locale = serverLocale ?? "fr";
 
-    const settings: Settings = await fetchSettings(locale);
-    const navigation: CustomNavigation = await fetchNavigation(locale);
+    const settings = await client.getSingle<SettingsDocument>("settings", {
+        lang: locale,
+    });
+    const navigation = await client.getSingle<NavigationDocument>(
+        "navigation",
+        {
+            lang: locale,
+        },
+    );
     const home = await client.getByUID<PageDocument>("page", "home", {
         lang: locale,
     });

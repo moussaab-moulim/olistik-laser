@@ -236,13 +236,156 @@
         },
         "meta": {
           "fileName": "index",
-          "extension": "js"
+          "extension": "tsx"
         },
         "screenshotPaths": {
           "default": {
             "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Cta\\default\\preview.png",
             "width": 3024,
             "height": 638
+          }
+        }
+      },
+      "faq": {
+        "library": "slices",
+        "id": "faq",
+        "name": "Faq",
+        "description": "Faq",
+        "model": {
+          "id": "faq",
+          "type": "SharedSlice",
+          "name": "Faq",
+          "description": "Faq",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Faq",
+              "primary": {
+                "slice_id": {
+                  "type": "Text",
+                  "config": {
+                    "label": "slice id",
+                    "placeholder": ""
+                  }
+                },
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Text",
+                    "placeholder": "A nice description of your feature",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                }
+              },
+              "items": {
+                "list_title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "list title",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "list_text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "list text",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                },
+                "button_label": {
+                  "type": "Text",
+                  "config": {
+                    "label": "button label",
+                    "placeholder": ""
+                  }
+                },
+                "button_link": {
+                  "type": "Link",
+                  "config": {
+                    "label": "button link",
+                    "placeholder": "",
+                    "allowTargetBlank": false,
+                    "select": null
+                  }
+                }
+              },
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {
+                "list_title": [
+                  {
+                    "type": "paragraph",
+                    "text": "Proident cupidatat excepteur occaecat irure. Laboris nulla fugiat aliqua est tempor magna ad est dolor id sint ipsum sit.",
+                    "spans": []
+                  }
+                ],
+                "list_text": [
+                  {
+                    "type": "paragraph",
+                    "text": "Est amet veniam adipisicing. Deserunt do est nostrud commodo. Id deserunt irure occaecat in esse amet dolor laboris elit aute culpa minim.",
+                    "spans": []
+                  }
+                ],
+                "button_label": "plane",
+                "button_link": {
+                  "link_type": "Web",
+                  "url": "http://twitter.com"
+                }
+              }
+            ],
+            "primary": {
+              "slice_id": "behavior",
+              "title": [
+                {
+                  "type": "paragraph",
+                  "text": "Nisi ipsum excepteur ipsum ullamco est magna eiusmod. Culpa labore incididunt fugiat quis incididunt commodo.",
+                  "spans": []
+                }
+              ],
+              "text": [
+                {
+                  "type": "paragraph",
+                  "text": "Elit aliqua labore sunt incididunt officia in nulla ipsum amet laboris id adipisicing quis voluptate.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "faq"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Faq\\default\\preview.png",
+            "width": 1331,
+            "height": 688
           }
         }
       },
@@ -457,7 +600,7 @@
         },
         "meta": {
           "fileName": "index",
-          "extension": "js"
+          "extension": "tsx"
         },
         "screenshotPaths": {
           "default": {
@@ -515,8 +658,8 @@
                   "config": {
                     "label": "Image",
                     "constraint": {
-                      "width": 1000,
-                      "height": 1200
+                      "width": null,
+                      "height": null
                     },
                     "thumbnails": []
                   }
@@ -585,8 +728,8 @@
                   "config": {
                     "label": "Image",
                     "constraint": {
-                      "width": 1000,
-                      "height": 1198
+                      "width": null,
+                      "height": null
                     },
                     "thumbnails": []
                   }
@@ -626,39 +769,39 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
-                "button_label": "receive",
+                "button_label": "changing",
                 "button_url": {
                   "link_type": "Web",
-                  "url": "https://slicemachine.dev"
+                  "url": "https://prismic.io"
                 }
               }
             ],
             "primary": {
-              "slice_id": "those",
+              "slice_id": "love",
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Product",
+                  "text": "Bright",
                   "spans": []
                 }
               ],
               "text": [
                 {
                   "type": "paragraph",
-                  "text": "Excepteur deserunt anim deserunt dolor sit consequat irure sunt cupidatat aliquip dolor voluptate dolore. Id laborum nostrud consequat esse aute laborum nisi.",
+                  "text": "Incididunt Lorem cillum est qui cillum tempor excepteur.",
                   "spans": []
                 }
               ],
               "image": {
                 "dimensions": {
-                  "width": 1000,
-                  "height": 1200
+                  "width": 900,
+                  "height": 500
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68"
+                "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8"
               },
-              "background_color": "#e701a3"
+              "background_color": "#d68d65"
             },
             "slice_type": "text_with_image"
           },
@@ -667,39 +810,39 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
-                "button_label": "circle",
+                "button_label": "product",
                 "button_url": {
                   "link_type": "Web",
-                  "url": "https://prismic.io"
+                  "url": "http://google.com"
                 }
               }
             ],
             "primary": {
-              "slice_id": "largest",
+              "slice_id": "done",
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Morning",
+                  "text": "Beautiful",
                   "spans": []
                 }
               ],
               "text": [
                 {
                   "type": "paragraph",
-                  "text": "Ex est sunt non cupidatat anim laboris mollit nisi nulla nisi voluptate. Veniam culpa cupidatat elit fugiat ad minim aute irure veniam deserunt fugiat labore reprehenderit.",
+                  "text": "Ipsum Lorem quis pariatur cillum ex quis proident in mollit consectetur ex laboris dolor cillum.",
                   "spans": []
                 }
               ],
               "image": {
                 "dimensions": {
-                  "width": 1000,
-                  "height": 1198
+                  "width": 900,
+                  "height": 500
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b"
+                "url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa"
               },
-              "background_color": "#d05251"
+              "background_color": "#56a3f1"
             },
             "slice_type": "text_with_image"
           }
