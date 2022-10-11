@@ -43,35 +43,29 @@ export const Header: React.FC<HeaderProps> = ({
                 {isLargerThan1024 && (
                     <nav className={`${Style.SideNav}`}>
                         <ul>
-                            {navigation?.data.links.map(
-                                (navItem: any, i: any) => (
-                                    <li className={`${Style.navItem}`} key={i}>
-                                        <PrismicLink field={navItem.link}>
-                                            {navItem.label}
-                                        </PrismicLink>
-                                    </li>
-                                ),
-                            )}
+                            {navigation?.data.links.map((navItem, i) => (
+                                <li className={`${Style.navItem}`} key={i}>
+                                    <PrismicLink field={navItem.link}>
+                                        {navItem.label}
+                                    </PrismicLink>
+                                </li>
+                            ))}
                         </ul>
                         {/* < -- DESKTOP ACTION BUTTONS -- > */}
                         <div className={`${Style.navAction}`}>
-                            {navigation?.data.action_group.map(
-                                (navItem: any, i: any) =>
-                                    navItem.button_shape ? (
-                                        <MyButton
-                                            key={i}
-                                            link={navItem.button_url}
-                                        >
-                                            {navItem.button_label}
-                                        </MyButton>
-                                    ) : (
-                                        <PrismicLink
-                                            field={navItem.button_url}
-                                            key={i}
-                                        >
-                                            {navItem.button_label}
-                                        </PrismicLink>
-                                    ),
+                            {navigation?.data.action_group.map((navItem, i) =>
+                                navItem.button_shape ? (
+                                    <MyButton key={i} link={navItem.button_url}>
+                                        {navItem.button_label}
+                                    </MyButton>
+                                ) : (
+                                    <PrismicLink
+                                        field={navItem.button_url}
+                                        key={i}
+                                    >
+                                        {navItem.button_label}
+                                    </PrismicLink>
+                                ),
                             )}
                         </div>
                     </nav>
@@ -116,17 +110,15 @@ export const Header: React.FC<HeaderProps> = ({
                     </Fade>
                     {/* < -- MOBILE BOTTOM NAV BAR -- > */}
                     <div className={`${Style.navBottom}`}>
-                        {navigation?.data.action_group.map(
-                            (navItem: any, i: any) => (
-                                <PrismicLink
-                                    href={navItem.button_url.url}
-                                    key={i}
-                                    className={`${Style.navAction}`}
-                                >
-                                    {navItem.button_label}
-                                </PrismicLink>
-                            ),
-                        )}
+                        {navigation?.data.action_group.map((navItem, i) => (
+                            <PrismicLink
+                                field={navItem.button_url}
+                                key={i}
+                                className={`${Style.navAction}`}
+                            >
+                                {navItem.button_label}
+                            </PrismicLink>
+                        ))}
                     </div>
                 </Fragment>
             )}
