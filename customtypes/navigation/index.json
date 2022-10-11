@@ -54,6 +54,15 @@
                 "placeholder": "",
                 "select": null
               }
+            },
+            "button_shape": {
+              "type": "Boolean",
+              "config": {
+                "label": "button shape",
+                "placeholder_false": "Transparent",
+                "placeholder_true": "Pink",
+                "default_value": true
+              }
             }
           }
         }

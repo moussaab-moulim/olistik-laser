@@ -1,12 +1,25 @@
-import React from "react";
-import { Button as BaseButton, ButtonProps } from "@chakra-ui/react";
+import React, { Fragment, ReactNode } from "react";
+import { Box, Button, ButtonProps } from "@chakra-ui/react";
+import Style from "./style.module.scss";
+import { PrismicLink } from "@prismicio/react";
 
 export type IButton = ButtonProps;
 
-export const Button: React.FC<IButton> = ({ ...rest }) => {
+interface myButtonProps {
+    // variant: String;
+    // coloring: String;
+    link: any;
+    children: ReactNode;
+}
+export const MyButton = ({
+    // variant,
+    // coloring,
+    link,
+    children,
+}: myButtonProps) => {
     return (
-        <div>
-            <BaseButton {...rest} />
-        </div>
+        <PrismicLink field={link} className={`${Style.ButtonPink}`}>
+            {children}
+        </PrismicLink>
     );
 };

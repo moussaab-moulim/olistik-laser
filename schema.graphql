@@ -44,6 +44,7 @@ type Navigation implements _Document & _Linkable {
 
 type NavigationAction_group {
   button_label: String
+  button_shape: Boolean
   button_url: _Linkable
 }
 
@@ -391,6 +392,7 @@ input WhereNavigation {
 input WhereNavigationAction_group {
   button_label: String
   button_label_fulltext: String
+  button_shape: Boolean
 
   """button_url"""
   button_url: String

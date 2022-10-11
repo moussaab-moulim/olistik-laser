@@ -9,7 +9,6 @@ import { PrismicProvider } from "@prismicio/react";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "../prismicio";
 import { Heading1 } from "../src/components/Heading";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 // const richTextComponents = {
 //     heading1: ({ children }: any) => <Heading1>{children}</Heading1>,
@@ -30,17 +29,21 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <ChakraProvider theme={theme}>
             <PrismicProvider
                 // richTextComponents={richTextComponents}
-                internalLinkComponent={({ href, ...props }) => (
+                internalLinkComponent={({ href, children, ...props }) => (
                     <NextLink href={href} passHref>
-                        <Link {...props}>{props.children}</Link>
+                        <a {...props}>{children}</a>
                     </NextLink>
                 )}
-                externalLinkComponent={({ href, target, ...props }) => (
-                    <NextLink href={href} passHref target={target}>
-                        <Link>
-                            {props.children}
-                            <ExternalLinkIcon mx="2px" />
-                        </Link>
+                externalLinkComponent={({
+                    href,
+                    target,
+                    children,
+                    ...props
+                }) => (
+                    <NextLink href={href} passHref>
+                        <a target={target} {...props}>
+                            {children}
+                        </a>
                     </NextLink>
                 )}
             >

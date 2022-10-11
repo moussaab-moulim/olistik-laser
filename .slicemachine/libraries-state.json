@@ -127,7 +127,13 @@
           "fileName": "index",
           "extension": "js"
         },
-        "screenshotPaths": {}
+        "screenshotPaths": {
+          "default": {
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Cards\\default\\preview.png",
+            "width": 1331,
+            "height": 688
+          }
+        }
       },
       "cta": {
         "library": "slices",
@@ -246,149 +252,6 @@
           }
         }
       },
-      "faq": {
-        "library": "slices",
-        "id": "faq",
-        "name": "Faq",
-        "description": "Faq",
-        "model": {
-          "id": "faq",
-          "type": "SharedSlice",
-          "name": "Faq",
-          "description": "Faq",
-          "variations": [
-            {
-              "id": "default",
-              "name": "Default",
-              "docURL": "...",
-              "version": "sktwi1xtmkfgx8626",
-              "description": "Faq",
-              "primary": {
-                "slice_id": {
-                  "type": "Text",
-                  "config": {
-                    "label": "slice id",
-                    "placeholder": ""
-                  }
-                },
-                "title": {
-                  "type": "StructuredText",
-                  "config": {
-                    "label": "Title",
-                    "placeholder": "This is where it all begins...",
-                    "allowTargetBlank": true,
-                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-                  }
-                },
-                "text": {
-                  "type": "StructuredText",
-                  "config": {
-                    "label": "Text",
-                    "placeholder": "A nice description of your feature",
-                    "allowTargetBlank": true,
-                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-                  }
-                }
-              },
-              "items": {
-                "list_title": {
-                  "type": "StructuredText",
-                  "config": {
-                    "label": "list title",
-                    "placeholder": "",
-                    "allowTargetBlank": true,
-                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-                  }
-                },
-                "list_text": {
-                  "type": "StructuredText",
-                  "config": {
-                    "label": "list text",
-                    "placeholder": "",
-                    "allowTargetBlank": true,
-                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-                  }
-                },
-                "button_label": {
-                  "type": "Text",
-                  "config": {
-                    "label": "button label",
-                    "placeholder": ""
-                  }
-                },
-                "button_link": {
-                  "type": "Link",
-                  "config": {
-                    "label": "button link",
-                    "placeholder": "",
-                    "allowTargetBlank": false,
-                    "select": null
-                  }
-                }
-              },
-              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
-            }
-          ]
-        },
-        "mocks": {
-          "default": {
-            "variation": "default",
-            "version": "sktwi1xtmkfgx8626",
-            "items": [
-              {
-                "list_title": [
-                  {
-                    "type": "paragraph",
-                    "text": "Proident cupidatat excepteur occaecat irure. Laboris nulla fugiat aliqua est tempor magna ad est dolor id sint ipsum sit.",
-                    "spans": []
-                  }
-                ],
-                "list_text": [
-                  {
-                    "type": "paragraph",
-                    "text": "Est amet veniam adipisicing. Deserunt do est nostrud commodo. Id deserunt irure occaecat in esse amet dolor laboris elit aute culpa minim.",
-                    "spans": []
-                  }
-                ],
-                "button_label": "plane",
-                "button_link": {
-                  "link_type": "Web",
-                  "url": "http://twitter.com"
-                }
-              }
-            ],
-            "primary": {
-              "slice_id": "behavior",
-              "title": [
-                {
-                  "type": "paragraph",
-                  "text": "Nisi ipsum excepteur ipsum ullamco est magna eiusmod. Culpa labore incididunt fugiat quis incididunt commodo.",
-                  "spans": []
-                }
-              ],
-              "text": [
-                {
-                  "type": "paragraph",
-                  "text": "Elit aliqua labore sunt incididunt officia in nulla ipsum amet laboris id adipisicing quis voluptate.",
-                  "spans": []
-                }
-              ]
-            },
-            "slice_type": "faq"
-          }
-        },
-        "meta": {
-          "fileName": "index",
-          "extension": "js"
-        },
-        "screenshotPaths": {
-          "default": {
-            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Faq\\default\\preview.png",
-            "width": 1331,
-            "height": 688
-          }
-        }
-      },
       "hero": {
         "library": "slices",
         "id": "hero",
@@ -461,6 +324,7 @@
                   "config": {
                     "label": "button url",
                     "placeholder": "",
+                    "allowTargetBlank": true,
                     "select": null
                   }
                 }
@@ -526,26 +390,61 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
-                "button_label": "none",
+                "button_label": "curve",
                 "button_url": {
                   "link_type": "Web",
-                  "url": "http://google.com"
+                  "url": "https://slicemachine.dev"
                 }
               }
             ],
             "primary": {
-              "slice_id": "white",
+              "slice_id": "aware",
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Shirt",
+                  "text": "Tightly",
                   "spans": []
                 }
               ],
               "text": [
                 {
                   "type": "paragraph",
-                  "text": "Tempor do ut amet velit ullamco enim.",
+                  "text": "Consectetur fugiat labore cillum enim excepteur. Sint id amet nostrud fugiat adipisicing in consequat labore laborum. Consequat qui consectetur deserunt voluptate ipsum minim sit sunt pariatur dolor tempor Lorem non.",
+                  "spans": []
+                }
+              ],
+              "background_image": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea"
+              },
+              "background_color": "#85c82f"
+            },
+            "slice_type": "hero"
+          },
+          "noActionHero": {
+            "variation": "noActionHero",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "slice_id": "extra",
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Slight",
+                  "spans": []
+                }
+              ],
+              "text": [
+                {
+                  "type": "paragraph",
+                  "text": "Quis in culpa culpa excepteur anim deserunt incididunt mollit aliquip officia. Labore deserunt do est ea consectetur quis eiusmod duis velit minim excepteur nisi.",
                   "spans": []
                 }
               ],
@@ -558,42 +457,7 @@
                 "copyright": null,
                 "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2"
               },
-              "background_color": "#57f960"
-            },
-            "slice_type": "hero"
-          },
-          "noActionHero": {
-            "variation": "noActionHero",
-            "version": "sktwi1xtmkfgx8626",
-            "items": [
-              {}
-            ],
-            "primary": {
-              "slice_id": "chemical",
-              "title": [
-                {
-                  "type": "heading1",
-                  "text": "About",
-                  "spans": []
-                }
-              ],
-              "text": [
-                {
-                  "type": "paragraph",
-                  "text": "Irure exercitation amet voluptate. Consequat culpa veniam eu enim incididunt culpa nostrud.",
-                  "spans": []
-                }
-              ],
-              "background_image": {
-                "dimensions": {
-                  "width": 900,
-                  "height": 500
-                },
-                "alt": null,
-                "copyright": null,
-                "url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa"
-              },
-              "background_color": "#c49bf1"
+              "background_color": "#060f4e"
             },
             "slice_type": "hero"
           }

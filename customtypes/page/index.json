@@ -46,16 +46,16 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "cta": {
-              "type": "SharedSlice"
-            },
             "hero": {
               "type": "SharedSlice"
             },
-            "text_with_image": {
+            "cta": {
               "type": "SharedSlice"
             },
-            "faq": {
+            "cards": {
+              "type": "SharedSlice"
+            },
+            "text_with_image": {
               "type": "SharedSlice"
             }
           }

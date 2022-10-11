@@ -16,7 +16,7 @@
         "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
         "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
         "slicemachine": "start-slicemachine",
-        "codegen": "graphql-codegen --config codegen.yml -r dotenv/config"
+        "codegen": "graphql-codegen --config codegen.yml -r dotenv/config && npx prismic-ts-codegen"
     },
     "dependencies": {
         "@apollo/client": "^3.3.7",

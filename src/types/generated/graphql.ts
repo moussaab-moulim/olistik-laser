@@ -47,6 +47,7 @@ export type Navigation = _Document & _Linkable & {
 export type NavigationAction_Group = {
   __typename?: 'NavigationAction_group';
   button_label?: Maybe<Scalars['String']>;
+  button_shape?: Maybe<Scalars['Boolean']>;
   button_url?: Maybe<_Linkable>;
 };
 
@@ -546,6 +547,7 @@ export type WhereNavigation = {
 export type WhereNavigationAction_Group = {
   button_label?: InputMaybe<Scalars['String']>;
   button_label_fulltext?: InputMaybe<Scalars['String']>;
+  button_shape?: InputMaybe<Scalars['Boolean']>;
   /** button_url */
   button_url?: InputMaybe<Scalars['String']>;
 };

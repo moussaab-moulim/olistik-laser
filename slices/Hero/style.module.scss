@@ -1,12 +1,13 @@
 .HeroWrapper {
+    position: relative;
     background-repeat: no-repeat;
     background-size: auto;
-    display: flex;
     height: 100vh;
     width: 100%;
     color: white;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     text-align: center;
 
     &:after {
@@ -17,11 +18,14 @@
         left: 0;
         top: 0;
         content: "";
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.5);
         z-index: 0;
     }
     .contentWrapper {
+        position: relative;
+        top: 33%;
         z-index: 1;
+        padding: 0 5%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -30,16 +34,13 @@
 
         h1 {
             font-size: 40px;
+            letter-spacing: 3px;
             font-weight: 700;
         }
 
-        h2 {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
         p {
             max-width: 280px;
-            margin-bottom: 50px;
+            margin-bottom: 70px;
         }
     }
 }
@@ -47,7 +48,9 @@
 @media (min-width: 1024px) {
     .HeroWrapper {
         .contentWrapper {
+            top: 40%;
             h1 {
+                letter-spacing: 5px;
                 font-size: 70px;
                 margin-bottom: 0;
             }
@@ -56,6 +59,7 @@
             }
             p {
                 max-width: 480px;
+                margin-bottom: 90px;
             }
         }
     }
