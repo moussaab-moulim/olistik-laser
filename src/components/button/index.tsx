@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, Fragment, ReactNode } from "react";
 import Style from "./style.module.scss";
 import { PrismicLink } from "@prismicio/react";
 import { LinkField } from "@prismicio/types";
@@ -16,11 +16,17 @@ export const MyButton: FC<MyButtonProps> = ({
     children,
 }) => {
     return (
-        <PrismicLink
-            field={link}
-            className={variant ? `${Style.ButtonPink}` : `${Style.ButtonPink}`}
-        >
-            {children}
-        </PrismicLink>
+        <Fragment>
+            <PrismicLink
+                field={link}
+                className={
+                    variant
+                        ? `${Style.ButtonPink}`
+                        : `${Style.ButtonTransparent}`
+                }
+            >
+                {children}
+            </PrismicLink>
+        </Fragment>
     );
 };
