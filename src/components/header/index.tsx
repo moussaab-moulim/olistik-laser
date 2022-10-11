@@ -1,8 +1,8 @@
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import Link from "next/link";
-import { useMediaQuery } from "@chakra-ui/react";
-import { Fade, IconButton, useDisclosure } from "@chakra-ui/react";
+import { Collapse, useMediaQuery } from "@chakra-ui/react";
+import { IconButton, useDisclosure } from "@chakra-ui/react";
 import { NavigationDocument } from "@customtypes/rest";
 import { ImageField } from "@prismicio/types";
 import { PrismicLink } from "@prismicio/react";
@@ -15,11 +15,8 @@ interface HeaderProps {
     logo: ImageField;
 }
 
-export const Header: React.FC<HeaderProps> = ({
-    navigation,
-    logo,
-}: HeaderProps) => {
-    const [isLargerThan1024] = useMediaQuery("(min-width: 1024px)");
+export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
+    const [isLargerThan1025] = useMediaQuery("(min-width: 1025px)");
     const { isOpen, onToggle } = useDisclosure();
 
     return (
@@ -40,7 +37,7 @@ export const Header: React.FC<HeaderProps> = ({
                 </div>
 
                 {/* < -- DESKTOP NAV BAR -- > */}
-                {isLargerThan1024 && (
+                {isLargerThan1025 && (
                     <nav className={`${Style.SideNav}`}>
                         <ul>
                             {navigation?.data.links.map((navItem, i) => (
@@ -55,7 +52,11 @@ export const Header: React.FC<HeaderProps> = ({
                         <div className={`${Style.navAction}`}>
                             {navigation?.data.action_group.map((navItem, i) =>
                                 navItem.button_shape ? (
-                                    <MyButton key={i} link={navItem.button_url}>
+                                    <MyButton
+                                        key={i}
+                                        link={navItem.button_url}
+                                        variant={navItem.button_shape}
+                                    >
                                         {navItem.button_label}
                                     </MyButton>
                                 ) : (
@@ -71,7 +72,7 @@ export const Header: React.FC<HeaderProps> = ({
                     </nav>
                 )}
                 {/* < -- MOBILE BURGER BUTTON -- > */}
-                {!isLargerThan1024 && (
+                {!isLargerThan1025 && (
                     <div className={`${Style.navBurger}`}>
                         <IconButton
                             onClick={onToggle}
@@ -89,10 +90,10 @@ export const Header: React.FC<HeaderProps> = ({
                 )}
             </div>
 
-            {!isLargerThan1024 && (
+            {!isLargerThan1025 && (
                 <Fragment>
                     {/* < -- MOBILE NAV BAR -- > */}
-                    <Fade in={isOpen}>
+                    <Collapse in={isOpen}>
                         <div className={`${Style.navCollapse}`}>
                             <ul>
                                 {navigation?.data.links.map((navItem, i) => (
@@ -107,7 +108,7 @@ export const Header: React.FC<HeaderProps> = ({
                                 ))}
                             </ul>
                         </div>
-                    </Fade>
+                    </Collapse>
                     {/* < -- MOBILE BOTTOM NAV BAR -- > */}
                     <div className={`${Style.navBottom}`}>
                         {navigation?.data.action_group.map((navItem, i) => (
