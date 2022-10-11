@@ -1,7 +1,11 @@
 {
   "_cts": {
     "post": {},
-    "page": {}
+    "page": {},
+    "navigation": {
+      "action_group": {},
+      "links": {}
+    }
   },
   "slices": {
     "Hero": {
@@ -13,7 +17,8 @@
               "blocks": 1
             }
           }
-        }
+        },
+        "items": {}
       },
       "noActionHero": {
         "primary": {
@@ -53,6 +58,38 @@
         },
         "items": {
           "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "Faq": {
+      "default": {
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "text": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        },
+        "items": {
+          "list_title": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "list_text": {
             "config": {
               "patternType": "PARAGRAPH",
               "blocks": 1

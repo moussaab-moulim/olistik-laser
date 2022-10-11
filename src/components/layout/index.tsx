@@ -1,17 +1,17 @@
 import { Footer } from "@components/footer";
 import { Header } from "@components/header";
 import { CustomNavigation, PageSeo } from "@customtypes/common";
+import { NavigationDocument } from "@customtypes/rest";
 import { NextSeo } from "next-seo";
 import React, { ReactNode } from "react";
 
 interface IProps {
-    navigation: CustomNavigation;
+    navigation: NavigationDocument;
     settings: PageSeo;
     children: ReactNode;
 }
 
 export const Layout = ({ navigation, settings, children }: IProps) => {
-    console.log("fdhfjd", navigation);
     return (
         <div className="">
             <NextSeo
@@ -96,36 +96,41 @@ export const Layout = ({ navigation, settings, children }: IProps) => {
                     },
 
                     ...[
-                        "Poppins-BlackItalic",
-                        "Poppins-Bold",
-                        "Poppins-Black",
-                        "Poppins-BoldItalic",
-                        "Poppins-ExtraBold",
-                        "Poppins-ExtraBoldItalic",
-                        "Poppins-ExtraLight",
-                        "Poppins-Italic",
-                        "Poppins-ExtraLightItalic",
-                        "Poppins-Light",
-                        "Poppins-LightItalic",
-                        "Poppins-Medium",
-                        "Poppins-MediumItalic",
-                        "Poppins-Regular",
-                        "Poppins-SemiBold",
-                        "Poppins-SemiBoldItalic",
-                        "Poppins-Thin",
+                        "PlayfairDisplay-ExtraBold",
+                        "PlayfairDisplay-Bold",
+                        "PlayfairDisplay-BlackItalic",
+                        "PlayfairDisplay-Italic",
+                        "PlayfairDisplay-ExtraBoldItalic",
+                        "PlayfairDisplay-BoldItalic",
+                        "PlayfairDisplay-Black",
+                        "PlayfairDisplay-SemiBoldItalic",
+                        "PlayfairDisplay-Regular",
+                        "PlayfairDisplay-Medium",
+                        "PlayfairDisplay-MediumItalic",
+                        "PlayfairDisplay-SemiBold",
                     ].map((font) => ({
                         rel: "preload",
-                        href: `/assets/fonts/Poppins/${font}.woff2`,
+                        href: `/assets/fonts/PlayfairDisplay/${font}.woff2`,
                         as: "font",
                         type: "font/woff2",
                         crossOrigin: "anonymous",
                     })),
                     ...[
-                        "MonumentExtended-Ultrabold",
-                        "MonumentExtended-Regular",
+                        "OpenSans-Bold",
+                        "OpenSans-ExtraBold",
+                        "OpenSans-BoldItalic",
+                        "OpenSans-ExtraBoldItalic",
+                        "OpenSans-Italic",
+                        "OpenSans-Light",
+                        "OpenSans-MediumItalic",
+                        "OpenSans-Medium",
+                        "OpenSans-LightItalic",
+                        "OpenSans-Regular",
+                        "OpenSans-SemiBoldItalic",
+                        "OpenSans-SemiBold",
                     ].map((font) => ({
                         rel: "preload",
-                        href: `/assets/fonts/Monument/${font}.woff2`,
+                        href: `/assets/fonts/OpenSans/${font}.woff2`,
                         as: "font",
                         type: "font/woff2",
                         crossOrigin: "anonymous",
@@ -134,10 +139,10 @@ export const Layout = ({ navigation, settings, children }: IProps) => {
                 ]}
             />
             <Header
-            /*   navigation={navigation}
+                navigation={navigation}
                 logo={settings.logo}
-                site_name={settings.site_name}
-                social_media={settings.social_media ?? []} */
+                // site_name={settings.site_name}
+                // social_media={settings.social_media ?? []}
             />
             <main>{children}</main>
             <Footer />

@@ -13,18 +13,22 @@
   "data": {
     "links": [
       {
-        "label": [
-          {
-            "type": "heading3",
-            "text": "Bound",
-            "spans": []
-          }
-        ],
+        "label": "light",
         "link": {
           "link_type": "Web",
           "url": "https://prismic.io"
         },
-        "parent": "mission"
+        "parent": "failed"
+      }
+    ],
+    "action_group": [
+      {
+        "button_label": "bag",
+        "button_url": {
+          "link_type": "Web",
+          "url": "http://google.com"
+        },
+        "button_shape": true
       }
     ],
     "slices": []

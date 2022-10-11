@@ -11,12 +11,10 @@
           "label": "Links",
           "fields": {
             "label": {
-              "type": "StructuredText",
+              "type": "Text",
               "config": {
-                "label": "Label",
-                "placeholder": "Optional - Label for the link",
-                "allowTargetBlank": false,
-                "single": "heading3"
+                "label": "label",
+                "placeholder": ""
               }
             },
             "link": {
@@ -32,6 +30,38 @@
               "config": {
                 "label": "Parent",
                 "placeholder": "Parent label"
+              }
+            }
+          }
+        }
+      },
+      "action_group": {
+        "type": "Group",
+        "config": {
+          "label": "action group",
+          "fields": {
+            "button_label": {
+              "type": "Text",
+              "config": {
+                "label": "button label",
+                "placeholder": ""
+              }
+            },
+            "button_url": {
+              "type": "Link",
+              "config": {
+                "label": "button url",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "button_shape": {
+              "type": "Boolean",
+              "config": {
+                "label": "button shape",
+                "placeholder_false": "Transparent",
+                "placeholder_true": "Pink",
+                "default_value": true
               }
             }
           }

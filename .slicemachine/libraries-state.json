@@ -127,7 +127,13 @@
           "fileName": "index",
           "extension": "js"
         },
-        "screenshotPaths": {}
+        "screenshotPaths": {
+          "default": {
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Cards\\default\\preview.png",
+            "width": 1331,
+            "height": 688
+          }
+        }
       },
       "cta": {
         "library": "slices",
@@ -236,11 +242,11 @@
         },
         "meta": {
           "fileName": "index",
-          "extension": "js"
+          "extension": "tsx"
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/Cta/default/preview.png",
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Cta\\default\\preview.png",
             "width": 3024,
             "height": 638
           }
@@ -318,6 +324,7 @@
                   "config": {
                     "label": "button url",
                     "placeholder": "",
+                    "allowTargetBlank": true,
                     "select": null
                   }
                 }
@@ -383,26 +390,61 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
-                "button_label": "none",
+                "button_label": "curve",
                 "button_url": {
                   "link_type": "Web",
-                  "url": "http://google.com"
+                  "url": "https://slicemachine.dev"
                 }
               }
             ],
             "primary": {
-              "slice_id": "white",
+              "slice_id": "aware",
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Shirt",
+                  "text": "Tightly",
                   "spans": []
                 }
               ],
               "text": [
                 {
                   "type": "paragraph",
-                  "text": "Tempor do ut amet velit ullamco enim.",
+                  "text": "Consectetur fugiat labore cillum enim excepteur. Sint id amet nostrud fugiat adipisicing in consequat labore laborum. Consequat qui consectetur deserunt voluptate ipsum minim sit sunt pariatur dolor tempor Lorem non.",
+                  "spans": []
+                }
+              ],
+              "background_image": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea"
+              },
+              "background_color": "#85c82f"
+            },
+            "slice_type": "hero"
+          },
+          "noActionHero": {
+            "variation": "noActionHero",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "slice_id": "extra",
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Slight",
+                  "spans": []
+                }
+              ],
+              "text": [
+                {
+                  "type": "paragraph",
+                  "text": "Quis in culpa culpa excepteur anim deserunt incididunt mollit aliquip officia. Labore deserunt do est ea consectetur quis eiusmod duis velit minim excepteur nisi.",
                   "spans": []
                 }
               ],
@@ -415,53 +457,18 @@
                 "copyright": null,
                 "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2"
               },
-              "background_color": "#57f960"
-            },
-            "slice_type": "hero"
-          },
-          "noActionHero": {
-            "variation": "noActionHero",
-            "version": "sktwi1xtmkfgx8626",
-            "items": [
-              {}
-            ],
-            "primary": {
-              "slice_id": "chemical",
-              "title": [
-                {
-                  "type": "heading1",
-                  "text": "About",
-                  "spans": []
-                }
-              ],
-              "text": [
-                {
-                  "type": "paragraph",
-                  "text": "Irure exercitation amet voluptate. Consequat culpa veniam eu enim incididunt culpa nostrud.",
-                  "spans": []
-                }
-              ],
-              "background_image": {
-                "dimensions": {
-                  "width": 900,
-                  "height": 500
-                },
-                "alt": null,
-                "copyright": null,
-                "url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa"
-              },
-              "background_color": "#c49bf1"
+              "background_color": "#060f4e"
             },
             "slice_type": "hero"
           }
         },
         "meta": {
           "fileName": "index",
-          "extension": "js"
+          "extension": "tsx"
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/Hero/default/preview.png",
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Hero\\default\\preview.png",
             "width": 2946,
             "height": 1666
           }
@@ -515,8 +522,8 @@
                   "config": {
                     "label": "Image",
                     "constraint": {
-                      "width": 1000,
-                      "height": 1200
+                      "width": null,
+                      "height": null
                     },
                     "thumbnails": []
                   }
@@ -585,8 +592,8 @@
                   "config": {
                     "label": "Image",
                     "constraint": {
-                      "width": 1000,
-                      "height": 1198
+                      "width": null,
+                      "height": null
                     },
                     "thumbnails": []
                   }
@@ -626,39 +633,39 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
-                "button_label": "receive",
+                "button_label": "changing",
                 "button_url": {
                   "link_type": "Web",
-                  "url": "https://slicemachine.dev"
+                  "url": "https://prismic.io"
                 }
               }
             ],
             "primary": {
-              "slice_id": "those",
+              "slice_id": "love",
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Product",
+                  "text": "Bright",
                   "spans": []
                 }
               ],
               "text": [
                 {
                   "type": "paragraph",
-                  "text": "Excepteur deserunt anim deserunt dolor sit consequat irure sunt cupidatat aliquip dolor voluptate dolore. Id laborum nostrud consequat esse aute laborum nisi.",
+                  "text": "Incididunt Lorem cillum est qui cillum tempor excepteur.",
                   "spans": []
                 }
               ],
               "image": {
                 "dimensions": {
-                  "width": 1000,
-                  "height": 1200
+                  "width": 900,
+                  "height": 500
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68"
+                "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8"
               },
-              "background_color": "#e701a3"
+              "background_color": "#d68d65"
             },
             "slice_type": "text_with_image"
           },
@@ -667,39 +674,39 @@
             "version": "sktwi1xtmkfgx8626",
             "items": [
               {
-                "button_label": "circle",
+                "button_label": "product",
                 "button_url": {
                   "link_type": "Web",
-                  "url": "https://prismic.io"
+                  "url": "http://google.com"
                 }
               }
             ],
             "primary": {
-              "slice_id": "largest",
+              "slice_id": "done",
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Morning",
+                  "text": "Beautiful",
                   "spans": []
                 }
               ],
               "text": [
                 {
                   "type": "paragraph",
-                  "text": "Ex est sunt non cupidatat anim laboris mollit nisi nulla nisi voluptate. Veniam culpa cupidatat elit fugiat ad minim aute irure veniam deserunt fugiat labore reprehenderit.",
+                  "text": "Ipsum Lorem quis pariatur cillum ex quis proident in mollit consectetur ex laboris dolor cillum.",
                   "spans": []
                 }
               ],
               "image": {
                 "dimensions": {
-                  "width": 1000,
-                  "height": 1198
+                  "width": 900,
+                  "height": 500
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b"
+                "url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa"
               },
-              "background_color": "#d05251"
+              "background_color": "#56a3f1"
             },
             "slice_type": "text_with_image"
           }
@@ -710,7 +717,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/TextWithImage/default/preview.png",
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\TextWithImage\\default\\preview.png",
             "width": 3024,
             "height": 1448
           }

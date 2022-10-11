@@ -1,17 +1,17 @@
 overwrite: true
 schema:
-  - https://olistik-laser.prismic.io/graphql:
-      method: GET
-      headers:
-        Authorization: "Token ${PRISMIC_REPOSITORY_TOKEN}"
-        Prismic-Ref: "Y0AYfxAAACcAdZIj"
+    - https://olistik-laser.prismic.io/graphql:
+          method: GET
+          headers:
+              Authorization: "Token ${PRISMIC_REPOSITORY_TOKEN}"
+              Prismic-Ref: "Y0SzBBAAACkAijhB"
 generates:
-  # Schema
-  ./schema.graphql:
-    plugins:
-      - schema-ast
-  src/types/generated/graphql.ts:
-    plugins:
-      - "typescript"
-      - "typescript-operations"
-      - "typescript-react-apollo"
+    # Schema
+    ./schema.graphql:
+        plugins:
+            - schema-ast
+    src/types/generated/graphql.ts:
+        plugins:
+            - "typescript"
+            - "typescript-operations"
+            - "typescript-react-apollo"

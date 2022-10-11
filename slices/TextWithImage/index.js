@@ -1,31 +1,40 @@
-import React from "react";
-import { PrismicRichText } from "@prismicio/react";
+import React, { Fragment } from "react";
+import { PrismicLink, PrismicRichText } from "@prismicio/react";
+import { background, Button, Image } from "@chakra-ui/react";
+import Link from "next/link";
+import Style from "./style.module.scss";
 
-const TextWithImage = ({ slice }) => (
-    <section>
-        <span className="title">
-            {slice.primary.title ? (
-                <PrismicRichText field={slice.primary.title} />
-            ) : (
-                <h2>Template slice, update me!</h2>
-            )}
-        </span>
-        {slice.primary.description ? (
-            <PrismicRichText field={slice.primary.description} />
-        ) : (
-            <p>start by editing this slice from inside Slice Machine!</p>
-        )}
-        <style jsx>{`
-            section {
-                max-width: 600px;
-                margin: 4em auto;
-                text-align: center;
-            }
-            .title {
-                color: #8592e0;
-            }
-        `}</style>
-    </section>
-);
+const TextWithImage = ({ slice }) => {
+    return (
+        <Fragment>
+            <section
+                className={`${
+                    slice.variation === "default"
+                        ? Style.LeftSliceWrapper
+                        : Style.RightSliceWrapper
+                }`}
+                style={{
+                    backgroundColor: `${slice.primary.background_color}`,
+                }}
+            >
+                {/* <div className={`${Style.textWrapper}`}>
+                    <PrismicRichText field={slice.primary.title} />
+                    <PrismicRichText field={slice.primary.text} />
+                    {slice?.items?.map((item, i) => (
+                        <PrismicLink href="/">
+                            <a className="ButtonPink">{item.button_label}</a>
+                        </PrismicLink>
+                    ))}
+                </div>
+                <div className={`${Style.imageWrapper}`}>
+                    <Image
+                        src={slice.primary.image.url}
+                        alt={slice.primary.image.alt}
+                    />
+                </div> */}
+            </section>
+        </Fragment>
+    );
+};
 
 export default TextWithImage;

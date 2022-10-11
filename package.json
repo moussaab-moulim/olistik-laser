@@ -13,16 +13,17 @@
         "apollo:generate-types": "rm -rf __generated__ && apollo client:codegen --target typescript --outputFlat",
         "apollo:sync": "npm run apollo:download-schema && npm run apollo:generate-types",
         "codegen:generate": "graphql-codegen",
-        "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
-        "prettier": "prettier --write '**/*.{js,jsx,ts,tsx}'",
+        "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
+        "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
         "slicemachine": "start-slicemachine",
-        "codegen": "graphql-codegen --config codegen.yml -r dotenv/config",
+        "codegen": "graphql-codegen --config codegen.yml -r dotenv/config && npx prismic-ts-codegen",
         "postbuild": "next-sitemap --config next-sitemap.config.js"
     },
     "dependencies": {
         "@apollo/client": "^3.3.7",
         "@chakra-ui/icons": "^2.0.11",
         "@chakra-ui/react": "^2.3.5",
+        "@emotion/css": "^11.10.0",
         "@emotion/react": "^11",
         "@emotion/styled": "^11",
         "@next/bundle-analyzer": "^10.0.5",
@@ -72,6 +73,7 @@
         "lint-staged": "^10.5.3",
         "next-sitemap": "^3.1.24",
         "prismic-ts-codegen": "^0.1.5",
+        "sass": "^1.55.0",
         "slice-machine-ui": "^0.5.0",
         "typescript": "^4.1.3"
     },
