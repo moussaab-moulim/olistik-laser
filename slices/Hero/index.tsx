@@ -23,7 +23,7 @@ const Hero = ({ slice }: HeroProps) => {
                 <PrismicRichText field={slice.primary.text} />
 
                 {slice?.items?.map((item, i) => (
-                    <MyButton key={i} link={item.button_url}>
+                    <MyButton key={i} link={item.button_url} variant={true}>
                         {item.button_label}
                     </MyButton>
                 ))}

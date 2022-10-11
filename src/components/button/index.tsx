@@ -4,19 +4,22 @@ import { PrismicLink } from "@prismicio/react";
 import { LinkField } from "@prismicio/types";
 
 interface MyButtonProps {
-    // variant: String;
+    variant: boolean;
     // coloring: String;
     link: LinkField;
     children: ReactNode;
 }
 export const MyButton: FC<MyButtonProps> = ({
-    // variant,
+    variant,
     // coloring,
     link,
     children,
-}: MyButtonProps) => {
+}) => {
     return (
-        <PrismicLink field={link} className={`${Style.ButtonPink}`}>
+        <PrismicLink
+            field={link}
+            className={variant ? `${Style.ButtonPink}` : `${Style.ButtonPink}`}
+        >
             {children}
         </PrismicLink>
     );
