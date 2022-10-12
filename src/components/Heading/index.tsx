@@ -9,22 +9,22 @@ export const Heading1 = styled.h1`
 `;
 export const Heading2 = styled.h2`
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 600;
 
     @media (min-width: 1025px) {
     }
 `;
 export const Heading3 = styled.h3`
-    font-size: 36px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 500;
 
     @media (min-width: 1025px) {
     }
 `;
 
 export const Heading4 = styled.h4`
-    font-size: 36px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 500;
 
     @media (min-width: 1025px) {
     }
