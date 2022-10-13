@@ -349,6 +349,16 @@ export type AllDocumentTypes = NavigationDocument | PageDocument | PostDocument 
  */
 interface CardsSliceDefaultPrimary {
     /**
+     * slice id field in *Cards → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: cards.primary.slice_id
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    slice_id: prismicT.KeyTextField;
+    /**
      * Title field in *Cards → Primary*
      *
      * - **Field Type**: Rich Text
@@ -543,111 +553,6 @@ type CtaSliceVariation = CtaSliceDefault;
  *
  */
 export type CtaSlice = prismicT.SharedSlice<"cta", CtaSliceVariation>;
-/**
- * Primary content in Faq → Primary
- *
- */
-interface FaqSliceDefaultPrimary {
-    /**
-     * slice id field in *Faq → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: faq.primary.slice_id
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    slice_id: prismicT.KeyTextField;
-    /**
-     * Title field in *Faq → Primary*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: faq.primary.title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    title: prismicT.RichTextField;
-    /**
-     * Text field in *Faq → Primary*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: A nice description of your feature
-     * - **API ID Path**: faq.primary.text
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    text: prismicT.RichTextField;
-}
-/**
- * Item in Faq → Items
- *
- */
-export interface FaqSliceDefaultItem {
-    /**
-     * list title field in *Faq → Items*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: faq.items[].list_title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    list_title: prismicT.RichTextField;
-    /**
-     * list text field in *Faq → Items*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: faq.items[].list_text
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    list_text: prismicT.RichTextField;
-    /**
-     * button label field in *Faq → Items*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: faq.items[].button_label
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    button_label: prismicT.KeyTextField;
-    /**
-     * button link field in *Faq → Items*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: faq.items[].button_link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    button_link: prismicT.LinkField;
-}
-/**
- * Default variation for Faq Slice
- *
- * - **API ID**: `default`
- * - **Description**: `Faq`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type FaqSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<FaqSliceDefaultPrimary>, Simplify<FaqSliceDefaultItem>>;
-/**
- * Slice variation for *Faq*
- *
- */
-type FaqSliceVariation = FaqSliceDefault;
-/**
- * Faq Shared Slice
- *
- * - **API ID**: `faq`
- * - **Description**: `Faq`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type FaqSlice = prismicT.SharedSlice<"faq", FaqSliceVariation>;
 /**
  * Primary content in Hero → Primary
  *
@@ -1019,6 +924,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocumentDataActionGroupItem, NavigationDocumentDataSlicesSlice, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, PostDocumentData, PostDocument, SettingsDocumentData, SettingsDocumentDataSocialMediaItem, SettingsDocument, AllDocumentTypes, CardsSliceDefaultPrimary, CardsSliceDefaultItem, CardsSliceDefault, CardsSliceVariation, CardsSlice, CtaSliceDefaultPrimary, CtaSliceDefaultItem, CtaSliceDefault, CtaSliceVariation, CtaSlice, FaqSliceDefaultPrimary, FaqSliceDefaultItem, FaqSliceDefault, FaqSliceVariation, FaqSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceNoActionHeroPrimary, HeroSliceNoActionHero, HeroSliceVariation, HeroSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefaultItem, TextWithImageSliceDefault, TextWithImageSliceRightTextPrimary, TextWithImageSliceRightTextItem, TextWithImageSliceRightText, TextWithImageSliceVariation, TextWithImageSlice };
+        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocumentDataActionGroupItem, NavigationDocumentDataSlicesSlice, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, PostDocumentData, PostDocument, SettingsDocumentData, SettingsDocumentDataSocialMediaItem, SettingsDocument, AllDocumentTypes, CardsSliceDefaultPrimary, CardsSliceDefaultItem, CardsSliceDefault, CardsSliceVariation, CardsSlice, CtaSliceDefaultPrimary, CtaSliceDefaultItem, CtaSliceDefault, CtaSliceVariation, CtaSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceNoActionHeroPrimary, HeroSliceNoActionHero, HeroSliceVariation, HeroSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefaultItem, TextWithImageSliceDefault, TextWithImageSliceRightTextPrimary, TextWithImageSliceRightTextItem, TextWithImageSliceRightText, TextWithImageSliceVariation, TextWithImageSlice };
     }
 }

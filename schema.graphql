@@ -117,7 +117,33 @@ type PageInfo {
   startCursor: String
 }
 
-union PageSlices = PageSlicesCta | PageSlicesFaq | PageSlicesHero | PageSlicesText_with_image
+union PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesText_with_image
+
+type PageSlicesCards {
+  label: String
+  type: String
+  variation: PageSlicesCardsVariation
+}
+
+type PageSlicesCardsDefault {
+  items: [PageSlicesCardsDefaultItems!]
+  primary: PageSlicesCardsDefaultPrimary
+}
+
+type PageSlicesCardsDefaultItems {
+  button_label: String
+  button_url: _Linkable
+  description: Json
+  title: Json
+}
+
+type PageSlicesCardsDefaultPrimary {
+  description: Json
+  slice_id: String
+  title: Json
+}
+
+union PageSlicesCardsVariation = PageSlicesCardsDefault
 
 type PageSlicesCta {
   label: String
@@ -144,32 +170,6 @@ type PageSlicesCtaDefaultPrimary {
 }
 
 union PageSlicesCtaVariation = PageSlicesCtaDefault
-
-type PageSlicesFaq {
-  label: String
-  type: String
-  variation: PageSlicesFaqVariation
-}
-
-type PageSlicesFaqDefault {
-  items: [PageSlicesFaqDefaultItems!]
-  primary: PageSlicesFaqDefaultPrimary
-}
-
-type PageSlicesFaqDefaultItems {
-  button_label: String
-  button_link: _Linkable
-  list_text: Json
-  list_title: Json
-}
-
-type PageSlicesFaqDefaultPrimary {
-  slice_id: String
-  text: Json
-  title: Json
-}
-
-union PageSlicesFaqVariation = PageSlicesFaqDefault
 
 type PageSlicesHero {
   label: String

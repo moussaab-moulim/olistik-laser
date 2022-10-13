@@ -19,6 +19,13 @@
               "version": "sktwi1xtmkfgx8626",
               "description": "Cards",
               "primary": {
+                "slice_id": {
+                  "type": "Text",
+                  "config": {
+                    "label": "slice id",
+                    "placeholder": ""
+                  }
+                },
                 "title": {
                   "type": "StructuredText",
                   "config": {
@@ -86,36 +93,37 @@
                 "title": [
                   {
                     "type": "paragraph",
-                    "text": "Ex irure enim ex duis sint quis cupidatat aliqua esse nostrud voluptate tempor Lorem mollit. Eiusmod consectetur labore quis. Amet reprehenderit laborum culpa ut incididunt.",
+                    "text": "Occaecat dolore do laboris irure eu labore anim.",
                     "spans": []
                   }
                 ],
                 "description": [
                   {
                     "type": "paragraph",
-                    "text": "Enim veniam cupidatat qui laborum consequat duis anim. Excepteur aliqua magna cillum Lorem labore commodo nulla. Adipisicing ex esse cupidatat.",
+                    "text": "Ex et sit adipisicing ad sit elit cupidatat voluptate reprehenderit tempor reprehenderit do nostrud. Sit consequat et est labore anim aute enim ea ut deserunt amet nisi enim.",
                     "spans": []
                   }
                 ],
-                "button_label": "silk",
+                "button_label": "while",
                 "button_url": {
                   "link_type": "Web",
-                  "url": "http://twitter.com"
+                  "url": "https://slicemachine.dev"
                 }
               }
             ],
             "primary": {
+              "slice_id": "jar",
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Baseball",
+                  "text": "Possible",
                   "spans": []
                 }
               ],
               "description": [
                 {
                   "type": "paragraph",
-                  "text": "In in ex culpa velit incididunt cupidatat aliquip duis fugiat. Sint pariatur Lorem fugiat culpa fugiat enim laboris tempor aliquip sunt. Tempor Lorem anim incididunt eu dolore sunt occaecat anim laborum adipisicing.",
+                  "text": "Occaecat dolore dolore amet eiusmod nulla Lorem sit officia.",
                   "spans": []
                 }
               ]

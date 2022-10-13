@@ -15,6 +15,9 @@
             color: black;
             font-size: 14px;
             padding-bottom: 40px;
+            button {
+                padding: 16px;
+            }
             .Content {
                 background-color: #89898c;
                 color: white;
@@ -31,8 +34,9 @@
                     padding-bottom: 15px;
                     margin: 0;
                 }
-                a {
-                    margin-bottom: 55px;
+                div {
+                    margin-top: 15px;
+                    text-align: center;
                 }
             }
         }
@@ -55,10 +59,13 @@
                 padding-left: 10%;
                 width: 100%;
 
-                button {
+                .listButton {
                     width: 100%;
+                    cursor: pointer;
                     text-align: left;
                     display: flex;
+                    font-weight: 600;
+                    align-items: center;
                     justify-content: space-between;
                     font-size: 20px;
                     padding: 24px 16px;
