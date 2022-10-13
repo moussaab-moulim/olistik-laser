@@ -16,6 +16,10 @@
             font-size: 14px;
             padding-bottom: 40px;
             button {
+                display: flex;
+                justify-content: space-between;
+                font-family: "Playfair Display", serif;
+                font-weight: 600;
                 padding: 16px;
             }
             .Content {
