@@ -22,9 +22,13 @@
                 background-color: #89898c;
                 color: white;
                 padding: 40px 10%;
+                h3 {
+                    font-size: 24px;
+                    padding-bottom: 15px;
+                }
                 h4 {
                     padding-bottom: 15px;
-                    font-size: 22px;
+                    font-size: 20px;
                 }
                 ul {
                     list-style: inside;
@@ -60,6 +64,7 @@
                 width: 100%;
 
                 .listButton {
+                    font-family: "Playfair Display", serif;
                     width: 100%;
                     cursor: pointer;
                     text-align: left;

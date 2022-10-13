@@ -13,23 +13,25 @@ import {
 } from "@chakra-ui/react";
 import { MyButton } from "@components/button";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import { asText } from "@prismicio/helpers";
+import { RichTextField } from "@prismicio/types";
 
 interface CardsProps {
     slice: CardsSlice;
 }
 const Cards = ({ slice }: CardsProps) => {
     const [isLargerThan1025] = useMediaQuery("(min-width: 1025px)");
-    const initialText = slice.items[0].title[0].text;
+    const initialText = asText(slice.items[0].title);
     const [contentTitle, setContentTitle] = useState(initialText);
 
-    const displayText = (e) => {
-        const ButtonText = e.target.innerText;
+    const displayText = (textField: RichTextField) => {
+        const ButtonText = asText(textField);
         setContentTitle(ButtonText);
     };
 
     return (
         <section
-            id={slice.primary.slice_id}
+            id={slice.primary.slice_id ?? ""}
             className={`${Style.CardsWrapper}`}
         >
             <div className={` ${Style.LeftSide}`}>
@@ -57,6 +59,7 @@ const Cards = ({ slice }: CardsProps) => {
                                     pb={4}
                                     className={`${Style.Content}`}
                                 >
+                                    <PrismicRichText field={item.title} />
                                     <PrismicRichText field={item.description} />
                                     <div>
                                         <MyButton
@@ -75,32 +78,25 @@ const Cards = ({ slice }: CardsProps) => {
                 {isLargerThan1025 && (
                     <div className={` ${Style.LeftMenu}`}>
                         {slice?.items?.map((item, i) => (
-                            <PrismicRichText
-                                field={item.title}
-                                components={{
-                                    heading3: ({ children }) => (
-                                        <div
-                                            key={i}
-                                            className={`${Style.listButton}`}
-                                            onClick={displayText}
-                                        >
-                                            <h3>{children}</h3>
-                                            <ChevronRightIcon />
-                                        </div>
-                                    ),
-                                }}
-                            />
+                            <div
+                                key={i}
+                                className={`${Style.listButton}`}
+                                onClick={() => displayText(item.title)}
+                            >
+                                {asText(item.title)}
+                                <ChevronRightIcon />
+                            </div>
                         ))}
                     </div>
                 )}
             </div>
-            {/* DESKTOP DROP DOWN SELECTION */}
+            {/* DESKTOP DROP DOWN CONTENT */}
             {isLargerThan1025 && (
                 <div className={`container ${Style.RightSide}`}>
                     {slice?.items?.map(
                         (item, i) =>
                             // problem here
-                            contentTitle === item.title[0].text && (
+                            contentTitle === asText(item.title) && (
                                 <div key={i}>
                                     <PrismicRichText field={item.title} />
                                     <PrismicRichText field={item.description} />

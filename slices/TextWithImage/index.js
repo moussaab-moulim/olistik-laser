@@ -22,7 +22,7 @@ const TextWithImage = ({ slice }) => {
                     <PrismicRichText field={slice.primary.title} />
                     <PrismicRichText field={slice.primary.text} />
                     {slice?.items?.map((item, i) => (
-                        <MyButton variant={true} link={item.button_url}>
+                        <MyButton key={i} variant={true} link={item.button_url}>
                             {item.button_label}
                         </MyButton>
                     ))}

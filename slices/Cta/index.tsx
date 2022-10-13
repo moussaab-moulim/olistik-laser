@@ -17,7 +17,7 @@ const Cta = ({ slice }: CtaProps) => {
             <PrismicRichText field={slice.primary.title} />
             <PrismicRichText field={slice.primary.text} />
             {slice?.items?.map((item, i) => (
-                <MyButton variant={false} link={item.button_url}>
+                <MyButton key={i} variant={false} link={item.button_url}>
                     {item.button_label}
                 </MyButton>
             ))}
