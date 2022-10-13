@@ -50,9 +50,7 @@ const Cards = ({ slice }: CardsProps) => {
                         {slice?.items?.map((item, i) => (
                             <AccordionItem key={i}>
                                 <AccordionButton>
-                                    <Box flex="1" textAlign="left">
-                                        <PrismicRichText field={item.title} />
-                                    </Box>
+                                    {asText(item.title)}
                                     <AccordionIcon />
                                 </AccordionButton>
                                 <AccordionPanel
