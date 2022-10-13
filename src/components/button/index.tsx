@@ -18,7 +18,9 @@ export const MyButton: FC<MyButtonProps> = ({
     return (
         <PrismicLink
             field={link}
-            className={variant ? `${Style.ButtonPink}` : `${Style.ButtonPink}`}
+            className={
+                variant ? `${Style.ButtonPink}` : `${Style.ButtonTransparent}`
+            }
         >
             {children}
         </PrismicLink>

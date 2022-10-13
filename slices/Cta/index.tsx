@@ -1,8 +1,9 @@
 import React from "react";
-import { PrismicLink, PrismicRichText } from "@prismicio/react";
+import { PrismicRichText } from "@prismicio/react";
 import { CtaSlice } from "@customtypes/rest";
 
 import Style from "./style.module.scss";
+import { MyButton } from "@components/button";
 
 interface CtaProps {
     slice: CtaSlice;
@@ -10,18 +11,17 @@ interface CtaProps {
 const Cta = ({ slice }: CtaProps) => {
     return (
         <section
-            className={`${Style.CtaWrapper}`}
+            id={slice.primary.slice_id ?? ""}
+            className={`container ${Style.CtaWrapper}`}
             style={{ backgroundColor: `${slice.primary.background_color}` }}
         >
-            {/* <PrismicRichText field={slice.primary.title} />
+            <PrismicRichText field={slice.primary.title} />
             <PrismicRichText field={slice.primary.text} />
-            <PrismicLink href="/">
-                <a className="ButtonTransparent">
-                    {slice?.items?.map((item, i) => (
-                        <span>{item.button_label}</span>
-                    ))}
-                </a>
-            </PrismicLink> */}
+            {slice?.items?.map((item, i) => (
+                <MyButton key={i} variant={false} link={item.button_url}>
+                    {item.button_label}
+                </MyButton>
+            ))}
         </section>
     );
 };

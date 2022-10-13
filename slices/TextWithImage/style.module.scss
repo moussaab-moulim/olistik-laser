@@ -1,74 +1,19 @@
-// .LeftSliceWrapper {
-//     display: flex;
-//     justify-items: center;
-//     justify-content: center;
-//     flex-direction: row;
-//     color: white;
-
-//     .textWrapper {
-//         flex-basis: 50%;
-//         padding: 90px 10%;
-
-//         ul {
-//             list-style: inside;
-//             margin-bottom: 41px;
-//         }
-//         h2 {
-//             font-size: 50px;
-//             margin-bottom: 41px;
-//         }
-
-//         p {
-//             margin-bottom: 30px;
-//         }
-//     }
-//     .imageWrapper {
-//         flex-basis: 50%;
-//         display: flex;
-//         align-items: center;
-//     }
-// }
-
-// .RightSliceWrapper {
-//     display: flex;
-//     justify-items: center;
-//     justify-content: center;
-//     align-items: center;
-//     flex-direction: row;
-
-//     .textWrapper {
-//         flex-basis: 50%;
-//         padding: 75px 10% 75px 0;
-
-//         h2 {
-//             font-size: 50px;
-//             margin-bottom: 25px;
-//         }
-//     }
-//     .imageWrapper {
-//         flex-basis: 50%;
-//         display: flex;
-//         justify-content: center;
-//     }
-// }
-
+// Style when Text is in the Left Side
 .LeftSliceWrapper {
     display: flex;
     justify-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
     color: white;
-
     .textWrapper {
-        padding: 90px 10%;
         text-align: center;
+        padding: 90px 10%;
         ul {
             list-style: inside;
-            margin-bottom: 41px;
+            margin-bottom: 40px;
         }
         h2 {
-            font-size: 36px;
-            margin-bottom: 41px;
+            margin-bottom: 40px;
         }
 
         p {
@@ -76,24 +21,23 @@
         }
     }
     .imageWrapper {
-        margin-bottom: 90px;
+        margin-top: 90px;
     }
 }
 
+// Style when Text is in the Right Side
 .RightSliceWrapper {
     display: flex;
-    flex-direction: column;
-    padding: 40px 10% 70px 10%;
-
+    flex-direction: column-reverse;
+    padding: 90px 10%;
+    color: white;
     .textWrapper {
         text-align: center;
-        div {
-            margin-bottom: 64px;
-        }
-
         h2 {
-            font-size: 34px;
-            margin-bottom: 25px;
+            padding: 40px 0;
+        }
+        p {
+            margin-bottom: 30px;
         }
     }
 
@@ -103,41 +47,35 @@
     }
 }
 
-//  < -- BREAK POINT -- >
-@media (min-width: 1024px) {
+//  < -- DESKTOP BREAK POINT -- >
+@media (min-width: 1025px) {
+    // Style when Text is in the Left Side
     .LeftSliceWrapper {
         flex-direction: row;
+        padding-right: 0;
         .textWrapper {
             flex-basis: 50%;
             text-align: left;
-            padding: 70px 13%;
-
-            h2 {
-                font-size: 50px;
-            }
         }
         .imageWrapper {
             flex-basis: 50%;
+            padding: 90px 0;
             display: flex;
             align-items: center;
-            margin-bottom: 0;
+            margin-top: 0;
         }
     }
 
+    // Style when Text is in the Left Side
     .RightSliceWrapper {
-        flex-direction: row;
+        flex-direction: row-reverse;
         padding: 0;
         .textWrapper {
             text-align: left;
             flex-basis: 50%;
-            padding: 50px 10% 70px 0;
-
+            padding: 90px 10% 90px 0;
             h2 {
-                font-size: 50px;
-            }
-
-            div {
-                margin-bottom: 32px;
+                padding-top: 0;
             }
         }
         .imageWrapper {
