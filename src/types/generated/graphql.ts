@@ -120,7 +120,37 @@ export type PageInfo = {
   startCursor?: Maybe<Scalars['String']>;
 };
 
-export type PageSlices = PageSlicesCta | PageSlicesFaq | PageSlicesHero | PageSlicesText_With_Image;
+export type PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesText_With_Image;
+
+export type PageSlicesCards = {
+  __typename?: 'PageSlicesCards';
+  label?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  variation?: Maybe<PageSlicesCardsVariation>;
+};
+
+export type PageSlicesCardsDefault = {
+  __typename?: 'PageSlicesCardsDefault';
+  items?: Maybe<Array<PageSlicesCardsDefaultItems>>;
+  primary?: Maybe<PageSlicesCardsDefaultPrimary>;
+};
+
+export type PageSlicesCardsDefaultItems = {
+  __typename?: 'PageSlicesCardsDefaultItems';
+  button_label?: Maybe<Scalars['String']>;
+  button_url?: Maybe<_Linkable>;
+  description?: Maybe<Scalars['Json']>;
+  title?: Maybe<Scalars['Json']>;
+};
+
+export type PageSlicesCardsDefaultPrimary = {
+  __typename?: 'PageSlicesCardsDefaultPrimary';
+  description?: Maybe<Scalars['Json']>;
+  slice_id?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['Json']>;
+};
+
+export type PageSlicesCardsVariation = PageSlicesCardsDefault;
 
 export type PageSlicesCta = {
   __typename?: 'PageSlicesCta';
@@ -151,36 +181,6 @@ export type PageSlicesCtaDefaultPrimary = {
 };
 
 export type PageSlicesCtaVariation = PageSlicesCtaDefault;
-
-export type PageSlicesFaq = {
-  __typename?: 'PageSlicesFaq';
-  label?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  variation?: Maybe<PageSlicesFaqVariation>;
-};
-
-export type PageSlicesFaqDefault = {
-  __typename?: 'PageSlicesFaqDefault';
-  items?: Maybe<Array<PageSlicesFaqDefaultItems>>;
-  primary?: Maybe<PageSlicesFaqDefaultPrimary>;
-};
-
-export type PageSlicesFaqDefaultItems = {
-  __typename?: 'PageSlicesFaqDefaultItems';
-  button_label?: Maybe<Scalars['String']>;
-  button_link?: Maybe<_Linkable>;
-  list_text?: Maybe<Scalars['Json']>;
-  list_title?: Maybe<Scalars['Json']>;
-};
-
-export type PageSlicesFaqDefaultPrimary = {
-  __typename?: 'PageSlicesFaqDefaultPrimary';
-  slice_id?: Maybe<Scalars['String']>;
-  text?: Maybe<Scalars['Json']>;
-  title?: Maybe<Scalars['Json']>;
-};
-
-export type PageSlicesFaqVariation = PageSlicesFaqDefault;
 
 export type PageSlicesHero = {
   __typename?: 'PageSlicesHero';

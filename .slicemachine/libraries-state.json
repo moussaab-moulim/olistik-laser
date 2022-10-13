@@ -93,37 +93,37 @@
                 "title": [
                   {
                     "type": "paragraph",
-                    "text": "Ullamco irure aliqua ea cillum et esse nostrud aliqua laboris reprehenderit amet sunt.",
+                    "text": "Occaecat dolore do laboris irure eu labore anim.",
                     "spans": []
                   }
                 ],
                 "description": [
                   {
                     "type": "paragraph",
-                    "text": "Magna et exercitation tempor ipsum qui sit eu.",
+                    "text": "Ex et sit adipisicing ad sit elit cupidatat voluptate reprehenderit tempor reprehenderit do nostrud. Sit consequat et est labore anim aute enim ea ut deserunt amet nisi enim.",
                     "spans": []
                   }
                 ],
-                "button_label": "early",
+                "button_label": "while",
                 "button_url": {
                   "link_type": "Web",
-                  "url": "http://twitter.com"
+                  "url": "https://slicemachine.dev"
                 }
               }
             ],
             "primary": {
-              "slice_id": "dry",
+              "slice_id": "jar",
               "title": [
                 {
                   "type": "heading1",
-                  "text": "Quarter",
+                  "text": "Possible",
                   "spans": []
                 }
               ],
               "description": [
                 {
                   "type": "paragraph",
-                  "text": "Veniam commodo dolore voluptate id. Fugiat duis incididunt ea occaecat ullamco sint quis enim ullamco. Do minim proident labore cillum reprehenderit culpa enim pariatur consectetur aliqua velit aute.",
+                  "text": "Occaecat dolore dolore amet eiusmod nulla Lorem sit officia.",
                   "spans": []
                 }
               ]
@@ -133,7 +133,7 @@
         },
         "meta": {
           "fileName": "index",
-          "extension": "js"
+          "extension": "tsx"
         },
         "screenshotPaths": {
           "default": {

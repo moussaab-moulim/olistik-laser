@@ -1,9 +1,51 @@
-import MyComponent from '../../../../slices/Cards';
+import MyComponent from "../../../../slices/Cards";
 
 export default {
-  title: 'slices/Cards'
-}
+    title: "slices/Cards",
+};
 
-
-export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{"title":[{"type":"paragraph","text":"Ullamco irure aliqua ea cillum et esse nostrud aliqua laboris reprehenderit amet sunt.","spans":[]}],"description":[{"type":"paragraph","text":"Magna et exercitation tempor ipsum qui sit eu.","spans":[]}],"button_label":"early","button_url":{"link_type":"Web","url":"http://twitter.com"}}],"primary":{"slice_id":"dry","title":[{"type":"heading1","text":"Quarter","spans":[]}],"description":[{"type":"paragraph","text":"Veniam commodo dolore voluptate id. Fugiat duis incididunt ea occaecat ullamco sint quis enim ullamco. Do minim proident labore cillum reprehenderit culpa enim pariatur consectetur aliqua velit aute.","spans":[]}]},"slice_type":"cards","id":"_Default"}} />
-_Default.storyName = ''
+export const _Default = () => (
+    <MyComponent
+        slice={{
+            variation: "default",
+            version: "sktwi1xtmkfgx8626",
+            items: [
+                {
+                    title: [
+                        {
+                            type: "paragraph",
+                            text: "Occaecat dolore do laboris irure eu labore anim.",
+                            spans: [],
+                        },
+                    ],
+                    description: [
+                        {
+                            type: "paragraph",
+                            text: "Ex et sit adipisicing ad sit elit cupidatat voluptate reprehenderit tempor reprehenderit do nostrud. Sit consequat et est labore anim aute enim ea ut deserunt amet nisi enim.",
+                            spans: [],
+                        },
+                    ],
+                    button_label: "while",
+                    button_url: {
+                        link_type: "Web",
+                        url: "https://slicemachine.dev",
+                    },
+                },
+            ],
+            primary: {
+                slice_id: "jar",
+                title: [{ type: "heading1", text: "Possible", spans: [] }],
+                description: [
+                    {
+                        type: "paragraph",
+                        text: "Occaecat dolore dolore amet eiusmod nulla Lorem sit officia.",
+                        spans: [],
+                    },
+                ],
+            },
+            slice_type: "cards",
+            id: "_Default",
+        }}
+    />
+);
+_Default.storyName = "";
