@@ -11,6 +11,7 @@ interface CtaProps {
 const Cta = ({ slice }: CtaProps) => {
     return (
         <section
+            id={slice.primary.slice_id ?? ""}
             className={`container ${Style.CtaWrapper}`}
             style={{ backgroundColor: `${slice.primary.background_color}` }}
         >
