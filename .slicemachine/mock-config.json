@@ -5,6 +5,20 @@
     "navigation": {
       "action_group": {},
       "links": {}
+    },
+    "settings": {
+      "contact_title": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      },
+      "contact_description": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
     }
   },
   "slices": {
@@ -97,6 +111,7 @@
           }
         }
       }
-    }
+    },
+    "Contact": {}
   }
 }

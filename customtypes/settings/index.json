@@ -70,31 +70,39 @@
           "label": "domain",
           "placeholder": ""
         }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
       }
     },
     "Contact": {
-      "social_media": {
-        "type": "Group",
+      "contact_title": {
+        "type": "StructuredText",
         "config": {
-          "label": "social media",
-          "fields": {
-            "icon": {
-              "type": "Text",
-              "config": {
-                "label": "icon",
-                "placeholder": ""
-              }
-            },
-            "link": {
-              "type": "Link",
-              "config": {
-                "label": "link",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "select": null
-              }
-            }
-          }
+          "label": "contact title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+        }
+      },
+      "contact_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "contact description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "slices1": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
         }
       }
     }

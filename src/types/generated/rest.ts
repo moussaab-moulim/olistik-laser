@@ -295,43 +295,60 @@ interface SettingsDocumentData {
      */
     domain: prismicT.KeyTextField;
     /**
-     * social media field in *Settings*
+     * Slice Zone field in *Settings*
      *
-     * - **Field Type**: Group
+     * - **Field Type**: Slice Zone
      * - **Placeholder**: *None*
-     * - **API ID Path**: settings.social_media[]
-     * - **Tab**: Contact
-     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     * - **API ID Path**: settings.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
      *
      */
-    social_media: prismicT.GroupField<Simplify<SettingsDocumentDataSocialMediaItem>>;
+    slices: prismicT.SliceZone<SettingsDocumentDataSlicesSlice>;
+    /**
+     * contact title field in *Settings*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.contact_title
+     * - **Tab**: Contact
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    contact_title: prismicT.RichTextField;
+    /**
+     * contact description field in *Settings*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.contact_description
+     * - **Tab**: Contact
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    contact_description: prismicT.RichTextField;
+    /**
+     * Slice Zone field in *Settings*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.slices1[]
+     * - **Tab**: Contact
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices1: prismicT.SliceZone<SettingsDocumentDataSlices1Slice>;
 }
 /**
- * Item in Settings → social media
+ * Slice for *Settings → Slice Zone*
  *
  */
-export interface SettingsDocumentDataSocialMediaItem {
-    /**
-     * icon field in *Settings → social media*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: settings.social_media[].icon
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    icon: prismicT.KeyTextField;
-    /**
-     * link field in *Settings → social media*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: settings.social_media[].link
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    link: prismicT.LinkField;
-}
+type SettingsDocumentDataSlicesSlice = never;
+/**
+ * Slice for *Settings → Slice Zone*
+ *
+ */
+type SettingsDocumentDataSlices1Slice = never;
 /**
  * Settings document from Prismic
  *
@@ -924,6 +941,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocumentDataActionGroupItem, NavigationDocumentDataSlicesSlice, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, PostDocumentData, PostDocument, SettingsDocumentData, SettingsDocumentDataSocialMediaItem, SettingsDocument, AllDocumentTypes, CardsSliceDefaultPrimary, CardsSliceDefaultItem, CardsSliceDefault, CardsSliceVariation, CardsSlice, CtaSliceDefaultPrimary, CtaSliceDefaultItem, CtaSliceDefault, CtaSliceVariation, CtaSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceNoActionHeroPrimary, HeroSliceNoActionHero, HeroSliceVariation, HeroSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefaultItem, TextWithImageSliceDefault, TextWithImageSliceRightTextPrimary, TextWithImageSliceRightTextItem, TextWithImageSliceRightText, TextWithImageSliceVariation, TextWithImageSlice };
+        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocumentDataActionGroupItem, NavigationDocumentDataSlicesSlice, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, PostDocumentData, PostDocument, SettingsDocumentData, SettingsDocumentDataSlicesSlice, SettingsDocumentDataSlices1Slice, SettingsDocument, AllDocumentTypes, CardsSliceDefaultPrimary, CardsSliceDefaultItem, CardsSliceDefault, CardsSliceVariation, CardsSlice, CtaSliceDefaultPrimary, CtaSliceDefaultItem, CtaSliceDefault, CtaSliceVariation, CtaSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceNoActionHeroPrimary, HeroSliceNoActionHero, HeroSliceVariation, HeroSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefaultItem, TextWithImageSliceDefault, TextWithImageSliceRightTextPrimary, TextWithImageSliceRightTextItem, TextWithImageSliceRightText, TextWithImageSliceVariation, TextWithImageSlice };
     }
 }
