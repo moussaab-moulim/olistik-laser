@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { PrismicRichText } from "@prismicio/react";
+import React, { FC, Fragment } from "react";
+import { PrismicImage, PrismicRichText } from "@prismicio/react";
 import { HeroSlice } from "@customtypes/rest";
 import Style from "./style.module.scss";
 import { MyButton } from "@components/button";
@@ -29,13 +29,19 @@ const Hero: FC<HeroProps> = ({ slice }: HeroProps) => {
                 <PrismicRichText field={slice.primary.title} />
                 <PrismicRichText field={slice.primary.text} />
 
-                {slice?.items?.map((item, i) => (
-                    <MyButton key={i} link={item.button_url} variant={true}>
-                        {item.button_label}
-                    </MyButton>
-                ))}
-            </div>
-        </section>
+                        {slice?.items?.map((item, i) => (
+                            <MyButton
+                                key={i}
+                                link={item.button_url}
+                                variant={true}
+                            >
+                                {item.button_label}
+                            </MyButton>
+                        ))}
+                    </div>
+                </section>
+            )}
+        </Fragment>
     );
 };
 
