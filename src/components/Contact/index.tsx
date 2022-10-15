@@ -25,86 +25,91 @@ interface ContactProps {
 const Contact: FC<ContactProps> = ({ title, description }) => {
     return (
         <section id={"contact"} className={`container ${Style.contactWrapper}`}>
-            <div className={`${Style.LeftSide}`}>
-                <div className={` ${Style.LeftHead}`}>
-                    <PrismicRichText field={title} />
-                </div>
-
-                <PrismicRichText field={description} />
+            <div className={` ${Style.contactHeader}`}>
+                <PrismicRichText field={title} />
             </div>
-            <form className={`${Style.RightSide}`}>
-                <VStack spacing={5}>
-                    <FormControl id="name" isRequired>
-                        <FormLabel>Votre Nom</FormLabel>
-                        <InputGroup borderColor="#E0E1E7">
-                            <InputLeftElement
-                                pointerEvents="none"
-                                children={<BsPerson color="gray.500" />}
-                            />
+            <div className={` ${Style.dataWrapper}`}>
+                <div className={`${Style.LeftSide}`}>
+                    <PrismicRichText field={description} />
+                </div>
+                <form className={`${Style.RightSide}`}>
+                    <VStack spacing={5}>
+                        <FormControl id="name" isRequired>
+                            <FormLabel>Votre Nom</FormLabel>
+                            <InputGroup borderColor="#E0E1E7">
+                                <InputLeftElement
+                                    pointerEvents="none"
+                                    children={<BsPerson color="gray.500" />}
+                                />
 
-                            <Input
+                                <Input
+                                    focusBorderColor={"black"}
+                                    type="text"
+                                    size="md"
+                                />
+                            </InputGroup>
+                        </FormControl>
+                        <FormControl id="name" isRequired>
+                            <FormLabel>Téléphone</FormLabel>
+                            <InputGroup borderColor="#E0E1E7">
+                                <InputLeftElement
+                                    pointerEvents="none"
+                                    children={
+                                        <MdOutlinePhone color="gray.500" />
+                                    }
+                                />
+                                <Input
+                                    focusBorderColor={"black"}
+                                    type="text"
+                                    size="md"
+                                />
+                            </InputGroup>
+                        </FormControl>
+                        <FormControl id="name" isRequired>
+                            <FormLabel>Mail</FormLabel>
+                            <InputGroup borderColor="#E0E1E7">
+                                <InputLeftElement
+                                    pointerEvents="none"
+                                    children={
+                                        <MdOutlineEmail color="gray.500" />
+                                    }
+                                />
+                                <Input
+                                    focusBorderColor={"black"}
+                                    type="text"
+                                    size="md"
+                                />
+                            </InputGroup>
+                        </FormControl>
+                        <FormControl id="name">
+                            <FormLabel>Message</FormLabel>
+                            <Textarea
+                                borderColor="gray.300"
                                 focusBorderColor={"black"}
-                                type="text"
-                                size="md"
+                                rows={5}
+                                _hover={{
+                                    borderRadius: "gray.300",
+                                }}
+                                placeholder="message"
                             />
-                        </InputGroup>
-                    </FormControl>
-                    <FormControl id="name" isRequired>
-                        <FormLabel>Téléphone</FormLabel>
-                        <InputGroup borderColor="#E0E1E7">
-                            <InputLeftElement
-                                pointerEvents="none"
-                                children={<MdOutlinePhone color="gray.500" />}
-                            />
-                            <Input
-                                focusBorderColor={"black"}
-                                type="text"
-                                size="md"
-                            />
-                        </InputGroup>
-                    </FormControl>
-                    <FormControl id="name" isRequired>
-                        <FormLabel>Mail</FormLabel>
-                        <InputGroup borderColor="#E0E1E7">
-                            <InputLeftElement
-                                pointerEvents="none"
-                                children={<MdOutlineEmail color="gray.500" />}
-                            />
-                            <Input
-                                focusBorderColor={"black"}
-                                type="text"
-                                size="md"
-                            />
-                        </InputGroup>
-                    </FormControl>
-                    <FormControl id="name">
-                        <FormLabel>Message</FormLabel>
-                        <Textarea
-                            borderColor="gray.300"
-                            focusBorderColor={"black"}
-                            rows={5}
-                            _hover={{
-                                borderRadius: "gray.300",
-                            }}
-                            placeholder="message"
-                        />
-                    </FormControl>
-                    <FormControl id="name" float="right">
-                        <Button
-                            variant="solid"
-                            borderRadius={0}
-                            bg="#f8e0de"
-                            color="black"
-                            fontSize={13}
-                            _hover={{
-                                backgroundColor: "#f4ccc9",
-                            }}
-                        >
-                            Envoyer Le Message
-                        </Button>
-                    </FormControl>
-                </VStack>
-            </form>
+                        </FormControl>
+                        <FormControl id="name" float="right">
+                            <Button
+                                variant="solid"
+                                borderRadius={0}
+                                bg="#f8e0de"
+                                color="black"
+                                fontSize={13}
+                                _hover={{
+                                    backgroundColor: "#f4ccc9",
+                                }}
+                            >
+                                Envoyer Le Message
+                            </Button>
+                        </FormControl>
+                    </VStack>
+                </form>
+            </div>
         </section>
     );
 };
