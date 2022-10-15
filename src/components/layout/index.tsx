@@ -4,7 +4,7 @@ import { Header } from "@components/header";
 import { PageSeo } from "@customtypes/common";
 import { NavigationDocument } from "@customtypes/rest";
 import { NextSeo } from "next-seo";
-import React, { ReactNode } from "react";
+import React, { FC, ReactNode } from "react";
 
 interface IProps {
     navigation: NavigationDocument;
@@ -12,7 +12,11 @@ interface IProps {
     children: ReactNode;
 }
 
-export const Layout = ({ navigation, settings, children }: IProps) => {
+export const Layout: FC<IProps> = ({
+    navigation,
+    settings,
+    children,
+}: IProps) => {
     return (
         <div className="">
             <NextSeo

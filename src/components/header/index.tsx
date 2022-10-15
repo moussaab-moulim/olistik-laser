@@ -9,6 +9,7 @@ import { PrismicLink } from "@prismicio/react";
 import Style from "./style.module.scss";
 import { MyButton } from "@components/button";
 import { Fragment } from "react";
+import { isFilled } from "@prismicio/helpers";
 
 interface HeaderProps {
     navigation: NavigationDocument;
@@ -24,16 +25,18 @@ export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
             <div className={`${Style.navMain}`}>
                 {/* < -- DESKTOP LOGO -- > */}
                 <div className={`${Style.logo}`}>
-                    <Link href="/">
-                        <a>
-                            <Image
-                                src={logo.url!}
-                                alt={logo.alt!}
-                                height={28}
-                                width={120}
-                            />
-                        </a>
-                    </Link>
+                    {isFilled.image(logo) && (
+                        <Link href="/" passHref>
+                            <a>
+                                <Image
+                                    src={logo.url}
+                                    alt={logo.alt ?? "logo"}
+                                    height={28}
+                                    width={120}
+                                />
+                            </a>
+                        </Link>
+                    )}
                 </div>
 
                 {/* < -- DESKTOP NAV BAR -- > */}
