@@ -1,7 +1,6 @@
 import React, { FC } from "react";
-import { PrismicLink, PrismicRichText } from "@prismicio/react";
+import { PrismicRichText } from "@prismicio/react";
 import { HeroSlice } from "@customtypes/rest";
-import Link from "next/link";
 import Style from "./style.module.scss";
 import { MyButton } from "@components/button";
 
@@ -12,7 +11,11 @@ interface HeroProps {
 const Hero: FC<HeroProps> = ({ slice }: HeroProps) => {
     return (
         <section
-            className={`${Style.HeroWrapper}`}
+            className={`${
+                slice.variation === "default"
+                    ? Style.HeroWrapper
+                    : Style.HeroBreak
+            }`}
             style={{
                 backgroundImage: `url(${slice.primary.background_image.url})`,
                 backgroundSize: `cover`,
