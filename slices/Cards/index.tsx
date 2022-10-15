@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { PrismicRichText } from "@prismicio/react";
 import { CardsSlice } from "@customtypes/rest";
 import Style from "./style.module.scss";
@@ -19,7 +19,7 @@ import { RichTextField } from "@prismicio/types";
 interface CardsProps {
     slice: CardsSlice;
 }
-const Cards = ({ slice }: CardsProps) => {
+const Cards: FC<CardsProps> = ({ slice }: CardsProps) => {
     const [isLargerThan1025] = useMediaQuery("(min-width: 1025px)");
     const initialText = asText(slice.items[0].title);
     const [contentTitle, setContentTitle] = useState(initialText);
