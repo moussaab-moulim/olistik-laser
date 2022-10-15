@@ -57,6 +57,9 @@
             },
             "text_with_image": {
               "type": "SharedSlice"
+            },
+            "tarifs": {
+              "type": "SharedSlice"
             }
           }
         }

@@ -117,7 +117,7 @@ type PageInfo {
   startCursor: String
 }
 
-union PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesText_with_image
+union PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesTarifs | PageSlicesText_with_image
 
 type PageSlicesCards {
   label: String
@@ -208,6 +208,33 @@ type PageSlicesHeroNoactionheroPrimary {
 }
 
 union PageSlicesHeroVariation = PageSlicesHeroDefault | PageSlicesHeroNoactionhero
+
+type PageSlicesTarifs {
+  label: String
+  type: String
+  variation: PageSlicesTarifsVariation
+}
+
+type PageSlicesTarifsDefault {
+  items: [PageSlicesTarifsDefaultItems!]
+  primary: PageSlicesTarifsDefaultPrimary
+}
+
+type PageSlicesTarifsDefaultItems {
+  button_label: String
+  button_link: _Linkable
+  price: String
+  price_description: Json
+  price_title: Json
+}
+
+type PageSlicesTarifsDefaultPrimary {
+  description: Json
+  slice_id: String
+  title: Json
+}
+
+union PageSlicesTarifsVariation = PageSlicesTarifsDefault
 
 type PageSlicesText_with_image {
   label: String
