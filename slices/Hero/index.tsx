@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { HeroSlice } from "@customtypes/rest";
 import Link from "next/link";
@@ -9,7 +9,7 @@ interface HeroProps {
     slice: HeroSlice;
 }
 
-const Hero = ({ slice }: HeroProps) => {
+const Hero: FC<HeroProps> = ({ slice }: HeroProps) => {
     return (
         <section
             className={`${Style.HeroWrapper}`}

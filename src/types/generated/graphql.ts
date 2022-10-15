@@ -120,7 +120,7 @@ export type PageInfo = {
   startCursor?: Maybe<Scalars['String']>;
 };
 
-export type PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesText_With_Image;
+export type PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesTarifs | PageSlicesText_With_Image;
 
 export type PageSlicesCards = {
   __typename?: 'PageSlicesCards';
@@ -225,6 +225,37 @@ export type PageSlicesHeroNoactionheroPrimary = {
 };
 
 export type PageSlicesHeroVariation = PageSlicesHeroDefault | PageSlicesHeroNoactionhero;
+
+export type PageSlicesTarifs = {
+  __typename?: 'PageSlicesTarifs';
+  label?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  variation?: Maybe<PageSlicesTarifsVariation>;
+};
+
+export type PageSlicesTarifsDefault = {
+  __typename?: 'PageSlicesTarifsDefault';
+  items?: Maybe<Array<PageSlicesTarifsDefaultItems>>;
+  primary?: Maybe<PageSlicesTarifsDefaultPrimary>;
+};
+
+export type PageSlicesTarifsDefaultItems = {
+  __typename?: 'PageSlicesTarifsDefaultItems';
+  button_label?: Maybe<Scalars['String']>;
+  button_link?: Maybe<_Linkable>;
+  price?: Maybe<Scalars['String']>;
+  price_description?: Maybe<Scalars['Json']>;
+  price_title?: Maybe<Scalars['Json']>;
+};
+
+export type PageSlicesTarifsDefaultPrimary = {
+  __typename?: 'PageSlicesTarifsDefaultPrimary';
+  description?: Maybe<Scalars['Json']>;
+  slice_id?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['Json']>;
+};
+
+export type PageSlicesTarifsVariation = PageSlicesTarifsDefault;
 
 export type PageSlicesText_With_Image = {
   __typename?: 'PageSlicesText_with_image';

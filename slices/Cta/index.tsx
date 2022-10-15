@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { PrismicRichText } from "@prismicio/react";
 import { CtaSlice } from "@customtypes/rest";
 
@@ -8,7 +8,7 @@ import { MyButton } from "@components/button";
 interface CtaProps {
     slice: CtaSlice;
 }
-const Cta = ({ slice }: CtaProps) => {
+const Cta: FC<CtaProps> = ({ slice }: CtaProps) => {
     return (
         <section
             id={slice.primary.slice_id ?? ""}

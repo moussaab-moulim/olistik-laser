@@ -192,7 +192,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = HeroSlice | CtaSlice | CardsSlice | TextWithImageSlice;
+type PageDocumentDataSlicesSlice = HeroSlice | CtaSlice | CardsSlice | TextWithImageSlice | TarifsSlice;
 /**
  * Page document from Prismic
  *
@@ -741,6 +741,121 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceNoActionHero;
  */
 export type HeroSlice = prismicT.SharedSlice<"hero", HeroSliceVariation>;
 /**
+ * Primary content in Tarifs → Primary
+ *
+ */
+interface TarifsSliceDefaultPrimary {
+    /**
+     * slice id field in *Tarifs → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: tarifs.primary.slice_id
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    slice_id: prismicT.KeyTextField;
+    /**
+     * Title field in *Tarifs → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: tarifs.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *Tarifs → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: tarifs.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Item in Tarifs → Items
+ *
+ */
+export interface TarifsSliceDefaultItem {
+    /**
+     * price title field in *Tarifs → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: tarifs.items[].price_title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    price_title: prismicT.RichTextField;
+    /**
+     * price description field in *Tarifs → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: tarifs.items[].price_description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    price_description: prismicT.RichTextField;
+    /**
+     * price field in *Tarifs → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: tarifs.items[].price
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    price: prismicT.KeyTextField;
+    /**
+     * button label field in *Tarifs → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: tarifs.items[].button_label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    button_label: prismicT.KeyTextField;
+    /**
+     * button link field in *Tarifs → Items*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: tarifs.items[].button_link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    button_link: prismicT.LinkField;
+}
+/**
+ * Default variation for Tarifs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Tarifs`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TarifsSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<TarifsSliceDefaultPrimary>, Simplify<TarifsSliceDefaultItem>>;
+/**
+ * Slice variation for *Tarifs*
+ *
+ */
+type TarifsSliceVariation = TarifsSliceDefault;
+/**
+ * Tarifs Shared Slice
+ *
+ * - **API ID**: `tarifs`
+ * - **Description**: `Tarifs`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TarifsSlice = prismicT.SharedSlice<"tarifs", TarifsSliceVariation>;
+/**
  * Primary content in TextWithImage → Primary
  *
  */
@@ -941,6 +1056,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocumentDataActionGroupItem, NavigationDocumentDataSlicesSlice, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, PostDocumentData, PostDocument, SettingsDocumentData, SettingsDocumentDataSlicesSlice, SettingsDocumentDataSlices1Slice, SettingsDocument, AllDocumentTypes, CardsSliceDefaultPrimary, CardsSliceDefaultItem, CardsSliceDefault, CardsSliceVariation, CardsSlice, CtaSliceDefaultPrimary, CtaSliceDefaultItem, CtaSliceDefault, CtaSliceVariation, CtaSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceNoActionHeroPrimary, HeroSliceNoActionHero, HeroSliceVariation, HeroSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefaultItem, TextWithImageSliceDefault, TextWithImageSliceRightTextPrimary, TextWithImageSliceRightTextItem, TextWithImageSliceRightText, TextWithImageSliceVariation, TextWithImageSlice };
+        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocumentDataActionGroupItem, NavigationDocumentDataSlicesSlice, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, PostDocumentData, PostDocument, SettingsDocumentData, SettingsDocumentDataSlicesSlice, SettingsDocumentDataSlices1Slice, SettingsDocument, AllDocumentTypes, CardsSliceDefaultPrimary, CardsSliceDefaultItem, CardsSliceDefault, CardsSliceVariation, CardsSlice, CtaSliceDefaultPrimary, CtaSliceDefaultItem, CtaSliceDefault, CtaSliceVariation, CtaSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceNoActionHeroPrimary, HeroSliceNoActionHero, HeroSliceVariation, HeroSlice, TarifsSliceDefaultPrimary, TarifsSliceDefaultItem, TarifsSliceDefault, TarifsSliceVariation, TarifsSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefaultItem, TextWithImageSliceDefault, TextWithImageSliceRightTextPrimary, TextWithImageSliceRightTextItem, TextWithImageSliceRightText, TextWithImageSliceVariation, TextWithImageSlice };
     }
 }
