@@ -1,6 +1,8 @@
-import React, { CSSProperties } from "react";
-import { Flex, Center } from "@chakra-ui/react";
-
+import React from "react";
+import { NavigationDocument } from "@customtypes/rest";
+import { ImageField } from "@prismicio/types";
+import Image from "next/image";
+import Style from "./style.module.scss";
 import {
     PankodIcon,
     GithubIcon,
@@ -8,51 +10,40 @@ import {
     YoutubeIcon,
     LinkedinIcon,
 } from "@components/icons";
+import Link from "next/link";
 
-export const Footer: React.FC = () => {
-    const iconStyle: CSSProperties = {
-        fontSize: 22,
-        color: "#fff",
-        marginRight: "0.25rem",
-        marginLeft: "0.25rem",
-    };
+interface FooterProps {
+    navigation: NavigationDocument;
+    logo: ImageField;
+}
+export const Footer: React.FC<FooterProps> = ({ navigation, logo }) => {
     return (
-        <Center bg="main.100" py={10}>
-            <Flex flexDirection="column">
-                <a href="https://github.com/pankod" target="_blank">
-                    <PankodIcon color="white" width="140" height="28" />
-                </a>
-                <Flex mt={5}>
-                    <a
-                        href="https://github.com/pankod"
-                        target="_blank"
-                        style={iconStyle}
-                    >
-                        <GithubIcon color="white" width="28" height="29" />
-                    </a>
-                    <a
-                        href="https://twitter.com/PankodDev"
-                        target="_blank"
-                        style={iconStyle}
-                    >
-                        <TwitterIcon color="white" width="28" height="28" />
-                    </a>
-                    <a
-                        href="https://www.youtube.com/channel/UCBGOeQkv1XW3ptryLWlQbAQ"
-                        target="_blank"
-                        style={iconStyle}
-                    >
-                        <YoutubeIcon color="white" width="28" height="29" />
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/company/pankod-yazilim-ve-danismanlik/"
-                        target="_blank"
-                        style={iconStyle}
-                    >
-                        <LinkedinIcon color="white" width="28" height="32" />
-                    </a>
-                </Flex>
-            </Flex>
-        </Center>
+        <footer className={` ${Style.footerWrapper}`}>
+            <div className={` ${Style.container}`}>
+                <div className={`${Style.LinkArea}`}>
+                    <Link href="/">
+                        <a>
+                            <Image
+                                src={logo.url!}
+                                alt={logo.alt!}
+                                height={28}
+                                width={120}
+                            />
+                        </a>
+                    </Link>
+                </div>
+                <div className={`${Style.copyrightArea}`}>
+                    <p>© 2022 OLISTIK. All rights reserved</p>
+                    <div className={`${Style.design}`}>
+                        <p>
+                            developed by{" "}
+                            <Link href={"https://uchihadigital.com/"} passHref>
+                                <a target={"_blank"}>Uchiha Digital.</a>
+                            </Link>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
     );
 };

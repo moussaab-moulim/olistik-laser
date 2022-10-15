@@ -152,7 +152,7 @@ export const Layout = ({ navigation, settings, children }: IProps) => {
                     description={settings.contact_description}
                 />
             </main>
-            <Footer />
+            <Footer navigation={navigation} logo={settings.logo} />
         </div>
     );
 };

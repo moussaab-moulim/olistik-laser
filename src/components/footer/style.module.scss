@@ -1,0 +1,43 @@
+.footerWrapper {
+    background-color: black;
+    padding: 40px 10% 90px 10%;
+    display: flex;
+    justify-content: center;
+    .container {
+        max-width: 1280px;
+        width: 100%;
+        .LinkArea {
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+            margin-bottom: 20px;
+            @media (min-width: 1025px) {
+                justify-content: space-between;
+                border-top: 0;
+                border-bottom: solid 1px #666;
+                padding-top: 0;
+                padding-bottom: 20px;
+            }
+        }
+        .copyrightArea {
+            font-size: 11px;
+            color: #89898c;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @media (min-width: 1025px) {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .design {
+                display: flex;
+                flex-direction: row;
+                gap: 6px;
+                a {
+                    text-underline-offset: 3px;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
