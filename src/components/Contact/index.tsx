@@ -19,7 +19,7 @@ import React, { FC } from "react";
 import Style from "./style.module.scss";
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { object, string } from "yup";
 
 interface ContactProps {
     title: RichTextField;
@@ -32,16 +32,15 @@ interface IProps {
     message: string;
 }
 
-const schema = yup.object({
-    name: yup.string().required("Veuillez remplir ce champ"),
-    phone: yup.string().nullable(false).required("Veuillez remplir ce champ"),
-    mail: yup
-        .string()
+const schema = object({
+    name: string().required("Veuillez remplir ce champ"),
+    phone: string().nullable(false).required("Veuillez remplir ce champ"),
+    mail: string()
         .nullable(false)
         .email("Format invalide")
         .required("Veuillez remplir ce champ"),
 
-    message: yup.string().nullable(false).required("Veuillez remplir ce champ"),
+    message: string().nullable(false).required("Veuillez remplir ce champ"),
 });
 
 const Contact: FC<ContactProps> = ({ title, description }) => {
