@@ -1,0 +1,35 @@
+.contactWrapper {
+    color: black;
+    .contactHeader {
+        text-align: center;
+        padding-bottom: 40px;
+    }
+    .dataWrapper {
+        color: black;
+        @media (min-width: 1025px) {
+            display: flex;
+        }
+        .LeftSide {
+            padding-bottom: 30px;
+            @media (min-width: 1025px) {
+                flex-basis: 50%;
+                padding-bottom: 0;
+            }
+
+            h3 {
+                font-size: 22px;
+                padding-bottom: 20px;
+            }
+        }
+        .RightSide {
+            @media (min-width: 1025px) {
+                flex-basis: 50%;
+            }
+            input,
+            textarea {
+                border-radius: 0;
+                resize: none;
+            }
+        }
+    }
+}

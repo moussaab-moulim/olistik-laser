@@ -1,6 +1,5 @@
 import {
     Maybe,
-    Meta,
     Navigation,
     NavigationLinks,
     Page,
@@ -8,8 +7,7 @@ import {
     _ExternalLink,
     _Linkable,
 } from "@customtypes/graphql";
-import { PageDocument as _PageDocument } from "@customtypes/rest";
-import { ImageField } from "@prismicio/types";
+import { ImageField, RichTextField } from "@prismicio/types";
 
 export interface PageSeo {
     featured_image: ImageField;
@@ -26,8 +24,9 @@ export interface PageSeo {
     path: string;
     locale: string;
     type: string;
-    social_media: any;
     twitterHandle?: string;
+    contact_title: RichTextField;
+    contact_description: RichTextField;
 }
 
 export interface CustomNavigationLink extends Omit<NavigationLinks, "link"> {

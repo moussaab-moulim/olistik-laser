@@ -11,9 +11,9 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
-    "site_name": "difficult",
-    "search_console_key": "spent",
-    "theme_color": "#c462af",
+    "site_name": "club",
+    "search_console_key": "any",
+    "theme_color": "#64d964",
     "logo": {
       "dimensions": {
         "width": 900,
@@ -21,7 +21,7 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a"
+      "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613"
     },
     "logo_invert": {
       "dimensions": {
@@ -30,7 +30,7 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764"
+      "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef"
     },
     "favico": {
       "dimensions": {
@@ -39,7 +39,7 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+      "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
       "md": {
         "dimensions": {
           "width": 32,
@@ -47,7 +47,7 @@
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9"
+        "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1"
       },
       "lg": {
         "dimensions": {
@@ -56,18 +56,25 @@
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2"
+        "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04"
       }
     },
-    "domain": "battle",
-    "social_media": [
+    "domain": "luck",
+    "slices": [],
+    "contact_title": [
       {
-        "icon": "north",
-        "link": {
-          "link_type": "Web",
-          "url": "https://prismic.io"
-        }
+        "type": "heading1",
+        "text": "Large",
+        "spans": []
       }
-    ]
+    ],
+    "contact_description": [
+      {
+        "type": "paragraph",
+        "text": "Esse nulla do proident sit. Incididunt aliquip incididunt deserunt non.",
+        "spans": []
+      }
+    ],
+    "slices1": []
   }
 }

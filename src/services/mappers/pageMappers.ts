@@ -1,6 +1,5 @@
-import { CustomPage, PageSeo } from "src/types/common";
+import { PageSeo } from "src/types/common";
 import { linkResolver } from "prismicio";
-import { Settings } from "@customtypes/graphql";
 import { PageDocument, SettingsDocument } from "@customtypes/rest";
 
 export const mapPageSeo = (
@@ -21,5 +20,6 @@ export const mapPageSeo = (
     path: linkResolver(page),
     type: page.type === "page" ? "website" : "article",
     locale: page.lang,
-    social_media: settings.data.social_media,
+    contact_title: settings.data.contact_title,
+    contact_description: settings.data.contact_description,
 });

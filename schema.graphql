@@ -303,13 +303,14 @@ type RelatedDocument {
 type Settings implements _Document & _Linkable {
   _linkType: String
   _meta: Meta!
+  contact_description: Json
+  contact_title: Json
   domain: String
   favico: Json
   logo: Json
   logo_invert: Json
   search_console_key: String
   site_name: String
-  social_media: [SettingsSocial_media!]
   theme_color: String
 }
 
@@ -330,11 +331,6 @@ type SettingsConnectionEdge {
 
   """The item at the end of the edge."""
   node: Settings!
-}
-
-type SettingsSocial_media {
-  icon: String
-  link: _Linkable
 }
 
 enum SortDocumentsBy {
@@ -372,6 +368,10 @@ enum SortPosty {
 }
 
 enum SortSettingsy {
+  contact_description_ASC
+  contact_description_DESC
+  contact_title_ASC
+  contact_title_DESC
   domain_ASC
   domain_DESC
   meta_firstPublicationDate_ASC
@@ -418,21 +418,17 @@ input WherePage {
 }
 
 input WhereSettings {
+  """contact_description"""
+  contact_description_fulltext: String
+
+  """contact_title"""
+  contact_title_fulltext: String
   domain: String
   domain_fulltext: String
   search_console_key: String
   search_console_key_fulltext: String
   site_name: String
   site_name_fulltext: String
-  social_media: WhereSettingsSocial_media
-}
-
-input WhereSettingsSocial_media {
-  icon: String
-  icon_fulltext: String
-
-  """link"""
-  link: String
 }
 
 """A prismic document"""

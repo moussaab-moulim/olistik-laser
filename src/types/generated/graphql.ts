@@ -457,13 +457,14 @@ export type Settings = _Document & _Linkable & {
   __typename?: 'Settings';
   _linkType?: Maybe<Scalars['String']>;
   _meta: Meta;
+  contact_description?: Maybe<Scalars['Json']>;
+  contact_title?: Maybe<Scalars['Json']>;
   domain?: Maybe<Scalars['String']>;
   favico?: Maybe<Scalars['Json']>;
   logo?: Maybe<Scalars['Json']>;
   logo_invert?: Maybe<Scalars['Json']>;
   search_console_key?: Maybe<Scalars['String']>;
   site_name?: Maybe<Scalars['String']>;
-  social_media?: Maybe<Array<SettingsSocial_Media>>;
   theme_color?: Maybe<Scalars['String']>;
 };
 
@@ -484,12 +485,6 @@ export type SettingsConnectionEdge = {
   cursor: Scalars['String'];
   /** The item at the end of the edge. */
   node: Settings;
-};
-
-export type SettingsSocial_Media = {
-  __typename?: 'SettingsSocial_media';
-  icon?: Maybe<Scalars['String']>;
-  link?: Maybe<_Linkable>;
 };
 
 export enum SortDocumentsBy {
@@ -527,6 +522,10 @@ export enum SortPosty {
 }
 
 export enum SortSettingsy {
+  ContactDescriptionAsc = 'contact_description_ASC',
+  ContactDescriptionDesc = 'contact_description_DESC',
+  ContactTitleAsc = 'contact_title_ASC',
+  ContactTitleDesc = 'contact_title_DESC',
   DomainAsc = 'domain_ASC',
   DomainDesc = 'domain_DESC',
   MetaFirstPublicationDateAsc = 'meta_firstPublicationDate_ASC',
@@ -571,20 +570,16 @@ export type WherePage = {
 };
 
 export type WhereSettings = {
+  /** contact_description */
+  contact_description_fulltext?: InputMaybe<Scalars['String']>;
+  /** contact_title */
+  contact_title_fulltext?: InputMaybe<Scalars['String']>;
   domain?: InputMaybe<Scalars['String']>;
   domain_fulltext?: InputMaybe<Scalars['String']>;
   search_console_key?: InputMaybe<Scalars['String']>;
   search_console_key_fulltext?: InputMaybe<Scalars['String']>;
   site_name?: InputMaybe<Scalars['String']>;
   site_name_fulltext?: InputMaybe<Scalars['String']>;
-  social_media?: InputMaybe<WhereSettingsSocial_Media>;
-};
-
-export type WhereSettingsSocial_Media = {
-  icon?: InputMaybe<Scalars['String']>;
-  icon_fulltext?: InputMaybe<Scalars['String']>;
-  /** link */
-  link?: InputMaybe<Scalars['String']>;
 };
 
 /** A prismic document */

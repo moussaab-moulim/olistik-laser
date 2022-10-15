@@ -1,6 +1,7 @@
+import Contact from "@components/Contact";
 import { Footer } from "@components/footer";
 import { Header } from "@components/header";
-import { CustomNavigation, PageSeo } from "@customtypes/common";
+import { PageSeo } from "@customtypes/common";
 import { NavigationDocument } from "@customtypes/rest";
 import { NextSeo } from "next-seo";
 import React, { ReactNode } from "react";
@@ -144,7 +145,13 @@ export const Layout = ({ navigation, settings, children }: IProps) => {
                 // site_name={settings.site_name}
                 // social_media={settings.social_media ?? []}
             />
-            <main>{children}</main>
+            <main>
+                {children}
+                <Contact
+                    title={settings.contact_title}
+                    description={settings.contact_description}
+                />
+            </main>
             <Footer />
         </div>
     );
