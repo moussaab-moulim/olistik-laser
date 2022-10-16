@@ -10,6 +10,7 @@ import Style from "./style.module.scss";
 import { MyButton } from "@components/button";
 import { Fragment } from "react";
 import { isFilled } from "@prismicio/helpers";
+import { linkResolver } from "prismicio";
 
 interface HeaderProps {
     navigation: NavigationDocument;
@@ -45,7 +46,10 @@ export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
                         <ul>
                             {navigation?.data.links.map((navItem, i) => (
                                 <li className={`${Style.navItem}`} key={i}>
-                                    <PrismicLink field={navItem.link}>
+                                    <PrismicLink
+                                        linkResolver={linkResolver}
+                                        field={navItem.link}
+                                    >
                                         {navItem.label}
                                     </PrismicLink>
                                 </li>
@@ -102,6 +106,7 @@ export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
                                 {navigation?.data.links.map((navItem, i) => (
                                     <li key={i}>
                                         <PrismicLink
+                                            linkResolver={linkResolver}
                                             field={navItem.link}
                                             onClick={onToggle}
                                         >
