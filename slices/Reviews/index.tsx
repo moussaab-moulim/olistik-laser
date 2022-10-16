@@ -50,10 +50,6 @@ const Reviews: FC<ReviewsProps> = ({ slice }: ReviewsProps) => {
                 <Carousel
                     className={`${Style.Carousel}`}
                     wrapAround={true}
-                    // defaultControlsConfig={{
-                    //     pagingDotsClassName: `${Style.SideDots}`,
-                    // }}
-                    renderBottomCenterControls={null}
                     renderCenterLeftControls={({
                         previousDisabled,
                         previousSlide,
@@ -78,6 +74,9 @@ const Reviews: FC<ReviewsProps> = ({ slice }: ReviewsProps) => {
                             <BsChevronRight size={40} />
                         </button>
                     )}
+                    defaultControlsConfig={{
+                        pagingDotsClassName: `${Style.SideDots}`,
+                    }}
                 >
                     {slice.items.map((_item, key) => (
                         <div key={key}>
