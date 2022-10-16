@@ -14,6 +14,7 @@ interface HeroProps {
 const Hero: FC<HeroProps> = ({ slice }: HeroProps) => {
     return (
         <section
+            id={slice.primary.slice_id ?? ""}
             className={`${
                 slice.variation === "default"
                     ? Style.HeroWrapper

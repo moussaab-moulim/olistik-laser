@@ -1,13 +1,11 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import { AppProps } from "next/app";
-import { ChakraProvider, Link } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import theme from "@definitions/chakra/theme";
 import "@styles/global.scss";
 import { appWithTranslation } from "next-i18next";
-import NextLink from "next/link";
 import { JSXMapSerializer, PrismicProvider } from "@prismicio/react";
-import { PrismicPreview } from "@prismicio/next";
-import { repositoryName } from "../prismicio";
+import { linkResolver } from "../prismicio";
 import {
     Heading1,
     Heading2,
@@ -17,6 +15,8 @@ import {
     Heading6,
     Paragraph,
 } from "../src/components/Heading";
+import Link from "next/link";
+import { FilledLink } from "@customtypes/common";
 
 const richTextComponents: JSXMapSerializer = {
     heading1: ({ children }) => <Heading1>{children}</Heading1>,
@@ -26,6 +26,15 @@ const richTextComponents: JSXMapSerializer = {
     heading5: ({ children }) => <Heading5>{children}</Heading5>,
     heading6: ({ children }) => <Heading6>{children}</Heading6>,
     paragraph: ({ children }) => <Paragraph>{children}</Paragraph>,
+    hyperlink: ({ children, node }) => (
+        <Link
+            href={linkResolver(node.data as FilledLink)}
+            passHref
+            prefetch={false}
+        >
+            <a>{children}</a>
+        </Link>
+    ),
     // listItem: <listItem></listItem> ,
     // oListItem: <oListItem></oListItem> ,
     // list: <UList></UList> ,
@@ -36,28 +45,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     return (
         <ChakraProvider theme={theme}>
             <PrismicProvider
+                linkResolver={linkResolver}
                 richTextComponents={richTextComponents}
-                internalLinkComponent={({ href, children, ...props }) => (
-                    <NextLink href={href} passHref>
-                        <a {...props}>{children}</a>
-                    </NextLink>
-                )}
-                externalLinkComponent={({
-                    href,
-                    target,
-                    children,
-                    ...props
-                }) => (
-                    <NextLink href={href} passHref>
-                        <a target={target} {...props}>
-                            {children}
-                        </a>
-                    </NextLink>
-                )}
             >
-                <PrismicPreview repositoryName={repositoryName}>
-                    <Component {...pageProps} />
-                </PrismicPreview>
+                <Component {...pageProps} />
             </PrismicProvider>
         </ChakraProvider>
     );

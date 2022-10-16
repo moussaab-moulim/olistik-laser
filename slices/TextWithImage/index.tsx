@@ -20,7 +20,7 @@ const TextWithImage: FC<TextWithImageProps> = ({
                     : Style.RightSliceWrapper
             }`}
             style={{
-                backgroundColor: `${slice.primary.background_color}`,
+                backgroundColor: `${slice.primary.background_color ?? "#000"}`,
             }}
         >
             <div className={`${Style.textWrapper}`}>

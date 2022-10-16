@@ -7,7 +7,12 @@ import {
     _ExternalLink,
     _Linkable,
 } from "@customtypes/graphql";
-import { ImageField, RichTextField } from "@prismicio/types";
+import {
+    FilledLinkToDocumentField,
+    FilledLinkToWebField,
+    ImageField,
+    RichTextField,
+} from "@prismicio/types";
 
 export interface PageSeo {
     featured_image: ImageField;
@@ -36,3 +41,5 @@ export interface CustomNavigation extends Omit<Navigation, "links"> {
     links?: Maybe<CustomNavigationLink[]>;
 }
 export type CustomPage = Omit<Page, "_meta">;
+
+export type FilledLink = FilledLinkToDocumentField | FilledLinkToWebField;
