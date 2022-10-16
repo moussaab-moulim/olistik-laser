@@ -34,6 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
                                     alt={logo.alt ?? "logo"}
                                     height={28}
                                     width={120}
+                                    layout="fixed"
                                 />
                             </a>
                         </Link>
