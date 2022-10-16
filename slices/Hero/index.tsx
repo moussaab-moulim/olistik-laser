@@ -29,19 +29,13 @@ const Hero: FC<HeroProps> = ({ slice }: HeroProps) => {
                 <PrismicRichText field={slice.primary.title} />
                 <PrismicRichText field={slice.primary.text} />
 
-                        {slice?.items?.map((item, i) => (
-                            <MyButton
-                                key={i}
-                                link={item.button_url}
-                                variant={true}
-                            >
-                                {item.button_label}
-                            </MyButton>
-                        ))}
-                    </div>
-                </section>
-            )}
-        </Fragment>
+                {slice?.items?.map((item, i) => (
+                    <MyButton key={i} link={item.button_url} variant={true}>
+                        {item.button_label}
+                    </MyButton>
+                ))}
+            </div>
+        </section>
     );
 };
 
