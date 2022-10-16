@@ -5,12 +5,12 @@ import { Collapse, useMediaQuery } from "@chakra-ui/react";
 import { IconButton, useDisclosure } from "@chakra-ui/react";
 import { NavigationDocument } from "@customtypes/rest";
 import { ImageField } from "@prismicio/types";
-import { PrismicLink } from "@prismicio/react";
 import Style from "./style.module.scss";
 import { MyButton } from "@components/button";
 import { Fragment } from "react";
 import { isFilled } from "@prismicio/helpers";
 import { linkResolver } from "prismicio";
+import { FilledLink } from "@customtypes/common";
 
 interface HeaderProps {
     navigation: NavigationDocument;
@@ -44,16 +44,21 @@ export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
                 {isLargerThan1025 && (
                     <nav className={`${Style.SideNav}`}>
                         <ul>
-                            {navigation?.data.links.map((navItem, i) => (
-                                <li className={`${Style.navItem}`} key={i}>
-                                    <PrismicLink
-                                        linkResolver={linkResolver}
-                                        field={navItem.link}
-                                    >
-                                        {navItem.label}
-                                    </PrismicLink>
-                                </li>
-                            ))}
+                            {navigation?.data.links.map((navItem, i) => {
+                                return (
+                                    <li className={`${Style.navItem}`} key={i}>
+                                        <Link
+                                            href={linkResolver(
+                                                navItem.link as FilledLink,
+                                            )}
+                                            passHref
+                                            prefetch={false}
+                                        >
+                                            <a>{navItem.label}</a>
+                                        </Link>
+                                    </li>
+                                );
+                            })}
                         </ul>
                         {/* < -- DESKTOP ACTION BUTTONS -- > */}
                         <div className={`${Style.navAction}`}>
@@ -67,12 +72,16 @@ export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
                                         {navItem.button_label}
                                     </MyButton>
                                 ) : (
-                                    <PrismicLink
-                                        field={navItem.button_url}
+                                    <Link
                                         key={i}
+                                        href={linkResolver(
+                                            navItem.button_url as FilledLink,
+                                        )}
+                                        passHref
+                                        prefetch={false}
                                     >
-                                        {navItem.button_label}
-                                    </PrismicLink>
+                                        <a>{navItem.button_label}</a>
+                                    </Link>
                                 ),
                             )}
                         </div>
@@ -105,13 +114,15 @@ export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
                             <ul>
                                 {navigation?.data.links.map((navItem, i) => (
                                     <li key={i}>
-                                        <PrismicLink
-                                            linkResolver={linkResolver}
-                                            field={navItem.link}
-                                            onClick={onToggle}
+                                        <Link
+                                            href={linkResolver(
+                                                navItem.link as FilledLink,
+                                            )}
+                                            passHref
+                                            prefetch={false}
                                         >
-                                            {navItem.label}
-                                        </PrismicLink>
+                                            <a>{navItem.label}</a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -120,13 +131,17 @@ export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
                     {/* < -- MOBILE BOTTOM NAV BAR -- > */}
                     <div className={`${Style.navBottom}`}>
                         {navigation?.data.action_group.map((navItem, i) => (
-                            <PrismicLink
-                                field={navItem.button_url}
+                            <Link
                                 key={i}
+                                href={linkResolver(
+                                    navItem.button_url as FilledLink,
+                                )}
                                 className={`${Style.navAction}`}
+                                passHref
+                                prefetch={false}
                             >
-                                {navItem.button_label}
-                            </PrismicLink>
+                                <a>{navItem.button_label}</a>
+                            </Link>
                         ))}
                     </div>
                 </Fragment>
