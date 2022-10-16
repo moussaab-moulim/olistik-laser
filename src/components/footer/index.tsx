@@ -1,9 +1,11 @@
 import React from "react";
+
+import { isFilled } from "@prismicio/helpers";
 import { ImageField } from "@prismicio/types";
 import Image from "next/image";
-import Style from "./style.module.scss";
 import Link from "next/link";
-import { isFilled } from "@prismicio/helpers";
+
+import Style from "./style.module.scss";
 
 interface FooterProps {
     logo: ImageField;

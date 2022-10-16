@@ -1,7 +1,7 @@
-import { Client, createClient as prismicClient } from "@prismicio/client";
-import { createPrismicLink } from "apollo-link-prismic";
-import { CreateClientConfig } from "@prismicio/next";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { Client, createClient as prismicClient } from "@prismicio/client";
+import { CreateClientConfig } from "@prismicio/next";
+import { createPrismicLink } from "apollo-link-prismic";
 
 /**
  * The project's Prismic repository name.

@@ -1,7 +1,5 @@
 import { LinkResolverFunction } from "@prismicio/helpers";
-
 import {
-    FilledImageFieldImage,
     FilledLinkToDocumentField,
     FilledLinkToWebField,
     LinkType,

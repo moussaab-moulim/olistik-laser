@@ -1,9 +1,10 @@
 import React, { FC } from "react";
-import { PrismicRichText } from "@prismicio/react";
+
+import { MyButton } from "@components/button";
 import { CtaSlice } from "@customtypes/rest";
+import { PrismicRichText } from "@prismicio/react";
 
 import Style from "./style.module.scss";
-import { MyButton } from "@components/button";
 
 interface CtaProps {
     slice: CtaSlice;

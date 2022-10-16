@@ -1,7 +1,5 @@
 import React, { FC, useState } from "react";
-import { PrismicRichText } from "@prismicio/react";
-import { CardsSlice } from "@customtypes/rest";
-import Style from "./style.module.scss";
+
 import {
     Accordion,
     AccordionButton,
@@ -11,16 +9,20 @@ import {
     useMediaQuery,
 } from "@chakra-ui/react";
 import { MyButton } from "@components/button";
-import { BsChevronRight } from "react-icons/bs";
+import { CardsSlice } from "@customtypes/rest";
 import { asText } from "@prismicio/helpers";
+import { PrismicRichText } from "@prismicio/react";
 import { RichTextField } from "@prismicio/types";
+import { BsChevronRight } from "react-icons/bs";
+
+import Style from "./style.module.scss";
 
 interface CardsProps {
     slice: CardsSlice;
 }
 const Cards: FC<CardsProps> = ({ slice }: CardsProps) => {
     const [isLargerThan1025] = useMediaQuery("(min-width: 1025px)");
-    const initialText = asText(slice.items[0].title);
+    const initialText = slice.items[0] ? asText(slice.items[0].title) : "";
     const [contentTitle, setContentTitle] = useState(initialText);
 
     const displayText = (textField: RichTextField) => {

@@ -1,16 +1,22 @@
+import { Fragment } from "react";
+
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import {
+    Collapse,
+    useMediaQuery,
+    IconButton,
+    useDisclosure,
+} from "@chakra-ui/react";
+import { MyButton } from "@components/button";
+import { FilledLink } from "@customtypes/common";
+import { NavigationDocument } from "@customtypes/rest";
+import { isFilled } from "@prismicio/helpers";
+import { ImageField } from "@prismicio/types";
 import Image from "next/image";
 import Link from "next/link";
-import { Collapse, useMediaQuery } from "@chakra-ui/react";
-import { IconButton, useDisclosure } from "@chakra-ui/react";
-import { NavigationDocument } from "@customtypes/rest";
-import { ImageField } from "@prismicio/types";
-import Style from "./style.module.scss";
-import { MyButton } from "@components/button";
-import { Fragment } from "react";
-import { isFilled } from "@prismicio/helpers";
 import { linkResolver } from "prismicio";
-import { FilledLink } from "@customtypes/common";
+
+import Style from "./style.module.scss";
 
 interface HeaderProps {
     navigation: NavigationDocument;

@@ -1,10 +1,10 @@
-import Contact from "@components/Contact";
+import React, { FC, ReactNode } from "react";
+
 import { Header } from "@components/header";
 import { PageSeo } from "@customtypes/common";
 import { NavigationDocument } from "@customtypes/rest";
 import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
-import React, { FC, ReactNode } from "react";
 
 interface IProps {
     navigation: NavigationDocument;
@@ -30,7 +30,7 @@ export const Layout: FC<IProps> = ({
                     title: settings.meta_title,
                     description: settings.meta_description,
                     url: settings.domain + settings.path,
-                    //TODO dynamic type
+                    // TODO dynamic type
                     type: settings.type,
                     locale: settings.locale,
                     site_name: settings.site_name,
@@ -143,7 +143,7 @@ export const Layout: FC<IProps> = ({
                         type: "font/woff2",
                         crossOrigin: "anonymous",
                     })),
-                    //TODO alternate languages
+                    // TODO alternate languages
                 ]}
             />
             <Header

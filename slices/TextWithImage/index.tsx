@@ -1,9 +1,12 @@
 import React, { FC } from "react";
-import { PrismicRichText } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
-import Style from "./style.module.scss";
+
 import { MyButton } from "@components/button";
 import { TextWithImageSlice } from "@customtypes/rest";
+import { PrismicNextImage } from "@prismicio/next";
+import { PrismicRichText } from "@prismicio/react";
+
+import Style from "./style.module.scss";
+
 interface TextWithImageProps {
     slice: TextWithImageSlice;
 }

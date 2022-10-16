@@ -1,3 +1,5 @@
+import React, { FC } from "react";
+
 import {
     Button,
     FormControl,
@@ -10,16 +12,15 @@ import {
     useToast,
     VStack,
 } from "@chakra-ui/react";
-import { BsPerson } from "react-icons/bs";
-import { MdOutlinePhone, MdOutlineEmail } from "react-icons/md";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { PrismicRichText } from "@prismicio/react";
 import { RichTextField } from "@prismicio/types";
-import React, { FC } from "react";
-import Style from "./style.module.scss";
-
-import { yupResolver } from "@hookform/resolvers/yup";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { BsPerson } from "react-icons/bs";
+import { MdOutlinePhone, MdOutlineEmail } from "react-icons/md";
 import { object, string } from "yup";
+
+import Style from "./style.module.scss";
 
 interface ContactProps {
     title: RichTextField;

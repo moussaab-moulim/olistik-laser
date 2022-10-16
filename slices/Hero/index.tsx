@@ -1,11 +1,13 @@
 import React, { FC } from "react";
-import { PrismicRichText } from "@prismicio/react";
-import { HeroSlice } from "@customtypes/rest";
-import Style from "./style.module.scss";
+
 import { MyButton } from "@components/button";
-import { css } from "@emotion/css";
 import { BackgroundPrismic } from "@components/Images/Background";
+import { HeroSlice } from "@customtypes/rest";
+import { css } from "@emotion/css";
 import { isFilled } from "@prismicio/helpers";
+import { PrismicRichText } from "@prismicio/react";
+
+import Style from "./style.module.scss";
 
 interface HeroProps {
     slice: HeroSlice;

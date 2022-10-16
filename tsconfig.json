@@ -54,6 +54,8 @@
     "exclude": [
         "node_modules",
         "__generated__/globalTypes.ts",
-        "src/types/generated/rest.ts"
+        "src/types/generated/rest.ts",
+        "src/types/generated/graphql.ts",
+        
     ]
 }

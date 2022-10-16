@@ -1,6 +1,7 @@
 import { Page, Query, Scalars } from "@customtypes/graphql";
 import { graphqlClient } from "@services/client";
 import gql from "graphql-tag";
+
 import { metaQuery } from "./common";
 
 export const fetchPage = async (
@@ -23,7 +24,7 @@ export const fetchPage = async (
         `,
     });
 
-    const page = data.page;
+    const { page } = data;
 
     if (errors) {
         throw errors;

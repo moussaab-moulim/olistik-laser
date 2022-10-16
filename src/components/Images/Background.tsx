@@ -1,9 +1,9 @@
+import React, { FC } from "react";
+
 import styled from "@emotion/styled";
 import { PrismicNextImage } from "@prismicio/next";
-import { PrismicImage } from "@prismicio/react";
 import { ImageField } from "@prismicio/types";
 import Image from "next/image";
-import React, { FC } from "react";
 
 const BackgroundWrapper = styled.div`
     position: absolute;

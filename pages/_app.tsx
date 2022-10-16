@@ -1,10 +1,13 @@
 import React from "react";
-import { AppProps } from "next/app";
+
 import { ChakraProvider } from "@chakra-ui/react";
-import theme from "@definitions/chakra/theme";
+import { FilledLink } from "@customtypes/common";
+import { AppProps } from "next/app";
 import "@styles/global.scss";
 import { appWithTranslation } from "next-i18next";
 import { JSXMapSerializer, PrismicProvider } from "@prismicio/react";
+import Link from "next/link";
+
 import { linkResolver } from "../prismicio";
 import {
     Heading1,
@@ -15,8 +18,6 @@ import {
     Heading6,
     Paragraph,
 } from "../src/components/Heading";
-import Link from "next/link";
-import { FilledLink } from "@customtypes/common";
 
 const richTextComponents: JSXMapSerializer = {
     heading1: ({ children }) => <Heading1>{children}</Heading1>,
@@ -43,7 +44,7 @@ const richTextComponents: JSXMapSerializer = {
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     return (
-        <ChakraProvider theme={theme}>
+        <ChakraProvider>
             <PrismicProvider
                 linkResolver={linkResolver}
                 richTextComponents={richTextComponents}

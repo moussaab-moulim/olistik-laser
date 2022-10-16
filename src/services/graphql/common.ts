@@ -1,6 +1,5 @@
 import { Query, Scalars, Settings } from "@customtypes/graphql";
 import { graphqlClient } from "@services/client";
-
 import gql from "graphql-tag";
 import { CustomNavigation } from "src/types/common";
 

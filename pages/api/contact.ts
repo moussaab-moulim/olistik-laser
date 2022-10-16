@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-
 import nodemailer from "nodemailer";
 
 const contactFunction = async (req: NextApiRequest, res: NextApiResponse) => {

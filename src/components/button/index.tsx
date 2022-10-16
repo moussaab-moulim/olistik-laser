@@ -1,7 +1,9 @@
 import React, { FC, ReactNode } from "react";
-import Style from "./style.module.scss";
+
 import { PrismicLink } from "@prismicio/react";
 import { LinkField } from "@prismicio/types";
+
+import Style from "./style.module.scss";
 
 interface MyButtonProps {
     variant: boolean;
