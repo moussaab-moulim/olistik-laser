@@ -1,6 +1,5 @@
 import React, { FC, ReactNode } from "react";
 
-import { Header } from "@components/header";
 import { PageSeo } from "@customtypes/common";
 import { NavigationDocument } from "@customtypes/rest";
 import { NextSeo } from "next-seo";
@@ -14,7 +13,9 @@ interface IProps {
 
 const DynamicFooter = dynamic(() => import("@components/footer"));
 const DynamicContact = dynamic(() => import("@components/Contact"));
-
+const DynamicHeader = dynamic(() =>
+    import("@components/header").then((mod) => mod.Header),
+);
 export const Layout: FC<IProps> = ({
     navigation,
     settings,
@@ -146,7 +147,7 @@ export const Layout: FC<IProps> = ({
                     // TODO alternate languages
                 ]}
             />
-            <Header
+            <DynamicHeader
                 navigation={navigation}
                 logo={settings.logo}
                 // site_name={settings.site_name}
