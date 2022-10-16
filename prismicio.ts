@@ -5,6 +5,7 @@ import {
     FilledLinkToDocumentField,
     FilledLinkToWebField,
     LinkType,
+    PrismicDocumentWithUID,
 } from "@prismicio/types";
 
 export const linkResolver = (
@@ -32,6 +33,24 @@ export const linkResolver = (
 
         return "/";
     }
+    return "/";
+};
+
+export const pageResolver = (doc: PrismicDocumentWithUID): string => {
+    const _doc = doc;
+    const langPrefix = _doc.lang === "fr" ? "/" : "/en";
+    if (_doc.uid === "home") {
+        return `${langPrefix}`;
+    }
+    if (_doc.type === "post") {
+        return `${langPrefix}/blog/${_doc.uid}`;
+    }
+
+    if (_doc.type === "page") {
+        // TODO add blog en version
+        return `${langPrefix}/${_doc.uid}`;
+    }
+
     return "/";
 };
 

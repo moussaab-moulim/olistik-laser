@@ -1,7 +1,7 @@
 import { Query, Scalars, Settings } from "@customtypes/graphql";
+import { graphqlClient } from "@services/client";
 
 import gql from "graphql-tag";
-import { graphqlClient } from "prismicio";
 import { CustomNavigation } from "src/types/common";
 
 export const metaQuery = `

@@ -1,5 +1,5 @@
 import { PageSeo } from "src/types/common";
-import { linkResolver } from "prismicio";
+import { pageResolver } from "prismicio";
 import { PageDocument, SettingsDocument } from "@customtypes/rest";
 
 export const mapPageSeo = (
@@ -17,7 +17,7 @@ export const mapPageSeo = (
     search_console_key: settings.data.search_console_key ?? "",
     site_name: settings.data.site_name ?? "",
     theme_color: settings.data.theme_color ?? "",
-    path: linkResolver(page),
+    path: pageResolver({ ...page }),
     type: page.type === "page" ? "website" : "article",
     locale: page.lang,
     contact_title: settings.data.contact_title,
