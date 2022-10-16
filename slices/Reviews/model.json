@@ -38,17 +38,6 @@
         }
       },
       "items": {
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "image",
-            "constraint": {
-              "width": 140,
-              "height": 140
-            },
-            "thumbnails": []
-          }
-        },
         "review": {
           "type": "StructuredText",
           "config": {

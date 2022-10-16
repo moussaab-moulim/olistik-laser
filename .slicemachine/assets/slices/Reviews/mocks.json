@@ -4,27 +4,18 @@
     "version": "sktwi1xtmkfgx8626",
     "items": [
       {
-        "image": {
-          "dimensions": {
-            "width": 140,
-            "height": 140
-          },
-          "alt": null,
-          "copyright": null,
-          "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764"
-        },
         "review": [
           {
             "type": "paragraph",
-            "text": "Laborum incididunt duis mollit excepteur amet aliqua est enim non deserunt velit ad cillum fugiat eiusmod. Mollit deserunt excepteur officia exercitation eiusmod ipsum.",
+            "text": "Velit ex qui do quis minim dolore tempor ipsum cillum elit in cillum officia minim. Lorem fugiat eu ut excepteur esse adipisicing esse et occaecat ad cupidatat voluptate.",
             "spans": []
           }
         ],
-        "name": "bend",
-        "social_media_label": "finest",
+        "name": "express",
+        "social_media_label": "naturally",
         "social_media_link": {
           "link_type": "Web",
-          "url": "https://prismic.io"
+          "url": "http://google.com"
         }
       }
     ],
@@ -32,18 +23,18 @@
       "title": [
         {
           "type": "heading1",
-          "text": "Globe",
+          "text": "Anywhere",
           "spans": []
         }
       ],
       "description": [
         {
           "type": "paragraph",
-          "text": "Mollit fugiat velit nulla veniam non mollit tempor commodo quis ipsum minim. Sint sint pariatur est officia adipisicing ut ullamco amet fugiat quis culpa dolore eiusmod. Est excepteur labore veniam sit ad officia amet veniam laboris commodo sint adipisicing.",
+          "text": "Velit labore in et amet velit eu incididunt dolore sit ex tempor tempor consectetur cillum nisi. Est in do laboris irure eiusmod veniam sunt elit elit esse minim laborum.",
           "spans": []
         }
       ],
-      "background_color": "#3e7855"
+      "background_color": "#4dd573"
     },
     "slice_type": "reviews"
   }
