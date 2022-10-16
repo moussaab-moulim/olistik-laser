@@ -1,15 +1,15 @@
-import { Meta } from "@customtypes/graphql";
 import {
     Client,
     createClient as prismicClient,
+    getGraphQLEndpoint,
     getRepositoryName,
 } from "@prismicio/client";
 import { createPrismicLink } from "apollo-link-prismic";
-import * as prismic from "@prismicio/client";
+
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { LinkResolverFunction } from "@prismicio/helpers";
 
-import { CreateClientConfig, enableAutoPreviews } from "@prismicio/next";
+import { CreateClientConfig } from "@prismicio/next";
 import { FilledLinkToDocumentField } from "@prismicio/types";
 import sm from "./sm.json";
 import { PageDocument } from "@customtypes/rest";
@@ -46,19 +46,13 @@ export const webLinkResolver: LinkResolverFunction = (doc) => {
 };
 
 // Update the routes array to match your project's route structure
-/** @type {prismic.ClientConfig['routes']} **/
+
 const routes = [
     { type: "page", path: "/:uid" },
     { type: "settings", path: "/" },
     { type: "navigation", path: "/" },
 ];
 
-/**
- * Creates a Prismic client for the project's repository. The client is used to
- * query content from the Prismic API.
- *
- * @param config {prismicNext.CreateClientConfig} - Configuration for the Prismic client.
- */
 export const createRestClient = (config?: CreateClientConfig): Client => {
     const client = prismicClient(sm.apiEndpoint, {
         routes,
@@ -70,7 +64,7 @@ export const createRestClient = (config?: CreateClientConfig): Client => {
 
 export const graphqlClient = new ApolloClient({
     link: createPrismicLink({
-        uri: prismic.getGraphQLEndpoint(repositoryName),
+        uri: getGraphQLEndpoint(repositoryName),
         accessToken,
     }),
     cache: new InMemoryCache(),

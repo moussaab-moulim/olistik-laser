@@ -8,11 +8,10 @@ import {
     AccordionIcon,
     AccordionItem,
     AccordionPanel,
-    Box,
     useMediaQuery,
 } from "@chakra-ui/react";
 import { MyButton } from "@components/button";
-import { ChevronRightIcon } from "@chakra-ui/icons";
+import { BsChevronRight } from "react-icons/bs";
 import { asText } from "@prismicio/helpers";
 import { RichTextField } from "@prismicio/types";
 
@@ -82,7 +81,7 @@ const Cards: FC<CardsProps> = ({ slice }: CardsProps) => {
                                 onClick={() => displayText(item.title)}
                             >
                                 {asText(item.title)}
-                                <ChevronRightIcon />
+                                <BsChevronRight />
                             </div>
                         ))}
                     </div>

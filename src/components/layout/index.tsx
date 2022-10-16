@@ -1,9 +1,9 @@
 import Contact from "@components/Contact";
-import { Footer } from "@components/footer";
 import { Header } from "@components/header";
 import { PageSeo } from "@customtypes/common";
 import { NavigationDocument } from "@customtypes/rest";
 import { NextSeo } from "next-seo";
+import dynamic from "next/dynamic";
 import React, { FC, ReactNode } from "react";
 
 interface IProps {
@@ -11,6 +11,9 @@ interface IProps {
     settings: PageSeo;
     children: ReactNode;
 }
+
+const DynamicFooter = dynamic(() => import("@components/footer"));
+const DynamicContact = dynamic(() => import("@components/Contact"));
 
 export const Layout: FC<IProps> = ({
     navigation,
@@ -151,12 +154,12 @@ export const Layout: FC<IProps> = ({
             />
             <main>
                 {children}
-                <Contact
+                <DynamicContact
                     title={settings.contact_title}
                     description={settings.contact_description}
                 />
             </main>
-            <Footer navigation={navigation} logo={settings.logo} />
+            <DynamicFooter logo={settings.logo} />
         </div>
     );
 };
