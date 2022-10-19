@@ -122,7 +122,9 @@ export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
                                             passHref
                                             prefetch={false}
                                         >
-                                            <a>{navItem.label}</a>
+                                            <a onClick={onToggle}>
+                                                {navItem.label}
+                                            </a>
                                         </Link>
                                     </li>
                                 ))}
