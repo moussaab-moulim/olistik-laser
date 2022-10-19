@@ -192,7 +192,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = HeroSlice | CtaSlice | CardsSlice | TextWithImageSlice | TarifsSlice;
+type PageDocumentDataSlicesSlice = HeroSlice | CtaSlice | CardsSlice | TextWithImageSlice | TarifsSlice | ReviewsSlice;
 /**
  * Page document from Prismic
  *
@@ -741,6 +741,121 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceNoActionHero;
  */
 export type HeroSlice = prismicT.SharedSlice<"hero", HeroSliceVariation>;
 /**
+ * Primary content in Reviews → Primary
+ *
+ */
+interface ReviewsSliceDefaultPrimary {
+    /**
+     * Title field in *Reviews → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: reviews.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.RichTextField;
+    /**
+     * Description field in *Reviews → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: reviews.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+    /**
+     * background color field in *Reviews → Primary*
+     *
+     * - **Field Type**: Color
+     * - **Placeholder**: *None*
+     * - **API ID Path**: reviews.primary.background_color
+     * - **Documentation**: https://prismic.io/docs/core-concepts/color
+     *
+     */
+    background_color: prismicT.ColorField;
+}
+/**
+ * Item in Reviews → Items
+ *
+ */
+export interface ReviewsSliceDefaultItem {
+    /**
+     * image field in *Reviews → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: reviews.items[].image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * review field in *Reviews → Items*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: reviews.items[].review
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    review: prismicT.RichTextField;
+    /**
+     * name field in *Reviews → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: reviews.items[].name
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    name: prismicT.KeyTextField;
+    /**
+     * social media label field in *Reviews → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: reviews.items[].social_media_label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    social_media_label: prismicT.KeyTextField;
+    /**
+     * social media link field in *Reviews → Items*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: reviews.items[].social_media_link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    social_media_link: prismicT.LinkField;
+}
+/**
+ * Default variation for Reviews Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Reviews`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ReviewsSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ReviewsSliceDefaultPrimary>, Simplify<ReviewsSliceDefaultItem>>;
+/**
+ * Slice variation for *Reviews*
+ *
+ */
+type ReviewsSliceVariation = ReviewsSliceDefault;
+/**
+ * Reviews Shared Slice
+ *
+ * - **API ID**: `reviews`
+ * - **Description**: `Reviews`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ReviewsSlice = prismicT.SharedSlice<"reviews", ReviewsSliceVariation>;
+/**
  * Primary content in Tarifs → Primary
  *
  */
@@ -758,13 +873,13 @@ interface TarifsSliceDefaultPrimary {
     /**
      * Title field in *Tarifs → Primary*
      *
-     * - **Field Type**: Title
+     * - **Field Type**: Rich Text
      * - **Placeholder**: This is where it all begins...
      * - **API ID Path**: tarifs.primary.title
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    title: prismicT.TitleField;
+    title: prismicT.RichTextField;
     /**
      * Description field in *Tarifs → Primary*
      *
@@ -1056,6 +1171,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocumentDataActionGroupItem, NavigationDocumentDataSlicesSlice, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, PostDocumentData, PostDocument, SettingsDocumentData, SettingsDocumentDataSlicesSlice, SettingsDocumentDataSlices1Slice, SettingsDocument, AllDocumentTypes, CardsSliceDefaultPrimary, CardsSliceDefaultItem, CardsSliceDefault, CardsSliceVariation, CardsSlice, CtaSliceDefaultPrimary, CtaSliceDefaultItem, CtaSliceDefault, CtaSliceVariation, CtaSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceNoActionHeroPrimary, HeroSliceNoActionHero, HeroSliceVariation, HeroSlice, TarifsSliceDefaultPrimary, TarifsSliceDefaultItem, TarifsSliceDefault, TarifsSliceVariation, TarifsSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefaultItem, TextWithImageSliceDefault, TextWithImageSliceRightTextPrimary, TextWithImageSliceRightTextItem, TextWithImageSliceRightText, TextWithImageSliceVariation, TextWithImageSlice };
+        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocumentDataActionGroupItem, NavigationDocumentDataSlicesSlice, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, PostDocumentData, PostDocument, SettingsDocumentData, SettingsDocumentDataSlicesSlice, SettingsDocumentDataSlices1Slice, SettingsDocument, AllDocumentTypes, CardsSliceDefaultPrimary, CardsSliceDefaultItem, CardsSliceDefault, CardsSliceVariation, CardsSlice, CtaSliceDefaultPrimary, CtaSliceDefaultItem, CtaSliceDefault, CtaSliceVariation, CtaSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceNoActionHeroPrimary, HeroSliceNoActionHero, HeroSliceVariation, HeroSlice, ReviewsSliceDefaultPrimary, ReviewsSliceDefaultItem, ReviewsSliceDefault, ReviewsSliceVariation, ReviewsSlice, TarifsSliceDefaultPrimary, TarifsSliceDefaultItem, TarifsSliceDefault, TarifsSliceVariation, TarifsSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefaultItem, TextWithImageSliceDefault, TextWithImageSliceRightTextPrimary, TextWithImageSliceRightTextItem, TextWithImageSliceRightText, TextWithImageSliceVariation, TextWithImageSlice };
     }
 }

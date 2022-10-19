@@ -3,15 +3,17 @@
 import Cards from "./Cards";
 import Cta from "./Cta";
 import Hero from "./Hero";
+import Reviews from "./Reviews";
 import Tarifs from "./Tarifs";
 import TextWithImage from "./TextWithImage";
 
-export { Cards, Cta, Hero, Tarifs, TextWithImage };
+export { Cards, Cta, Hero, Reviews, Tarifs, TextWithImage };
 
 export const components = {
     cards: Cards,
     cta: Cta,
     hero: Hero,
+    reviews: Reviews,
     tarifs: Tarifs,
     text_with_image: TextWithImage,
 };
