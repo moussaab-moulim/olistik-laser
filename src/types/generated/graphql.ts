@@ -120,7 +120,7 @@ export type PageInfo = {
   startCursor?: Maybe<Scalars['String']>;
 };
 
-export type PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesTarifs | PageSlicesText_With_Image;
+export type PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesReviews | PageSlicesTarifs | PageSlicesText_With_Image;
 
 export type PageSlicesCards = {
   __typename?: 'PageSlicesCards';
@@ -225,6 +225,36 @@ export type PageSlicesHeroNoactionheroPrimary = {
 };
 
 export type PageSlicesHeroVariation = PageSlicesHeroDefault | PageSlicesHeroNoactionhero;
+
+export type PageSlicesReviews = {
+  __typename?: 'PageSlicesReviews';
+  label?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  variation?: Maybe<PageSlicesReviewsVariation>;
+};
+
+export type PageSlicesReviewsDefault = {
+  __typename?: 'PageSlicesReviewsDefault';
+  items?: Maybe<Array<PageSlicesReviewsDefaultItems>>;
+  primary?: Maybe<PageSlicesReviewsDefaultPrimary>;
+};
+
+export type PageSlicesReviewsDefaultItems = {
+  __typename?: 'PageSlicesReviewsDefaultItems';
+  image?: Maybe<Scalars['Json']>;
+  name?: Maybe<Scalars['String']>;
+  review?: Maybe<Scalars['Json']>;
+  social_media_label?: Maybe<Scalars['String']>;
+  social_media_link?: Maybe<_Linkable>;
+};
+
+export type PageSlicesReviewsDefaultPrimary = {
+  __typename?: 'PageSlicesReviewsDefaultPrimary';
+  description?: Maybe<Scalars['Json']>;
+  title?: Maybe<Scalars['Json']>;
+};
+
+export type PageSlicesReviewsVariation = PageSlicesReviewsDefault;
 
 export type PageSlicesTarifs = {
   __typename?: 'PageSlicesTarifs';

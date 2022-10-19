@@ -117,7 +117,7 @@ type PageInfo {
   startCursor: String
 }
 
-union PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesTarifs | PageSlicesText_with_image
+union PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesReviews | PageSlicesTarifs | PageSlicesText_with_image
 
 type PageSlicesCards {
   label: String
@@ -208,6 +208,32 @@ type PageSlicesHeroNoactionheroPrimary {
 }
 
 union PageSlicesHeroVariation = PageSlicesHeroDefault | PageSlicesHeroNoactionhero
+
+type PageSlicesReviews {
+  label: String
+  type: String
+  variation: PageSlicesReviewsVariation
+}
+
+type PageSlicesReviewsDefault {
+  items: [PageSlicesReviewsDefaultItems!]
+  primary: PageSlicesReviewsDefaultPrimary
+}
+
+type PageSlicesReviewsDefaultItems {
+  image: Json
+  name: String
+  review: Json
+  social_media_label: String
+  social_media_link: _Linkable
+}
+
+type PageSlicesReviewsDefaultPrimary {
+  description: Json
+  title: Json
+}
+
+union PageSlicesReviewsVariation = PageSlicesReviewsDefault
 
 type PageSlicesTarifs {
   label: String

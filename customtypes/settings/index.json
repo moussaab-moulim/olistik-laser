@@ -42,6 +42,14 @@
           "thumbnails": []
         }
       },
+      "mask_icon": {
+        "type": "Image",
+        "config": {
+          "label": "mask icon",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "favico": {
         "type": "Image",
         "config": {
