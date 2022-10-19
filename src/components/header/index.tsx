@@ -114,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
                         <div className={`${Style.navCollapse}`}>
                             <ul>
                                 {navigation?.data.links.map((navItem, i) => (
-                                    <li key={i}>
+                                    <li key={i} onClick={onToggle}>
                                         <Link
                                             href={linkResolver(
                                                 navItem.link as FilledLink,
