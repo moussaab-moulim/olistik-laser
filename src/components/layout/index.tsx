@@ -1,4 +1,3 @@
-import Contact from "@components/Contact";
 import { Header } from "@components/header";
 import { PageSeo } from "@customtypes/common";
 import { NavigationDocument } from "@customtypes/rest";

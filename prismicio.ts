@@ -1,10 +1,11 @@
+import { PageDocument } from "@customtypes/rest";
 import { LinkResolverFunction } from "@prismicio/helpers";
 
 import {
-    FilledImageFieldImage,
     FilledLinkToDocumentField,
     FilledLinkToWebField,
     LinkType,
+    PrismicDocument,
 } from "@prismicio/types";
 
 export const linkResolver = (
@@ -32,6 +33,22 @@ export const linkResolver = (
 
         return "/";
     }
+    return "/";
+};
+export const pageResolver = (doc: PrismicDocument): string => {
+    const langPrefix = doc.lang === "fr" ? "/" : "/en";
+    if (doc.uid === "home") {
+        return `${langPrefix}`;
+    }
+    if (doc.type === "post") {
+        return `${langPrefix}/blog/${doc.uid}`;
+    }
+
+    if (doc.type === "page") {
+        // TODO add blog en version
+        return `${langPrefix}/${doc.uid}`;
+    }
+
     return "/";
 };
 

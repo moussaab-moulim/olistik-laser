@@ -2,7 +2,10 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 import nodemailer from "nodemailer";
 
-const contactFunction = async (req: NextApiRequest, res: NextApiResponse) => {
+const contactFunction = async (
+    req: NextApiRequest,
+    res: NextApiResponse,
+): Promise<void> => {
     const transporter = nodemailer.createTransport({
         port: 465,
         host: "mail.infomaniak.com",
