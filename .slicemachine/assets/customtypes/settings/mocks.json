@@ -11,9 +11,9 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
-    "site_name": "club",
-    "search_console_key": "any",
-    "theme_color": "#64d964",
+    "site_name": "early",
+    "search_console_key": "pen",
+    "theme_color": "#64ab41",
     "logo": {
       "dimensions": {
         "width": 900,
@@ -21,7 +21,7 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613"
+      "url": "https://images.unsplash.com/photo-1593642633279-1796119d5482"
     },
     "logo_invert": {
       "dimensions": {
@@ -30,7 +30,16 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef"
+      "url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2"
+    },
+    "mask_icon": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055"
     },
     "favico": {
       "dimensions": {
@@ -39,7 +48,7 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
+      "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
       "md": {
         "dimensions": {
           "width": 32,
@@ -47,7 +56,7 @@
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1"
+        "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764"
       },
       "lg": {
         "dimensions": {
@@ -56,22 +65,22 @@
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04"
+        "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89"
       }
     },
-    "domain": "luck",
+    "domain": "second",
     "slices": [],
     "contact_title": [
       {
         "type": "heading1",
-        "text": "Large",
+        "text": "Movement",
         "spans": []
       }
     ],
     "contact_description": [
       {
         "type": "paragraph",
-        "text": "Esse nulla do proident sit. Incididunt aliquip incididunt deserunt non.",
+        "text": "Dolor adipisicing non est labore deserunt labore do dolore sit quis cupidatat. Fugiat ad aliquip Lorem enim nisi aute enim nulla cupidatat aliquip enim aute ad.",
         "spans": []
       }
     ],
