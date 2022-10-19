@@ -13,7 +13,9 @@ const Cta: FC<CtaProps> = ({ slice }: CtaProps) => {
         <section
             id={slice.primary.slice_id ?? ""}
             className={`container ${Style.CtaWrapper}`}
-            style={{ backgroundColor: `${slice.primary.background_color}` }}
+            style={{
+                backgroundColor: `${slice.primary.background_color ?? "#000"}`,
+            }}
         >
             <PrismicRichText field={slice.primary.title} />
             <PrismicRichText field={slice.primary.text} />

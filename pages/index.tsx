@@ -5,12 +5,12 @@ import { components } from "../slices/";
 import { GetStaticProps, NextPage } from "next";
 import { Layout } from "@components/layout";
 import { mapPageSeo } from "@services/mappers/pageMappers";
-import { createRestClient } from "prismicio";
 import {
     NavigationDocument,
     PageDocument,
     SettingsDocument,
 } from "@customtypes/rest";
+import { createRestClient } from "@services/client";
 
 interface IProps {
     navigation: NavigationDocument;

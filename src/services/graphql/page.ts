@@ -1,6 +1,7 @@
 import { Page, Query, Scalars } from "@customtypes/graphql";
+import { graphqlClient } from "@services/client";
 import gql from "graphql-tag";
-import { graphqlClient } from "prismicio";
+
 import { metaQuery } from "./common";
 
 export const fetchPage = async (
