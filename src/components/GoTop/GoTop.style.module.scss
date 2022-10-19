@@ -1,0 +1,14 @@
+.GoTopButton {
+    position: fixed;
+    background-color: black;
+    bottom: 70px;
+    right: 20px;
+    z-index: 3;
+    padding: 12px;
+    border: 1px solid white;
+
+    @media (min-width: 1025px) {
+        bottom: 30px;
+        right: 30px;
+    }
+}

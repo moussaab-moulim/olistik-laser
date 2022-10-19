@@ -1,3 +1,4 @@
+import GoTop from "@components/GoTop/GoTop";
 import { Header } from "@components/header";
 import { PageSeo } from "@customtypes/common";
 import { NavigationDocument } from "@customtypes/rest";
@@ -153,12 +154,14 @@ export const Layout: FC<IProps> = ({
             />
             <main>
                 {children}
+
                 <DynamicContact
                     title={settings.contact_title}
                     description={settings.contact_description}
                 />
             </main>
             <DynamicFooter logo={settings.logo} />
+            <GoTop />
         </div>
     );
 };
