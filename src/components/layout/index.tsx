@@ -29,7 +29,9 @@ export const Layout: FC<IProps> = ({
                 openGraph={{
                     title: settings.meta_title,
                     description: settings.meta_description,
-                    url: settings.domain + settings.path,
+                    url: `${settings.domain}${
+                        settings.path === "/" ? "" : settings.path
+                    }`,
                     //TODO dynamic type
                     type: settings.type,
                     locale: settings.locale,

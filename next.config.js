@@ -6,7 +6,7 @@ module.exports = withBundleAnalyzer({
     i18n,
     productionBrowserSourceMaps: true,
     reactStrictMode: true,
-    trailingSlash: true,
+    trailingSlash: false,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     images: {
