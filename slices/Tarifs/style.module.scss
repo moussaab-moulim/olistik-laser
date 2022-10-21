@@ -1,9 +1,23 @@
 .TarifsWrapper {
+    position: relative;
     text-align: center;
     background-color: black;
     color: white;
     display: flex;
     justify-content: center;
+    &::before {
+        background-size: 90px auto;
+        background-image: url("../../public/icons/stripes-vertical.png");
+        background-repeat: repeat-y;
+        background-position: right;
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 90px;
+        height: 100%;
+        content: "";
+    }
     .Container {
         max-width: 1280px;
 
