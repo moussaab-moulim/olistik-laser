@@ -1,25 +1,15 @@
-import {
-    Button,
-    FormControl,
-    FormErrorMessage,
-    FormLabel,
-    Input,
-    InputGroup,
-    InputLeftElement,
-    Textarea,
-    useToast,
-    VStack,
-} from "@chakra-ui/react";
-import { BsPerson } from "react-icons/bs";
-import { MdOutlinePhone, MdOutlineEmail } from "react-icons/md";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { PrismicRichText } from "@prismicio/react";
-import { RichTextField } from "@prismicio/types";
 import React, { FC } from "react";
 import Style from "./style.module.scss";
 
+import toast, { Toaster } from "react-hot-toast";
+import { BsCheckCircleFill, BsPerson, BsXCircleFill } from "react-icons/bs";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
+import { MdOutlinePhone, MdOutlineEmail } from "react-icons/md";
+
+import { PrismicRichText } from "@prismicio/react";
+import { RichTextField } from "@prismicio/types";
 
 interface ContactProps {
     title: RichTextField;
@@ -44,7 +34,6 @@ const schema = object({
 });
 
 const Contact: FC<ContactProps> = ({ title, description }) => {
-    const toast = useToast();
     const { handleSubmit, control, formState, reset } = useForm<IProps>({
         mode: "all",
         resolver: yupResolver(schema),
@@ -79,171 +68,195 @@ const Contact: FC<ContactProps> = ({ title, description }) => {
         });
 
         if (contactResposne.status === 200) {
-            toast({
-                position: "bottom",
-                status: "success",
-                duration: 2000,
-                isClosable: true,
-                title: `Fomulaire envoyé avec success.`,
-            });
+            toast.success("Fomulaire envoyé avec success.");
             reset();
         } else {
-            toast({
-                position: "bottom",
-                status: "error",
-                duration: 2000,
-                isClosable: true,
-                title: `Echec d'envoi.`,
-            });
+            toast.error("Echec d'envoi.");
         }
     };
     return (
         <section id={"contact"} className={`container ${Style.contactWrapper}`}>
-            <div className={` ${Style.contactHeader}`}>
-                <PrismicRichText field={title} />
-            </div>
+            <Toaster
+                position="bottom-center"
+                toastOptions={{
+                    // Sucess Toast
+                    success: {
+                        duration: 4000,
+                        className: `${Style.SuccessToast}`,
+                        icon: <BsCheckCircleFill size={20} color="white" />,
+                    },
+                    // Error Toast
+                    error: {
+                        duration: 4000,
+                        className: `${Style.ErrorToast}`,
+                        icon: <BsXCircleFill size={20} color="white" />,
+                    },
+                }}
+            />
             <div className={` ${Style.dataWrapper}`}>
                 <div className={`${Style.LeftSide}`}>
+                    <div className={` ${Style.contactHeader}`}>
+                        <PrismicRichText field={title} />
+                    </div>
                     <PrismicRichText field={description} />
                 </div>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     className={`${Style.RightSide}`}
                 >
-                    <VStack spacing={5}>
+                    <div className={` ${Style.FormContainer}`}>
                         <Controller
                             name="name"
                             control={control}
                             render={({ field, fieldState }) => (
-                                <FormControl
-                                    isInvalid={!!fieldState.error}
-                                    isRequired
-                                >
-                                    <FormLabel>Votre Nom</FormLabel>
-                                    <InputGroup borderColor="#E0E1E7">
-                                        <InputLeftElement
-                                            pointerEvents="none"
-                                            children={
-                                                <BsPerson color="gray.500" />
-                                            }
-                                        />
-                                        <Input
-                                            focusBorderColor={"black"}
+                                <div className={` ${Style.InputGroup}`}>
+                                    <label
+                                        className={` ${Style.InputLabel}`}
+                                        htmlFor="name"
+                                    >
+                                        Votre Nom
+                                        <span style={{ color: "#E53E3E" }}>
+                                            {" "}
+                                            *
+                                        </span>
+                                    </label>
+                                    <div className={` ${Style.InputField}`}>
+                                        <BsPerson color="gray.500" />
+                                        <input
+                                            id="name"
                                             type="text"
-                                            size="md"
                                             {...field}
-                                        />
-                                    </InputGroup>
-                                    <FormErrorMessage>
+                                            className={`${
+                                                fieldState.invalid &&
+                                                Style.InputError
+                                            }`}
+                                        ></input>
+                                    </div>
+                                    <div className={` ${Style.ErrorMessage}`}>
                                         {fieldState.error?.message}
-                                    </FormErrorMessage>
-                                </FormControl>
+                                    </div>
+                                </div>
                             )}
                         />
                         <Controller
                             name="phone"
                             control={control}
                             render={({ field, fieldState }) => (
-                                <FormControl
-                                    isInvalid={!!fieldState.error}
-                                    isRequired
-                                >
-                                    <FormLabel>Téléphone</FormLabel>
-                                    <InputGroup borderColor="#E0E1E7">
-                                        <InputLeftElement
-                                            pointerEvents="none"
-                                            children={
-                                                <MdOutlinePhone color="gray.500" />
-                                            }
-                                        />
-                                        <Input
-                                            focusBorderColor={"black"}
+                                <div className={` ${Style.InputGroup}`}>
+                                    <label
+                                        className={` ${Style.InputLabel}`}
+                                        htmlFor="phone"
+                                    >
+                                        Téléphone
+                                        <span style={{ color: "#E53E3E" }}>
+                                            {" "}
+                                            *
+                                        </span>
+                                    </label>
+                                    <div className={` ${Style.InputField}`}>
+                                        <MdOutlinePhone color="gray.500" />
+                                        <input
+                                            id="phone"
                                             type="text"
-                                            size="md"
                                             {...field}
-                                        />
-                                    </InputGroup>
-                                    <FormErrorMessage>
+                                            className={`${
+                                                fieldState.invalid &&
+                                                Style.InputError
+                                            }`}
+                                        ></input>
+                                    </div>
+                                    <div className={` ${Style.ErrorMessage}`}>
                                         {fieldState.error?.message}
-                                    </FormErrorMessage>
-                                </FormControl>
+                                    </div>
+                                </div>
                             )}
                         />
                         <Controller
                             name="mail"
                             control={control}
                             render={({ field, fieldState }) => (
-                                <FormControl
-                                    isInvalid={!!fieldState.error}
-                                    isRequired
-                                >
-                                    <FormLabel>Adresse Mail</FormLabel>
-                                    <InputGroup borderColor="#E0E1E7">
-                                        <InputLeftElement
-                                            pointerEvents="none"
-                                            children={
-                                                <MdOutlineEmail color="gray.500" />
-                                            }
-                                        />
-                                        <Input
-                                            focusBorderColor={"black"}
-                                            type="text"
-                                            size="md"
-                                            {...field}
-                                        />
-                                    </InputGroup>
-                                    <FormErrorMessage>
-                                        {fieldState.error?.message}
-                                    </FormErrorMessage>
-                                </FormControl>
+                                <div className={` ${Style.InputGroup}`}>
+                                    {" "}
+                                    <div className={` ${Style.InputGroup}`}>
+                                        <label
+                                            className={` ${Style.InputLabel}`}
+                                            htmlFor="mail"
+                                        >
+                                            Adresse Mail
+                                            <span style={{ color: "#E53E3E" }}>
+                                                {" "}
+                                                *
+                                            </span>
+                                        </label>
+                                        <div className={` ${Style.InputField}`}>
+                                            <MdOutlineEmail color="gray.500" />
+                                            <input
+                                                id="mail"
+                                                type="text"
+                                                {...field}
+                                                className={`${
+                                                    fieldState.invalid &&
+                                                    Style.InputError
+                                                }`}
+                                            ></input>
+                                        </div>
+                                        <div
+                                            className={` ${Style.ErrorMessage}`}
+                                        >
+                                            {fieldState.error?.message}
+                                        </div>
+                                    </div>
+                                </div>
                             )}
                         />
                         <Controller
                             name="message"
                             control={control}
                             render={({ field, fieldState }) => (
-                                <FormControl
-                                    isInvalid={!!fieldState.error}
-                                    isRequired
-                                >
-                                    <FormLabel>Message</FormLabel>
-                                    <InputGroup borderColor="#E0E1E7">
-                                        <InputLeftElement pointerEvents="none" />
-                                        <Textarea
-                                            borderColor="gray.300"
-                                            focusBorderColor={"black"}
-                                            rows={5}
-                                            {...field}
-                                            _hover={{
-                                                borderRadius: "gray.300",
-                                            }}
-                                            placeholder="message"
-                                        />
-                                    </InputGroup>
-                                    <FormErrorMessage>
-                                        {fieldState.error?.message}
-                                    </FormErrorMessage>
-                                </FormControl>
+                                <div className={` ${Style.InputGroup}`}>
+                                    {" "}
+                                    <div className={` ${Style.InputGroup}`}>
+                                        <label
+                                            className={` ${Style.InputLabel}`}
+                                            htmlFor="message"
+                                        >
+                                            Message
+                                            <span style={{ color: "#E53E3E" }}>
+                                                {" "}
+                                                *
+                                            </span>
+                                        </label>
+                                        <div className={` ${Style.InputField}`}>
+                                            <textarea
+                                                id="message"
+                                                rows={5}
+                                                placeholder="message"
+                                                {...field}
+                                                className={`${
+                                                    fieldState.invalid &&
+                                                    Style.InputError
+                                                }`}
+                                            ></textarea>
+                                        </div>
+                                        <div
+                                            className={` ${Style.ErrorMessage}`}
+                                        >
+                                            {fieldState.error?.message}
+                                        </div>
+                                    </div>
+                                </div>
                             )}
                         />
-                        <FormControl float="right">
-                            <Button
+                        <div className={` ${Style.FormButton}`}>
+                            <button
                                 disabled={!formState.isValid}
                                 type="submit"
                                 name="submit-form"
-                                variant="solid"
-                                borderRadius={0}
-                                bg="#f8e0de"
-                                color="black"
-                                fontSize={13}
-                                _hover={{
-                                    backgroundColor: "#f4ccc9",
-                                }}
                             >
                                 Envoyer Le Message
-                            </Button>
-                        </FormControl>
-                    </VStack>
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </section>

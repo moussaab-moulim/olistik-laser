@@ -1,7 +1,18 @@
 .contactWrapper {
     color: black;
+    .SuccessToast {
+        color: white;
+        border-radius: 2px;
+        background-color: #48bb78;
+    }
+    .ErrorToast {
+        color: white;
+        border-radius: 2px;
+        padding: 8px 24px;
+        background-color: #e53e3e;
+    }
     .contactHeader {
-        text-align: center;
+        text-align: left;
         padding-bottom: 40px;
     }
     .dataWrapper {
@@ -25,10 +36,83 @@
             @media (min-width: 1025px) {
                 flex-basis: 50%;
             }
+            .FormContainer {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                @media (min-width: 1025px) {
+                    padding-top: 90px;
+                }
+                .InputGroup {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    .InputLabel {
+                        font-weight: 500;
+                    }
+                    .InputField {
+                        position: relative;
+                        input {
+                            height: 40px;
+                            padding: 0 40px;
+                            width: 100%;
+                            border: 1px solid #e0e1e7;
+                            &:focus {
+                                border-color: black;
+                                box-shadow: 0 0 0 1px black;
+                            }
+                        }
+                        svg {
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            margin-left: 10px;
+                            top: 50%;
+                        }
+                        textarea {
+                            padding: 8px 16px;
+                            width: 100%;
+                            border: 1px solid #e0e1e7;
+                            &:focus {
+                                border-color: black;
+                                box-shadow: 0 0 0 1px black;
+                            }
+                        }
+                        .InputError {
+                            border-color: #e53e3e;
+                            box-shadow: 0 0 0 1px #e53e3e;
+                        }
+                    }
+                    .ErrorMessage {
+                        color: #e53e3e;
+                        transition: all 1s ease;
+                    }
+                }
+                .FormButton {
+                    button {
+                        font-family: "Open Sans", sans-serif;
+                        padding: 10px 20px;
+                        font-size: 13px;
+                        background-color: #f8e0de;
+                        color: #000;
+                        font-weight: 600;
+                        transition: all 0.2s ease;
+                        &:hover {
+                            background-color: #f4ccc9;
+                        }
+                        &:disabled {
+                            opacity: 0.4;
+                            cursor: not-allowed;
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
             input,
             textarea {
                 border-radius: 0;
                 resize: none;
+                outline: none;
             }
         }
     }

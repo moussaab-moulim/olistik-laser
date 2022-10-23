@@ -3,6 +3,71 @@
     .LeftSide {
         background-color: white;
         color: black;
+        .AccordionMobile {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            // position: relative;
+            // height: 100vh;
+            background: #fff;
+
+            .AccordionContainer {
+                // position: absolute;
+                border-bottom: 1px solid #e2e8f0;
+                margin-bottom: 40px;
+                .AccordionButton {
+                    border-top: 1px solid #e2e8f0;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    text-align: center;
+                    width: 100%;
+                    padding: 16px;
+                    h3 {
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+                }
+                .AccordionContent {
+                    overflow: hidden;
+
+                    background-color: #89898c;
+                    color: white;
+                    .inside {
+                        padding: 40px 10%;
+                        text-align: left;
+                    }
+
+                    h3 {
+                        font-size: 24px;
+                        padding-bottom: 15px;
+                    }
+                    h4 {
+                        padding-bottom: 15px;
+                        font-size: 20px;
+                    }
+                    ul {
+                        list-style: inside;
+                        padding-bottom: 15px;
+                    }
+                    p {
+                        padding-bottom: 15px;
+                        margin: 0;
+                    }
+                    div {
+                        margin-top: 15px;
+                        text-align: center;
+                    }
+                    max-height: 0;
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in, max-height 0.3s ease-in;
+                }
+                .AccordionContent.ShowAccordion {
+                    opacity: 1;
+                    max-height: 1080px;
+                }
+            }
+        }
         .LeftHead {
             text-align: center;
             padding-bottom: 30px;

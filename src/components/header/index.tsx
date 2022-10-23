@@ -1,13 +1,14 @@
-import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { BiMenu } from "react-icons/bi";
+import { IoClose } from "react-icons/io5";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Collapse, useMediaQuery } from "@chakra-ui/react";
-import { IconButton, useDisclosure } from "@chakra-ui/react";
+import { useMediaQuery } from "react-responsive";
 import { NavigationDocument } from "@customtypes/rest";
 import { ImageField } from "@prismicio/types";
 import Style from "./style.module.scss";
 import { MyButton } from "@components/button";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { isFilled } from "@prismicio/helpers";
 import { linkResolver } from "prismicio";
 import { FilledLink } from "@customtypes/common";
@@ -18,8 +19,13 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
-    const [isLargerThan1025] = useMediaQuery("(min-width: 1025px)");
-    const { isOpen, onToggle } = useDisclosure();
+    const isLargerThan1025 = useMediaQuery({
+        query: "(min-width: 1025px)",
+    });
+    const [showMenu, setShowMenu] = useState(false);
+    const toggle = () => {
+        setShowMenu(!showMenu);
+    };
 
     return (
         <header className={`${Style.navWrapper}`}>
@@ -91,18 +97,13 @@ export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
                 {/* < -- MOBILE BURGER BUTTON -- > */}
                 {!isLargerThan1025 && (
                     <div className={`${Style.navBurger}`}>
-                        <IconButton
-                            onClick={onToggle}
-                            icon={
-                                isOpen ? (
-                                    <CloseIcon w={5} h={5} />
-                                ) : (
-                                    <HamburgerIcon w={10} h={10} />
-                                )
-                            }
-                            variant={"unstyled"}
-                            aria-label={"Toggle Navigation"}
-                        />
+                        <button onClick={() => toggle()}>
+                            {showMenu ? (
+                                <IoClose size={36} />
+                            ) : (
+                                <BiMenu size={40} />
+                            )}
+                        </button>
                     </div>
                 )}
             </div>
@@ -110,25 +111,27 @@ export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
             {!isLargerThan1025 && (
                 <Fragment>
                     {/* < -- MOBILE NAV BAR -- > */}
-                    <Collapse in={isOpen}>
-                        <div className={`${Style.navCollapse}`}>
-                            <ul>
-                                {navigation?.data.links.map((navItem, i) => (
-                                    <li key={i} onClick={onToggle}>
-                                        <Link
-                                            href={linkResolver(
-                                                navItem.link as FilledLink,
-                                            )}
-                                            passHref
-                                            prefetch={false}
-                                        >
-                                            <a>{navItem.label}</a>
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </Collapse>
+                    <div
+                        className={`${Style.navCollapse} ${
+                            showMenu && Style.ShowMenu
+                        }`}
+                    >
+                        <ul>
+                            {navigation?.data.links.map((navItem, i) => (
+                                <li key={i} onClick={() => setShowMenu(false)}>
+                                    <Link
+                                        href={linkResolver(
+                                            navItem.link as FilledLink,
+                                        )}
+                                        passHref
+                                        prefetch={false}
+                                    >
+                                        <a>{navItem.label}</a>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                     {/* < -- MOBILE BOTTOM NAV BAR -- > */}
                     <div className={`${Style.navBottom}`}>
                         {navigation?.data.action_group.map((navItem, i) => (

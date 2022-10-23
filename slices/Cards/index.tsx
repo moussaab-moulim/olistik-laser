@@ -1,15 +1,9 @@
-import React, { FC, useState } from "react";
+import React, { FC, Fragment, useState } from "react";
 import { PrismicRichText } from "@prismicio/react";
 import { CardsSlice } from "@customtypes/rest";
 import Style from "./style.module.scss";
-import {
-    Accordion,
-    AccordionButton,
-    AccordionIcon,
-    AccordionItem,
-    AccordionPanel,
-    useMediaQuery,
-} from "@chakra-ui/react";
+import { BsChevronDown, BsChevronUp } from "react-icons/bs";
+import { useMediaQuery } from "react-responsive";
 import { MyButton } from "@components/button";
 import { BsChevronRight } from "react-icons/bs";
 import { asText } from "@prismicio/helpers";
@@ -19,7 +13,11 @@ interface CardsProps {
     slice: CardsSlice;
 }
 const Cards: FC<CardsProps> = ({ slice }: CardsProps) => {
-    const [isLargerThan1025] = useMediaQuery("(min-width: 1025px)");
+    // BreakPoint
+    const isLargerThan1025 = useMediaQuery({
+        query: "(min-width: 1025px)",
+    });
+    // Desktop Accordion State
     const initialText = asText(slice.items[0].title);
     const [contentTitle, setContentTitle] = useState(initialText);
 
@@ -27,7 +25,15 @@ const Cards: FC<CardsProps> = ({ slice }: CardsProps) => {
         const ButtonText = asText(textField);
         setContentTitle(ButtonText);
     };
-
+    // Mobile Accordion State
+    const [isSelected, setSelected] = useState(null);
+    const toggle = (i: any) => {
+        if (isSelected === i) {
+            //if clicked an accordion. the others close it
+            return setSelected(null);
+        }
+        setSelected(i);
+    };
     return (
         <section
             id={slice.primary.slice_id ?? ""}
@@ -39,41 +45,9 @@ const Cards: FC<CardsProps> = ({ slice }: CardsProps) => {
                     <PrismicRichText field={slice.primary.description} />
                 </div>
 
-                {/* MOBILE DROP DOWN SELECTION */}
-                {!isLargerThan1025 && (
-                    <Accordion
-                        allowToggle
-                        colorScheme="brand"
-                        className={`${Style.LeftMenu}`}
-                    >
-                        {slice?.items?.map((item, i) => (
-                            <AccordionItem key={i}>
-                                <AccordionButton>
-                                    {asText(item.title)}
-                                    <AccordionIcon />
-                                </AccordionButton>
-                                <AccordionPanel
-                                    pb={4}
-                                    className={`${Style.Content}`}
-                                >
-                                    <PrismicRichText field={item.title} />
-                                    <PrismicRichText field={item.description} />
-                                    <div>
-                                        <MyButton
-                                            link={item.button_url}
-                                            variant={true}
-                                        >
-                                            {item.button_label}
-                                        </MyButton>
-                                    </div>
-                                </AccordionPanel>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
-                )}
-                {/* DESKTOP DROP DOWN SELECTION */}
-                {isLargerThan1025 && (
+                {isLargerThan1025 ? (
                     <div className={` ${Style.LeftMenu}`}>
+                        {/* DESKTOP DROP DOWN SELECTION */}
                         {slice?.items?.map((item, i) => (
                             <div
                                 key={i}
@@ -85,6 +59,51 @@ const Cards: FC<CardsProps> = ({ slice }: CardsProps) => {
                             </div>
                         ))}
                     </div>
+                ) : (
+                    <div className={`${Style.AccordionMobile}`}>
+                        {/* MOBILE DROP DOWN SELECTION */}
+                        <div className={`${Style.AccordionContainer}`}>
+                            {slice?.items?.map((item, i) => (
+                                <div key={i}>
+                                    <div
+                                        className={`${Style.AccordionButton}`}
+                                        onClick={() => toggle(i)}
+                                    >
+                                        <PrismicRichText field={item.title} />
+                                        {isSelected === i ? (
+                                            <BsChevronUp size={14} />
+                                        ) : (
+                                            <BsChevronDown size={14} />
+                                        )}
+                                    </div>
+                                    {/* MOBILE DROP DOWN CONTENT */}
+                                    <div
+                                        className={`${Style.AccordionContent} ${
+                                            isSelected === i &&
+                                            Style.ShowAccordion
+                                        } `}
+                                    >
+                                        <div className={`${Style.inside}`}>
+                                            <PrismicRichText
+                                                field={item.title}
+                                            />
+                                            <PrismicRichText
+                                                field={item.description}
+                                            />
+                                            <div>
+                                                <MyButton
+                                                    link={item.button_url}
+                                                    variant={true}
+                                                >
+                                                    {item.button_label}
+                                                </MyButton>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 )}
             </div>
             {/* DESKTOP DROP DOWN CONTENT */}
@@ -92,7 +111,6 @@ const Cards: FC<CardsProps> = ({ slice }: CardsProps) => {
                 <div className={`container ${Style.RightSide}`}>
                     {slice?.items?.map(
                         (item, i) =>
-                            // problem here
                             contentTitle === asText(item.title) && (
                                 <div key={i}>
                                     <PrismicRichText field={item.title} />
