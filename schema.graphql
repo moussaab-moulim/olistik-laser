@@ -1,3 +1,6 @@
+"""Date"""
+scalar Date
+
 """DateTime"""
 scalar DateTime
 
@@ -117,7 +120,34 @@ type PageInfo {
   startCursor: String
 }
 
-union PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesReviews | PageSlicesTarifs | PageSlicesText_with_image
+union PageSlices = PageSlicesBlog | PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesReviews | PageSlicesTarifs | PageSlicesText_with_image
+
+type PageSlicesBlog {
+  label: String
+  type: String
+  variation: PageSlicesBlogVariation
+}
+
+type PageSlicesBlogDefault {
+  items: [PageSlicesBlogDefaultItems!]
+  primary: PageSlicesBlogDefaultPrimary
+}
+
+type PageSlicesBlogDefaultItems {
+  background_image: Json
+  button_url: _Linkable
+  description: Json
+  post_date: Date
+  title: Json
+}
+
+type PageSlicesBlogDefaultPrimary {
+  description: Json
+  slice_id: String
+  title: Json
+}
+
+union PageSlicesBlogVariation = PageSlicesBlogDefault
 
 type PageSlicesCards {
   label: String
@@ -221,7 +251,6 @@ type PageSlicesReviewsDefault {
 }
 
 type PageSlicesReviewsDefaultItems {
-  image: Json
   name: String
   review: Json
   social_media_label: String
@@ -229,6 +258,7 @@ type PageSlicesReviewsDefaultItems {
 }
 
 type PageSlicesReviewsDefaultPrimary {
+  background_color: String
   description: Json
   title: Json
 }
@@ -309,6 +339,11 @@ union PageSlicesText_with_imageVariation = PageSlicesText_with_imageDefault | Pa
 type Post implements _Document & _Linkable {
   _linkType: String
   _meta: Meta!
+  featured_image: Json
+  keywords: String
+  meta_description: String
+  meta_title: String
+  slices: [PostSlices!]
 }
 
 """A connection to a list of items."""
@@ -330,13 +365,71 @@ type PostConnectionEdge {
   node: Post!
 }
 
+union PostSlices = PostSlicesHero | PostSlicesText
+
+type PostSlicesHero {
+  label: String
+  type: String
+  variation: PostSlicesHeroVariation
+}
+
+type PostSlicesHeroDefault {
+  items: [PostSlicesHeroDefaultItems!]
+  primary: PostSlicesHeroDefaultPrimary
+}
+
+type PostSlicesHeroDefaultItems {
+  button_label: String
+  button_url: _Linkable
+}
+
+type PostSlicesHeroDefaultPrimary {
+  background_color: String
+  background_image: Json
+  slice_id: String
+  text: Json
+  title: Json
+}
+
+type PostSlicesHeroNoactionhero {
+  primary: PostSlicesHeroNoactionheroPrimary
+}
+
+type PostSlicesHeroNoactionheroPrimary {
+  background_color: String
+  background_image: Json
+  slice_id: String
+  text: Json
+  title: Json
+}
+
+union PostSlicesHeroVariation = PostSlicesHeroDefault | PostSlicesHeroNoactionhero
+
+type PostSlicesText {
+  label: String
+  type: String
+  variation: PostSlicesTextVariation
+}
+
+type PostSlicesTextDefault {
+  primary: PostSlicesTextDefaultPrimary
+}
+
+type PostSlicesTextDefaultPrimary {
+  slice_id: String
+  text: Json
+}
+
+union PostSlicesTextVariation = PostSlicesTextDefault
+
 type Query {
   _allDocuments(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortDocumentsBy, tags: [String!], tags_in: [String!], type: String, type_in: [String!]): _DocumentConnection!
   allNavigations(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortNavigationy, tags: [String!], tags_in: [String!], uid: String, uid_in: [String!], where: WhereNavigation): NavigationConnectionConnection!
   allPages(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortPagey, tags: [String!], tags_in: [String!], uid: String, uid_in: [String!], where: WherePage): PageConnectionConnection!
-  allPosts(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortPosty, tags: [String!], tags_in: [String!], uid: String, uid_in: [String!]): PostConnectionConnection!
+  allPosts(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortPosty, tags: [String!], tags_in: [String!], uid: String, uid_in: [String!], where: WherePost): PostConnectionConnection!
   allSettingss(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortSettingsy, tags: [String!], tags_in: [String!], uid: String, uid_in: [String!], where: WhereSettings): SettingsConnectionConnection!
   page(lang: String!, uid: String!): Page
+  post(lang: String!, uid: String!): Post
 }
 
 type RelatedDocument {
@@ -362,6 +455,7 @@ type Settings implements _Document & _Linkable {
   favico: Json
   logo: Json
   logo_invert: Json
+  mask_icon: Json
   search_console_key: String
   site_name: String
   theme_color: String
@@ -414,10 +508,16 @@ enum SortPagey {
 }
 
 enum SortPosty {
+  keywords_ASC
+  keywords_DESC
+  meta_description_ASC
+  meta_description_DESC
   meta_firstPublicationDate_ASC
   meta_firstPublicationDate_DESC
   meta_lastPublicationDate_ASC
   meta_lastPublicationDate_DESC
+  meta_title_ASC
+  meta_title_DESC
 }
 
 enum SortSettingsy {
@@ -462,6 +562,15 @@ input WhereNavigationLinks {
 }
 
 input WherePage {
+  keywords: String
+  keywords_fulltext: String
+  meta_description: String
+  meta_description_fulltext: String
+  meta_title: String
+  meta_title_fulltext: String
+}
+
+input WherePost {
   keywords: String
   keywords_fulltext: String
   meta_description: String

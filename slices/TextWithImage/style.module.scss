@@ -1,12 +1,16 @@
 // Style when Text is in the Left Side
-.LeftSliceWrapper {
+.leftSliceWrapper {
     display: flex;
     justify-items: center;
     justify-content: center;
     flex-direction: column-reverse;
     color: white;
+
     .textWrapper {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding: 90px 10%;
         ul {
             list-style: inside;
@@ -21,17 +25,22 @@
         }
     }
     .imageWrapper {
+        position: relative;
         margin-top: 90px;
+        // height: 480px;
     }
 }
 
 // Style when Text is in the Right Side
-.RightSliceWrapper {
+.rightSliceWrapper {
     display: flex;
     flex-direction: column-reverse;
     padding: 90px 10%;
     color: white;
     .textWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         text-align: center;
         h2 {
             padding: 40px 0;
@@ -42,6 +51,7 @@
     }
 
     .imageWrapper {
+        position: relative;
         display: flex;
         justify-content: center;
     }
@@ -50,7 +60,7 @@
 //  < -- DESKTOP BREAK POINT -- >
 @media (min-width: 1025px) {
     // Style when Text is in the Left Side
-    .LeftSliceWrapper {
+    .leftSliceWrapper {
         flex-direction: row;
         padding-right: 0;
         .textWrapper {
@@ -67,7 +77,7 @@
     }
 
     // Style when Text is in the Left Side
-    .RightSliceWrapper {
+    .rightSliceWrapper {
         flex-direction: row-reverse;
         padding: 0;
         .textWrapper {

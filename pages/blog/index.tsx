@@ -1,7 +1,7 @@
 import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { SliceZone } from "@prismicio/react";
-import { components } from "../slices/";
+import { components } from "../../slices/";
 import { GetStaticProps, NextPage } from "next";
 import { Layout } from "@components/layout";
 import { mapPageSeo } from "@services/mappers/pageMappers";
@@ -12,30 +12,31 @@ import {
     SettingsDocument,
 } from "@customtypes/rest";
 import { createRestClient } from "@services/client";
-import BLogList from "@components/Blog/BlogList";
+import BlogPage from "@components/Blog/BlogPage";
 import { Query } from "@prismicio/types";
 
 interface IProps {
     navigation: NavigationDocument;
     settings: SettingsDocument;
-    home: PageDocument;
-    posts: Query<PostDocument>;
+    page: PageDocument;
+    posts: Query<PostDocument>; // need typing
 }
-const Home: NextPage<IProps> = ({
+
+const Blog: NextPage<IProps> = ({
     navigation,
     settings,
-    home,
+    page,
     posts,
 }: IProps) => {
     return (
-        <Layout navigation={navigation} settings={mapPageSeo(home, settings)}>
-            <SliceZone slices={home.data.slices} components={components} />
-            <BLogList posts={posts.results} title={"Blog"} />
+        <Layout navigation={navigation} settings={mapPageSeo(page, settings)}>
+            <SliceZone slices={page.data.slices} components={components} />
+            <BlogPage posts={posts.results} />
         </Layout>
     );
 };
 
-export default Home;
+export default Blog;
 
 export const getStaticProps: GetStaticProps<IProps> = async ({
     locale: serverLocale,
@@ -53,7 +54,7 @@ export const getStaticProps: GetStaticProps<IProps> = async ({
             lang: locale,
         },
     );
-    const home = await client.getByUID<PageDocument>("page", "home", {
+    const page = await client.getByUID<PageDocument>("page", "blog", {
         lang: locale,
     });
     const Query = `{
@@ -66,7 +67,7 @@ export const getStaticProps: GetStaticProps<IProps> = async ({
     const posts = await client.getByType<PostDocument>("post", {
         lang: locale,
         graphQuery: Query,
-        pageSize: 3,
+        pageSize: 5,
         orderings: {
             field: "document.first_publication_date",
             direction: "desc",
@@ -76,9 +77,9 @@ export const getStaticProps: GetStaticProps<IProps> = async ({
     return {
         props: {
             ...(await serverSideTranslations(locale, ["common"])),
+            page,
             navigation,
             settings,
-            home,
             posts,
         },
     };

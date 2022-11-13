@@ -1,16 +1,16 @@
-.CardsWrapper {
+.cardsWrapper {
     // LEFT SIDE COMPONENT
-    .LeftSide {
+    .leftSide {
         background-color: white;
         color: black;
-        .LeftHead {
+        .leftHead {
             text-align: center;
             padding-bottom: 30px;
             h2 {
                 padding-bottom: 40px;
             }
         }
-        .LeftMenu {
+        .leftMenu {
             background-color: white;
             color: black;
             font-size: 14px;
@@ -22,7 +22,7 @@
                 font-weight: 600;
                 padding: 16px;
             }
-            .Content {
+            .content {
                 background-color: #89898c;
                 color: white;
                 padding: 40px 10%;
@@ -50,20 +50,20 @@
         }
     }
     // RIGHT SIDE COMPONENT
-    .RightSide {
+    .rightSide {
         background-color: #89898c;
         color: white;
     }
 }
 
 @media (min-width: 1025px) {
-    .CardsWrapper {
+    .cardsWrapper {
         display: flex;
         flex-direction: row;
-        .LeftSide {
+        .leftSide {
             flex-basis: 50%;
 
-            .LeftMenu {
+            .leftMenu {
                 padding-left: 10%;
                 width: 100%;
 
@@ -76,8 +76,8 @@
                     font-weight: 600;
                     align-items: center;
                     justify-content: space-between;
-                    font-size: 20px;
-                    padding: 24px 16px;
+                    font-size: 16px;
+                    padding: 16px;
                     border-top: 1px solid #e2e8f0;
                     border-radius: 0;
                     &:hover,
@@ -88,7 +88,7 @@
                 }
             }
         }
-        .RightSide {
+        .rightSide {
             flex-basis: 50%;
             h3 {
                 font-size: 34px;

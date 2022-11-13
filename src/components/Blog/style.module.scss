@@ -1,0 +1,176 @@
+.blogWrapper {
+    padding: 90px 10%;
+    @media (min-width: 1025px) {
+        padding: 90px 5%;
+    }
+    h2 {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 700;
+        padding-bottom: 40px;
+    }
+    .cardWrapper {
+        position: relative;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        // justify-content: center;
+        // gap: 33px;
+        @media (min-width: 1025px) {
+            // flex-direction: row;
+        }
+        .card {
+            // height: 380px;
+            // width: 380px;
+            text-align: left;
+            background-color: white;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+                0 1px 2px -1px rgb(0 0 0 / 0.1);
+            a {
+                &:hover {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+                .image {
+                    position: relative;
+                    height: 180px;
+                    img {
+                        transition: all 1s ease-out;
+                    }
+                }
+                .content {
+                    padding: 20px 30px;
+                    span {
+                        margin-bottom: 10px;
+                        align-self: left;
+                        color: #b7b7b8;
+                        font-size: 12px;
+                    }
+                    h3 {
+                        font-size: 20px;
+                        font-weight: 700;
+                        margin: 5px 0;
+                    }
+                    .contentText {
+                        p {
+                            height: 88px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            font-size: 14px;
+                            color: #89898c;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.rightArrow {
+    position: absolute;
+    top: 40%;
+    margin-left: 10px;
+}
+
+.leftArrow {
+    position: absolute;
+    top: 40%;
+    margin-left: -50px;
+}
+
+.blogPageWrapper {
+    position: relative;
+    .paths {
+        font-size: 14px;
+        position: absolute;
+        max-width: 666px;
+        padding: 20px 90px;
+        a {
+            &:hover {
+                color: #89898c;
+            }
+        }
+    }
+    .cardWrapper {
+        margin: auto;
+        display: grid;
+        gap: 44px;
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(360px, auto);
+        @media (min-width: 1025px) {
+            grid-template-columns: 1fr 1fr;
+        }
+        .card {
+            &:nth-child(1) {
+                @media (min-width: 1025px) {
+                    grid-column: 1/3;
+                }
+                a {
+                    @media (min-width: 1025px) {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                    }
+                    .image {
+                        flex-basis: 50%;
+
+                        @media (min-width: 1025px) {
+                            height: 360px;
+                            grid-column: 1/3;
+                        }
+                        img {
+                            @media (min-width: 1025px) {
+                                object-position: 40% 50%;
+                            }
+                        }
+                    }
+                    .content {
+                        flex-basis: 50%;
+                    }
+                }
+            }
+
+            text-align: left;
+            background-color: white;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+                0 1px 2px -1px rgb(0 0 0 / 0.1);
+            a {
+                &:hover {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+                .image {
+                    position: relative;
+                    height: 300px;
+                    img {
+                        transition: all 1.5s ease-out;
+                    }
+                }
+                .content {
+                    padding: 20px 40px;
+                    span {
+                        margin-bottom: 10px;
+                        align-self: left;
+                        color: #b7b7b8;
+                        font-size: 12px;
+                    }
+                    h3 {
+                        font-size: 20px;
+                        font-weight: 700;
+                        margin: 5px 0;
+                    }
+                    .contentText {
+                        p {
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            font-size: 14px;
+                            color: #89898c;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

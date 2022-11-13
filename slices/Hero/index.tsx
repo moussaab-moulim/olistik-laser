@@ -17,8 +17,8 @@ const Hero: FC<HeroProps> = ({ slice }: HeroProps) => {
             id={slice.primary.slice_id ?? ""}
             className={`${
                 slice.variation === "default"
-                    ? Style.HeroWrapper
-                    : Style.HeroBreak
+                    ? Style.heroWrapper
+                    : Style.heroBreak
             } ${css`
                 background-color: ${slice.primary.background_color ?? "#000"};
             `}`}

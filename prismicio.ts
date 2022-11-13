@@ -1,4 +1,3 @@
-import { PageDocument } from "@customtypes/rest";
 import { LinkResolverFunction } from "@prismicio/helpers";
 
 import {
@@ -12,8 +11,7 @@ export const linkResolver = (
     doc: FilledLinkToDocumentField | FilledLinkToWebField,
 ): string => {
     if (typeof doc.link_type === typeof LinkType.Web) {
-        if (doc?.url?.includes("https://#"))
-            return doc.url.replace("https://", "");
+        if (doc?.url?.includes("//#")) return doc.url.replace("https://", "");
         return doc.url ?? "";
     }
     if (typeof doc.link_type === typeof LinkType.Document) {

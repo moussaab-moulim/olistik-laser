@@ -137,7 +137,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/Cards/default/preview.png",
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Cards\\default\\preview.png",
             "width": 1331,
             "height": 688
           }
@@ -254,7 +254,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/Cta/default/preview.png",
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Cta\\default\\preview.png",
             "width": 3024,
             "height": 638
           }
@@ -476,7 +476,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/Hero/default/preview.png",
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Hero\\default\\preview.png",
             "width": 2946,
             "height": 1666
           }
@@ -610,7 +610,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/.slicemachine/assets/slices/Reviews/default/preview.png",
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\.slicemachine\\assets\\slices\\Reviews\\default\\preview.png",
             "width": 800,
             "height": 24
           }
@@ -760,9 +760,81 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/Tarifs/default/preview.jpeg",
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Tarifs\\default\\preview.jpeg",
             "width": 1600,
             "height": 1037
+          }
+        }
+      },
+      "text": {
+        "library": "slices",
+        "id": "text",
+        "name": "Text",
+        "description": "Text",
+        "model": {
+          "id": "text",
+          "type": "SharedSlice",
+          "name": "Text",
+          "description": "Text",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Text",
+              "primary": {
+                "slice_id": {
+                  "type": "Text",
+                  "config": {
+                    "label": "slice id",
+                    "placeholder": ""
+                  }
+                },
+                "text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "text",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "slice_id": "cost",
+              "text": [
+                {
+                  "type": "paragraph",
+                  "text": "Non sit velit aute. Cupidatat eiusmod Lorem officia elit eu laborum nostrud ut eiusmod. Dolore esse exercitation excepteur ex sint anim do pariatur commodo.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "text"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\.slicemachine\\assets\\slices\\Text\\default\\preview.png",
+            "width": 1280,
+            "height": 800
           }
         }
       },
@@ -1009,7 +1081,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/TextWithImage/default/preview.png",
+            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\TextWithImage\\default\\preview.png",
             "width": 3024,
             "height": 1448
           }

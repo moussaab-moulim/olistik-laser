@@ -11,6 +11,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  Date: any;
   DateTime: any;
   Json: any;
   Long: any;
@@ -120,7 +121,38 @@ export type PageInfo = {
   startCursor?: Maybe<Scalars['String']>;
 };
 
-export type PageSlices = PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesReviews | PageSlicesTarifs | PageSlicesText_With_Image;
+export type PageSlices = PageSlicesBlog | PageSlicesCards | PageSlicesCta | PageSlicesHero | PageSlicesReviews | PageSlicesTarifs | PageSlicesText_With_Image;
+
+export type PageSlicesBlog = {
+  __typename?: 'PageSlicesBlog';
+  label?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  variation?: Maybe<PageSlicesBlogVariation>;
+};
+
+export type PageSlicesBlogDefault = {
+  __typename?: 'PageSlicesBlogDefault';
+  items?: Maybe<Array<PageSlicesBlogDefaultItems>>;
+  primary?: Maybe<PageSlicesBlogDefaultPrimary>;
+};
+
+export type PageSlicesBlogDefaultItems = {
+  __typename?: 'PageSlicesBlogDefaultItems';
+  background_image?: Maybe<Scalars['Json']>;
+  button_url?: Maybe<_Linkable>;
+  description?: Maybe<Scalars['Json']>;
+  post_date?: Maybe<Scalars['Date']>;
+  title?: Maybe<Scalars['Json']>;
+};
+
+export type PageSlicesBlogDefaultPrimary = {
+  __typename?: 'PageSlicesBlogDefaultPrimary';
+  description?: Maybe<Scalars['Json']>;
+  slice_id?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['Json']>;
+};
+
+export type PageSlicesBlogVariation = PageSlicesBlogDefault;
 
 export type PageSlicesCards = {
   __typename?: 'PageSlicesCards';
@@ -241,7 +273,6 @@ export type PageSlicesReviewsDefault = {
 
 export type PageSlicesReviewsDefaultItems = {
   __typename?: 'PageSlicesReviewsDefaultItems';
-  image?: Maybe<Scalars['Json']>;
   name?: Maybe<Scalars['String']>;
   review?: Maybe<Scalars['Json']>;
   social_media_label?: Maybe<Scalars['String']>;
@@ -250,6 +281,7 @@ export type PageSlicesReviewsDefaultItems = {
 
 export type PageSlicesReviewsDefaultPrimary = {
   __typename?: 'PageSlicesReviewsDefaultPrimary';
+  background_color?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['Json']>;
   title?: Maybe<Scalars['Json']>;
 };
@@ -342,6 +374,11 @@ export type Post = _Document & _Linkable & {
   __typename?: 'Post';
   _linkType?: Maybe<Scalars['String']>;
   _meta: Meta;
+  featured_image?: Maybe<Scalars['Json']>;
+  keywords?: Maybe<Scalars['String']>;
+  meta_description?: Maybe<Scalars['String']>;
+  meta_title?: Maybe<Scalars['String']>;
+  slices?: Maybe<Array<PostSlices>>;
 };
 
 /** A connection to a list of items. */
@@ -363,6 +400,72 @@ export type PostConnectionEdge = {
   node: Post;
 };
 
+export type PostSlices = PostSlicesHero | PostSlicesText;
+
+export type PostSlicesHero = {
+  __typename?: 'PostSlicesHero';
+  label?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  variation?: Maybe<PostSlicesHeroVariation>;
+};
+
+export type PostSlicesHeroDefault = {
+  __typename?: 'PostSlicesHeroDefault';
+  items?: Maybe<Array<PostSlicesHeroDefaultItems>>;
+  primary?: Maybe<PostSlicesHeroDefaultPrimary>;
+};
+
+export type PostSlicesHeroDefaultItems = {
+  __typename?: 'PostSlicesHeroDefaultItems';
+  button_label?: Maybe<Scalars['String']>;
+  button_url?: Maybe<_Linkable>;
+};
+
+export type PostSlicesHeroDefaultPrimary = {
+  __typename?: 'PostSlicesHeroDefaultPrimary';
+  background_color?: Maybe<Scalars['String']>;
+  background_image?: Maybe<Scalars['Json']>;
+  slice_id?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['Json']>;
+  title?: Maybe<Scalars['Json']>;
+};
+
+export type PostSlicesHeroNoactionhero = {
+  __typename?: 'PostSlicesHeroNoactionhero';
+  primary?: Maybe<PostSlicesHeroNoactionheroPrimary>;
+};
+
+export type PostSlicesHeroNoactionheroPrimary = {
+  __typename?: 'PostSlicesHeroNoactionheroPrimary';
+  background_color?: Maybe<Scalars['String']>;
+  background_image?: Maybe<Scalars['Json']>;
+  slice_id?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['Json']>;
+  title?: Maybe<Scalars['Json']>;
+};
+
+export type PostSlicesHeroVariation = PostSlicesHeroDefault | PostSlicesHeroNoactionhero;
+
+export type PostSlicesText = {
+  __typename?: 'PostSlicesText';
+  label?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  variation?: Maybe<PostSlicesTextVariation>;
+};
+
+export type PostSlicesTextDefault = {
+  __typename?: 'PostSlicesTextDefault';
+  primary?: Maybe<PostSlicesTextDefaultPrimary>;
+};
+
+export type PostSlicesTextDefaultPrimary = {
+  __typename?: 'PostSlicesTextDefaultPrimary';
+  slice_id?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['Json']>;
+};
+
+export type PostSlicesTextVariation = PostSlicesTextDefault;
+
 export type Query = {
   __typename?: 'Query';
   _allDocuments: _DocumentConnection;
@@ -371,6 +474,7 @@ export type Query = {
   allPosts: PostConnectionConnection;
   allSettingss: SettingsConnectionConnection;
   page?: Maybe<Page>;
+  post?: Maybe<Post>;
 };
 
 
@@ -469,6 +573,7 @@ export type QueryAllPostsArgs = {
   tags_in?: InputMaybe<Array<Scalars['String']>>;
   uid?: InputMaybe<Scalars['String']>;
   uid_in?: InputMaybe<Array<Scalars['String']>>;
+  where?: InputMaybe<WherePost>;
 };
 
 
@@ -502,6 +607,12 @@ export type QueryPageArgs = {
   uid: Scalars['String'];
 };
 
+
+export type QueryPostArgs = {
+  lang: Scalars['String'];
+  uid: Scalars['String'];
+};
+
 export type RelatedDocument = {
   __typename?: 'RelatedDocument';
   /** The id of the document. */
@@ -524,6 +635,7 @@ export type Settings = _Document & _Linkable & {
   favico?: Maybe<Scalars['Json']>;
   logo?: Maybe<Scalars['Json']>;
   logo_invert?: Maybe<Scalars['Json']>;
+  mask_icon?: Maybe<Scalars['Json']>;
   search_console_key?: Maybe<Scalars['String']>;
   site_name?: Maybe<Scalars['String']>;
   theme_color?: Maybe<Scalars['String']>;
@@ -576,10 +688,16 @@ export enum SortPagey {
 }
 
 export enum SortPosty {
+  KeywordsAsc = 'keywords_ASC',
+  KeywordsDesc = 'keywords_DESC',
+  MetaDescriptionAsc = 'meta_description_ASC',
+  MetaDescriptionDesc = 'meta_description_DESC',
   MetaFirstPublicationDateAsc = 'meta_firstPublicationDate_ASC',
   MetaFirstPublicationDateDesc = 'meta_firstPublicationDate_DESC',
   MetaLastPublicationDateAsc = 'meta_lastPublicationDate_ASC',
-  MetaLastPublicationDateDesc = 'meta_lastPublicationDate_DESC'
+  MetaLastPublicationDateDesc = 'meta_lastPublicationDate_DESC',
+  MetaTitleAsc = 'meta_title_ASC',
+  MetaTitleDesc = 'meta_title_DESC'
 }
 
 export enum SortSettingsy {
@@ -622,6 +740,15 @@ export type WhereNavigationLinks = {
 };
 
 export type WherePage = {
+  keywords?: InputMaybe<Scalars['String']>;
+  keywords_fulltext?: InputMaybe<Scalars['String']>;
+  meta_description?: InputMaybe<Scalars['String']>;
+  meta_description_fulltext?: InputMaybe<Scalars['String']>;
+  meta_title?: InputMaybe<Scalars['String']>;
+  meta_title_fulltext?: InputMaybe<Scalars['String']>;
+};
+
+export type WherePost = {
   keywords?: InputMaybe<Scalars['String']>;
   keywords_fulltext?: InputMaybe<Scalars['String']>;
   meta_description?: InputMaybe<Scalars['String']>;

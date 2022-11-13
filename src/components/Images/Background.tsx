@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { PrismicNextImage } from "@prismicio/next";
 import { ImageField } from "@prismicio/types";
 import Image from "next/image";
 import React, { FC } from "react";
@@ -17,26 +16,26 @@ const BackgroundWrapper = styled.div`
     }
 `;
 
-interface IBackgroundProps {
-    url: string;
-    alt: string;
-}
-export const Background: FC<IBackgroundProps> = ({
-    url,
-    alt,
-}: IBackgroundProps) => {
-    return (
-        <BackgroundWrapper>
-            <Image
-                alt={alt ?? "background image"}
-                src={url}
-                layout="fill"
-                objectFit="cover"
-                quality={70}
-            />
-        </BackgroundWrapper>
-    );
-};
+// interface IBackgroundProps {
+//     url: string;
+//     alt: string;
+// }
+// export const Background: FC<IBackgroundProps> = ({
+//     url,
+//     alt,
+// }: IBackgroundProps) => {
+//     return (
+//         <BackgroundWrapper>
+//             <Image
+//                 alt={alt ?? "background image"}
+//                 src={url}
+//                 layout="fill"
+//                 objectFit="cover"
+//                 quality={70}
+//             />
+//         </BackgroundWrapper>
+//     );
+// };
 
 interface IBackgroundPrismicProps {
     field: ImageField;
@@ -46,8 +45,15 @@ export const BackgroundPrismic: FC<IBackgroundPrismicProps> = ({
 }: IBackgroundPrismicProps) => {
     return (
         <BackgroundWrapper>
-            <PrismicNextImage
+            {/* <PrismicNextImage
                 field={field}
+                layout="fill"
+                objectFit="cover"
+                quality={70}
+            /> */}
+            <Image
+                src={field.url!}
+                alt={field.alt ?? ""}
                 layout="fill"
                 objectFit="cover"
                 quality={70}
