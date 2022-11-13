@@ -1,0 +1,47 @@
+.PostSection {
+    position: relative;
+    .Paths {
+        font-size: 14px;
+        position: absolute;
+        padding: 20px 90px;
+        a {
+            &:hover {
+                color: #89898c;
+            }
+        }
+    }
+    .PostWrapper {
+        max-width: 1280px;
+        margin: auto;
+        align-items: center;
+
+        h1,
+        h2 {
+            font-size: 30px;
+        }
+        h3,
+        h4 {
+            font-size: 20px;
+        }
+        h5,
+        h6 {
+            font-size: 18px;
+        }
+        p {
+            margin: 20px 0;
+            font-size: 14px;
+            color: #89898c;
+        }
+        ol,
+        ul {
+            margin: 20px 0;
+        }
+        li {
+            font-size: 14px;
+            color: #89898c;
+        }
+        img {
+            margin: auto;
+        }
+    }
+}

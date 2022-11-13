@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { PrismicRichText } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
+import Image from "next/image";
 import Style from "./style.module.scss";
 import { MyButton } from "@components/button";
 import { TextWithImageSlice } from "@customtypes/rest";
@@ -26,14 +26,31 @@ const TextWithImage: FC<TextWithImageProps> = ({
             <div className={`${Style.textWrapper}`}>
                 <PrismicRichText field={slice.primary.title} />
                 <PrismicRichText field={slice.primary.text} />
-                {slice?.items?.map((item, i) => (
-                    <MyButton key={i} variant={true} link={item.button_url}>
-                        {item.button_label}
-                    </MyButton>
-                ))}
+                <div>
+                    {slice?.items?.map((item, i) => (
+                        <MyButton key={i} variant={true} link={item.button_url}>
+                            {item.button_label}
+                        </MyButton>
+                    ))}
+                </div>
             </div>
             <div className={`${Style.imageWrapper}`}>
-                <PrismicNextImage field={slice.primary.image} />
+                {slice.variation === "default" ? (
+                    <Image
+                        src={slice.primary.image.url!}
+                        alt={slice.primary.image.alt ?? "background image"}
+                        layout="fill"
+                        objectFit="contain"
+                        quality={70}
+                    />
+                ) : (
+                    <Image
+                        src={slice.primary.image.url!}
+                        alt={slice.primary.image.alt ?? "background image"}
+                        width={380}
+                        height={380}
+                    />
+                )}
             </div>
         </section>
     );

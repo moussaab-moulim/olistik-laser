@@ -7,6 +7,9 @@
     color: white;
     .textWrapper {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding: 90px 10%;
         ul {
             list-style: inside;
@@ -21,7 +24,9 @@
         }
     }
     .imageWrapper {
+        position: relative;
         margin-top: 90px;
+        // height: 480px;
     }
 }
 
@@ -32,6 +37,9 @@
     padding: 90px 10%;
     color: white;
     .textWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         text-align: center;
         h2 {
             padding: 40px 0;
@@ -42,6 +50,7 @@
     }
 
     .imageWrapper {
+        position: relative;
         display: flex;
         justify-content: center;
     }

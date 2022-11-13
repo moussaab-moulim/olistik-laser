@@ -1,9 +1,13 @@
 import { PageSeo } from "src/types/common";
 import { pageResolver } from "prismicio";
-import { PageDocument, SettingsDocument } from "@customtypes/rest";
+import {
+    PageDocument,
+    PostDocument,
+    SettingsDocument,
+} from "@customtypes/rest";
 
 export const mapPageSeo = (
-    page: PageDocument,
+    page: PageDocument | PostDocument,
     settings: SettingsDocument,
 ): PageSeo => ({
     featured_image: page.data.featured_image,

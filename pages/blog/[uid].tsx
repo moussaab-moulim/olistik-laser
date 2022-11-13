@@ -1,59 +1,61 @@
 import React from "react";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { SliceZone } from "@prismicio/react";
-import { components } from "../slices/";
-import { GetStaticProps, NextPage } from "next";
+
+import { components } from "../../slices";
+import { createRestClient } from "@services/client";
 import { Layout } from "@components/layout";
 import { mapPageSeo } from "@services/mappers/pageMappers";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import {
     NavigationDocument,
-    PageDocument,
     PostDocument,
     SettingsDocument,
 } from "@customtypes/rest";
-import { createRestClient } from "@services/client";
 import BLogList from "@components/Blog/BlogList";
 import { Query } from "@prismicio/types";
 
 interface IProps {
+    post: PostDocument;
     navigation: NavigationDocument;
     settings: SettingsDocument;
-    home: PageDocument;
     posts: Query<PostDocument>;
 }
-const Home: NextPage<IProps> = ({
+
+const Page: NextPage<IProps> = ({
+    post,
     navigation,
     settings,
-    home,
     posts,
 }: IProps) => {
     return (
-        <Layout navigation={navigation} settings={mapPageSeo(home, settings)}>
-            <SliceZone slices={home.data.slices} components={components} />
-            <BLogList posts={posts.results} title={"Blog"} />
+        <Layout navigation={navigation} settings={mapPageSeo(post, settings)}>
+            <SliceZone slices={post.data.slices} components={components} />
+            <BLogList posts={posts.results} title={"Latest Posts"} />
         </Layout>
     );
 };
 
-export default Home;
+export default Page;
 
 export const getStaticProps: GetStaticProps<IProps> = async ({
     locale: serverLocale,
+    params,
 }) => {
+    const locale = serverLocale ?? "fr";
     const client = createRestClient();
 
-    const locale = serverLocale ?? "fr";
-
-    const settings = await client.getSingle<SettingsDocument>("settings", {
-        lang: locale,
-    });
-    const navigation = await client.getSingle<NavigationDocument>(
-        "navigation",
+    const post = await client.getByUID<PostDocument>(
+        "post",
+        params!.uid as string,
         {
             lang: locale,
         },
     );
-    const home = await client.getByUID<PageDocument>("page", "home", {
+    const navigation = await client.getSingle<NavigationDocument>(
+        "navigation",
+        { lang: locale },
+    );
+    const settings = await client.getSingle<SettingsDocument>("settings", {
         lang: locale,
     });
     const Query = `{
@@ -72,14 +74,31 @@ export const getStaticProps: GetStaticProps<IProps> = async ({
             direction: "desc",
         },
     });
-
     return {
         props: {
-            ...(await serverSideTranslations(locale, ["common"])),
+            post,
             navigation,
             settings,
-            home,
             posts,
         },
+    };
+};
+// { locales: serverLocale }
+export const getStaticPaths: GetStaticPaths = async () => {
+    const locale = "fr";
+    const client = createRestClient();
+
+    const post = await client.getAllByType<PostDocument>("post", {
+        lang: locale,
+    });
+
+    return {
+        paths: post.map((post) => {
+            return {
+                params: { uid: post.uid },
+                locale: post.lang,
+            };
+        }),
+        fallback: false,
     };
 };

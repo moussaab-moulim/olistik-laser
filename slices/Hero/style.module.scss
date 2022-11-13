@@ -61,12 +61,21 @@
 
 .HeroBreak {
     position: relative;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 50vh;
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: auto;
     z-index: 0;
+    color: white;
+    .contentWrapper {
+        position: relative;
+        top: 16%;
+        width: 100%;
+        z-index: 1;
+    }
     &:after {
         position: absolute;
         display: block;
@@ -77,5 +86,10 @@
         content: "";
         background-color: rgba(0, 0, 0, 0.1);
         z-index: 0;
+    }
+    h1 {
+        padding: 0 5%;
+        font-size: 56px;
+        text-align: center;
     }
 }
