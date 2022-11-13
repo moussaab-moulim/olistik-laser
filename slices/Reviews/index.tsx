@@ -12,23 +12,23 @@ interface ReviewsProps {
 const Reviews: FC<ReviewsProps> = ({ slice }: ReviewsProps) => {
     return (
         <section
-            className={`container ${Style.ReviewsWrapper}`}
+            className={`container ${Style.reviewsWrapper}`}
             style={{
                 backgroundColor: `${"#F8E0DE"}`,
             }}
         >
-            <div className={` ${Style.Container}`}>
+            <div className={` ${Style.container}`}>
                 <PrismicRichText field={slice.primary.title} />
                 <PrismicRichText field={slice.primary.description} />
                 <Carousel
-                    className={`${Style.Carousel}`}
+                    className={`${Style.carousel}`}
                     wrapAround={true}
                     renderCenterLeftControls={({
                         previousDisabled,
                         previousSlide,
                     }) => (
                         <button
-                            className={`${Style.LeftArrow}`}
+                            className={`${Style.leftArrow}`}
                             onClick={previousSlide}
                             disabled={previousDisabled}
                         >
@@ -40,7 +40,7 @@ const Reviews: FC<ReviewsProps> = ({ slice }: ReviewsProps) => {
                         nextSlide,
                     }) => (
                         <button
-                            className={`${Style.RightArrow}`}
+                            className={`${Style.rightArrow}`}
                             onClick={nextSlide}
                             disabled={nextDisabled}
                         >
@@ -48,7 +48,7 @@ const Reviews: FC<ReviewsProps> = ({ slice }: ReviewsProps) => {
                         </button>
                     )}
                     defaultControlsConfig={{
-                        pagingDotsClassName: `${Style.SideDots}`,
+                        pagingDotsClassName: `${Style.sideDots}`,
                     }}
                 >
                     {slice.items.map((_item, key) => (

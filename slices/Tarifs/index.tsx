@@ -11,9 +11,9 @@ const Tarifs: FC<TarifsProps> = ({ slice }: TarifsProps) => {
     return (
         <section
             id={slice.primary.slice_id ?? ""}
-            className={`container ${Style.TarifsWrapper}`}
+            className={`container ${Style.tarifsWrapper}`}
         >
-            <div className={`${Style.Container}`}>
+            <div className={`${Style.container}`}>
                 <PrismicRichText field={slice.primary.title} />
                 <PrismicRichText field={slice.primary.description} />
 

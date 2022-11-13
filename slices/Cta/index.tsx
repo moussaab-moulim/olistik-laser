@@ -12,7 +12,7 @@ const Cta: FC<CtaProps> = ({ slice }: CtaProps) => {
     return (
         <section
             id={slice.primary.slice_id ?? ""}
-            className={`container ${Style.CtaWrapper}`}
+            className={`container ${Style.ctaWrapper}`}
             style={{
                 backgroundColor: `${slice.primary.background_color ?? "#000"}`,
             }}

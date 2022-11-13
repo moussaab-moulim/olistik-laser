@@ -1,4 +1,4 @@
-.BlogWrapper {
+.blogWrapper {
     padding: 90px 10%;
     @media (min-width: 1025px) {
         padding: 90px 5%;
@@ -9,7 +9,7 @@
         font-weight: 700;
         padding-bottom: 40px;
     }
-    .CardWrapper {
+    .cardWrapper {
         position: relative;
         // display: flex;
         // flex-direction: column;
@@ -19,7 +19,7 @@
         @media (min-width: 1025px) {
             // flex-direction: row;
         }
-        .Card {
+        .card {
             // height: 380px;
             // width: 380px;
             text-align: left;
@@ -32,14 +32,14 @@
                         transform: scale(1.1);
                     }
                 }
-                .Image {
+                .image {
                     position: relative;
                     height: 180px;
                     img {
                         transition: all 1s ease-out;
                     }
                 }
-                .Content {
+                .content {
                     padding: 20px 30px;
                     span {
                         margin-bottom: 10px;
@@ -52,7 +52,7 @@
                         font-weight: 700;
                         margin: 5px 0;
                     }
-                    .Text {
+                    .contentText {
                         p {
                             height: 88px;
                             overflow: hidden;
@@ -67,21 +67,21 @@
     }
 }
 
-.RightArrow {
+.rightArrow {
     position: absolute;
     top: 40%;
     margin-left: 10px;
 }
 
-.LeftArrow {
+.leftArrow {
     position: absolute;
     top: 40%;
     margin-left: -50px;
 }
 
-.BLogPageWrapper {
+.blogPageWrapper {
     position: relative;
-    .Paths {
+    .paths {
         font-size: 14px;
         position: absolute;
         max-width: 666px;
@@ -92,7 +92,7 @@
             }
         }
     }
-    .CardWrapper {
+    .cardWrapper {
         margin: auto;
         display: grid;
         gap: 44px;
@@ -101,7 +101,7 @@
         @media (min-width: 1025px) {
             grid-template-columns: 1fr 1fr;
         }
-        .Card {
+        .card {
             &:nth-child(1) {
                 @media (min-width: 1025px) {
                     grid-column: 1/3;
@@ -112,7 +112,7 @@
                         flex-direction: row;
                         align-items: center;
                     }
-                    .Image {
+                    .image {
                         flex-basis: 50%;
 
                         @media (min-width: 1025px) {
@@ -125,7 +125,7 @@
                             }
                         }
                     }
-                    .Content {
+                    .content {
                         flex-basis: 50%;
                     }
                 }
@@ -141,14 +141,14 @@
                         transform: scale(1.1);
                     }
                 }
-                .Image {
+                .image {
                     position: relative;
                     height: 300px;
                     img {
                         transition: all 1.5s ease-out;
                     }
                 }
-                .Content {
+                .content {
                     padding: 20px 40px;
                     span {
                         margin-bottom: 10px;
@@ -161,7 +161,7 @@
                         font-weight: 700;
                         margin: 5px 0;
                     }
-                    .Text {
+                    .contentText {
                         p {
                             overflow: hidden;
                             text-overflow: ellipsis;

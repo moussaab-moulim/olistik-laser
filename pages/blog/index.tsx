@@ -40,7 +40,6 @@ export default Blog;
 
 export const getStaticProps: GetStaticProps<IProps> = async ({
     locale: serverLocale,
-    params,
 }) => {
     const client = createRestClient();
 

@@ -13,7 +13,7 @@ const Footer: React.FC<FooterProps> = ({ logo }) => {
     return (
         <footer className={` ${Style.footerWrapper}`}>
             <div className={` ${Style.container}`}>
-                <div className={`${Style.LinkArea}`}>
+                <div className={`${Style.linkArea}`}>
                     {isFilled.image(logo) && (
                         <Link href="/" passHref>
                             <a>
@@ -27,7 +27,7 @@ const Footer: React.FC<FooterProps> = ({ logo }) => {
                         </Link>
                     )}
                 </div>
-                <div className={`${Style.copyrightArea}`}>
+                <div className={`${Style.copyRightArea}`}>
                     <p>© 2022 OLISTIK. All rights reserved</p>
                     <div className={`${Style.design}`}>
                         <p>

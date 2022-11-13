@@ -31,10 +31,10 @@ const Cards: FC<CardsProps> = ({ slice }: CardsProps) => {
     return (
         <section
             id={slice.primary.slice_id ?? ""}
-            className={`${Style.CardsWrapper}`}
+            className={`${Style.cardsWrapper}`}
         >
-            <div className={` ${Style.LeftSide}`}>
-                <div className={`container ${Style.LeftHead}`}>
+            <div className={` ${Style.leftSide}`}>
+                <div className={`container ${Style.leftHead}`}>
                     <PrismicRichText field={slice.primary.title} />
                     <PrismicRichText field={slice.primary.description} />
                 </div>
@@ -44,7 +44,7 @@ const Cards: FC<CardsProps> = ({ slice }: CardsProps) => {
                     <Accordion
                         allowToggle
                         colorScheme="brand"
-                        className={`${Style.LeftMenu}`}
+                        className={`${Style.leftMenu}`}
                     >
                         {slice?.items?.map((item, i) => (
                             <AccordionItem key={i}>
@@ -54,7 +54,7 @@ const Cards: FC<CardsProps> = ({ slice }: CardsProps) => {
                                 </AccordionButton>
                                 <AccordionPanel
                                     pb={4}
-                                    className={`${Style.Content}`}
+                                    className={`${Style.content}`}
                                 >
                                     <PrismicRichText field={item.title} />
                                     <PrismicRichText field={item.description} />
@@ -73,7 +73,7 @@ const Cards: FC<CardsProps> = ({ slice }: CardsProps) => {
                 )}
                 {/* DESKTOP DROP DOWN SELECTION */}
                 {isLargerThan1025 && (
-                    <div className={` ${Style.LeftMenu}`}>
+                    <div className={` ${Style.leftMenu}`}>
                         {slice?.items?.map((item, i) => (
                             <div
                                 key={i}
@@ -89,7 +89,7 @@ const Cards: FC<CardsProps> = ({ slice }: CardsProps) => {
             </div>
             {/* DESKTOP DROP DOWN CONTENT */}
             {isLargerThan1025 && (
-                <div className={`container ${Style.RightSide}`}>
+                <div className={`container ${Style.rightSide}`}>
                     {slice?.items?.map(
                         (item, i) =>
                             // problem here

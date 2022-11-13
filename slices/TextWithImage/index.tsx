@@ -1,9 +1,10 @@
-import React, { FC } from "react";
+import React, { FC, Fragment } from "react";
 import { PrismicRichText } from "@prismicio/react";
 import Image from "next/image";
 import Style from "./style.module.scss";
 import { MyButton } from "@components/button";
 import { TextWithImageSlice } from "@customtypes/rest";
+import { isFilled } from "@prismicio/helpers";
 interface TextWithImageProps {
     slice: TextWithImageSlice;
 }
@@ -16,8 +17,8 @@ const TextWithImage: FC<TextWithImageProps> = ({
             id={slice.primary.slice_id ?? ""}
             className={`${
                 slice.variation === "default"
-                    ? Style.LeftSliceWrapper
-                    : Style.RightSliceWrapper
+                    ? Style.leftSliceWrapper
+                    : Style.rightSliceWrapper
             }`}
             style={{
                 backgroundColor: `${slice.primary.background_color ?? "#000"}`,
@@ -36,20 +37,34 @@ const TextWithImage: FC<TextWithImageProps> = ({
             </div>
             <div className={`${Style.imageWrapper}`}>
                 {slice.variation === "default" ? (
-                    <Image
-                        src={slice.primary.image.url!}
-                        alt={slice.primary.image.alt ?? "background image"}
-                        layout="fill"
-                        objectFit="contain"
-                        quality={70}
-                    />
+                    <Fragment>
+                        {isFilled.image(slice.primary.image) && (
+                            <Image
+                                src={slice.primary.image.url}
+                                alt={
+                                    slice.primary.image.alt ??
+                                    "background image"
+                                }
+                                layout="fill"
+                                objectFit="contain"
+                                quality={70}
+                            />
+                        )}
+                    </Fragment>
                 ) : (
-                    <Image
-                        src={slice.primary.image.url!}
-                        alt={slice.primary.image.alt ?? "background image"}
-                        width={380}
-                        height={380}
-                    />
+                    <Fragment>
+                        {isFilled.image(slice.primary.image) && (
+                            <Image
+                                src={slice.primary.image.url}
+                                alt={
+                                    slice.primary.image.alt ??
+                                    "background image"
+                                }
+                                width={380}
+                                height={380}
+                            />
+                        )}
+                    </Fragment>
                 )}
             </div>
         </section>

@@ -13,13 +13,13 @@ const Text = (slice) => {
     return (
         <section
             id={slice.slice.primary.slice_id ?? ""}
-            className={`${Style.PostSection}`}
+            className={`${Style.postSection}`}
             style={{
                 backgroundColor: "#fff",
             }}
         >
             {/* {isLargerThan786 && (
-                <div className={`${Style.Paths}`}>
+                <div className={`${Style.paths}`}>
                     <Link href={"/"}>
                         <a>Home</a>
                     </Link>
@@ -32,7 +32,7 @@ const Text = (slice) => {
                 </div>
             )} */}
 
-            <div className={`container ${Style.PostWrapper}`}>
+            <div className={`container ${Style.postWrapper}`}>
                 <PrismicRichText field={slice.slice.primary.text} />
             </div>
         </section>

@@ -6,6 +6,7 @@ import Carousel from "nuka-carousel";
 import { useMediaQuery } from "@chakra-ui/react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { PostDocument } from "@customtypes/rest";
+import { isFilled } from "@prismicio/helpers";
 interface BlogListProps {
     posts: PostDocument[];
     title: string;
@@ -17,12 +18,12 @@ const BLogList: FC<BlogListProps> = ({ posts, title }: BlogListProps) => {
             {posts.length === 0 ? null : (
                 <section
                     id={"blog"}
-                    className={` ${Style.BlogWrapper}`}
+                    className={` ${Style.blogWrapper}`}
                     style={{ backgroundColor: "#e6e6e6" }}
                 >
                     <h2>{title}</h2>
 
-                    <div className={`${Style.CardWrapper}`}>
+                    <div className={`${Style.cardWrapper}`}>
                         <Carousel
                             slidesToShow={isLargerThan1025 ? 3 : 1}
                             cellSpacing={33}
@@ -39,7 +40,7 @@ const BLogList: FC<BlogListProps> = ({ posts, title }: BlogListProps) => {
                                 <Fragment>
                                     {isLargerThan1025 ? null : (
                                         <button
-                                            className={`${Style.LeftArrow}`}
+                                            className={`${Style.leftArrow}`}
                                             onClick={previousSlide}
                                             disabled={previousDisabled}
                                         >
@@ -55,7 +56,7 @@ const BLogList: FC<BlogListProps> = ({ posts, title }: BlogListProps) => {
                                 <Fragment>
                                     {isLargerThan1025 ? null : (
                                         <button
-                                            className={`${Style.RightArrow}`}
+                                            className={`${Style.rightArrow}`}
                                             onClick={nextSlide}
                                             disabled={nextDisabled}
                                         >
@@ -66,33 +67,38 @@ const BLogList: FC<BlogListProps> = ({ posts, title }: BlogListProps) => {
                             )}
                             renderBottomCenterControls={() => null}
                         >
-                            {posts.map((post: any, i: number) => {
+                            {posts.map((post, i: number) => {
                                 return (
-                                    <div key={i} className={`${Style.Card}`}>
-                                        <Link href={"/blog/" + post.uid ?? "/"}>
+                                    <div key={i} className={`${Style.card}`}>
+                                        <Link href={"/blog/" + post.uid ?? ""}>
                                             <a>
                                                 <div
-                                                    className={`${Style.Image}`}
+                                                    className={`${Style.image}`}
                                                 >
-                                                    <Image
-                                                        src={
-                                                            post.data
-                                                                .featured_image
-                                                                .url!
-                                                        }
-                                                        alt={
-                                                            post.data
-                                                                .featured_image
-                                                                .alt ??
-                                                            "background image"
-                                                        }
-                                                        layout="fill"
-                                                        objectFit="cover"
-                                                        quality={70}
-                                                    />
+                                                    {isFilled.image(
+                                                        post.data
+                                                            .featured_image,
+                                                    ) && (
+                                                        <Image
+                                                            src={
+                                                                post.data
+                                                                    .featured_image
+                                                                    .url
+                                                            }
+                                                            alt={
+                                                                post.data
+                                                                    .featured_image
+                                                                    .alt ??
+                                                                "background image"
+                                                            }
+                                                            layout="fill"
+                                                            objectFit="cover"
+                                                            quality={70}
+                                                        />
+                                                    )}
                                                 </div>
                                                 <div
-                                                    className={`${Style.Content}`}
+                                                    className={`${Style.content}`}
                                                 >
                                                     <span>
                                                         {new Date(
@@ -103,7 +109,7 @@ const BLogList: FC<BlogListProps> = ({ posts, title }: BlogListProps) => {
                                                         {post.data.meta_title}
                                                     </h3>
                                                     <div
-                                                        className={`${Style.Text}`}
+                                                        className={`${Style.contentText}`}
                                                     >
                                                         <p>
                                                             {
