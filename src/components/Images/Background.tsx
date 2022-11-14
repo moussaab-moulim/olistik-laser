@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { isFilled } from "@prismicio/helpers";
 import { ImageField } from "@prismicio/types";
 import Image from "next/image";
 import React, { FC } from "react";
@@ -51,13 +52,16 @@ export const BackgroundPrismic: FC<IBackgroundPrismicProps> = ({
                 objectFit="cover"
                 quality={70}
             /> */}
-            <Image
-                src={field.url!}
-                alt={field.alt ?? ""}
-                layout="fill"
-                objectFit="cover"
-                quality={70}
-            />
+            {isFilled.image(field) && (
+                <Image
+                    src={field.url}
+                    alt={field.alt ?? ""}
+                    layout="fill"
+                    objectFit="cover"
+                    quality={70}
+                    priority
+                />
+            )}
         </BackgroundWrapper>
     );
 };
