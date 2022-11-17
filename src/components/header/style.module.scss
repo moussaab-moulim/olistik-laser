@@ -119,13 +119,14 @@
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                height: 48px;
                 background-color: #f8e0de;
                 a {
                     border-left: 1px solid white;
                     font-weight: 600;
                     font-size: 13px;
                     flex-basis: 50%;
+                }
+                .linkText {
                     padding: 15px 0;
                 }
                 // a[href^="tel:"] {
