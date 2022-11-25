@@ -24,7 +24,10 @@ const Hero: FC<HeroProps> = ({ slice }: HeroProps) => {
             `}`}
         >
             {isFilled.image(slice.primary.background_image) && (
-                <BackgroundPrismic field={slice.primary.background_image} />
+                <BackgroundPrismic
+                    field={slice.primary.background_image}
+                    variation={slice.variation}
+                />
             )}
             <div className={`${Style.contentWrapper}`}>
                 <PrismicRichText field={slice.primary.title} />

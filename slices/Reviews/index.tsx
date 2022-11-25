@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import Style from "./style.module.scss";
 import Carousel from "nuka-carousel";
