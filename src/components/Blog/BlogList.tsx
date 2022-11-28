@@ -126,6 +126,11 @@ const BLogList: FC<BlogListProps> = ({ posts, title }: BlogListProps) => {
                             })}
                         </Carousel>
                     </div>
+                    <div className={`${Style.ButtonContainer}`}>
+                        <Link href={"/blog"}>
+                            <a className={`${Style.ButtonPink}`}>Notre Blog</a>
+                        </Link>
+                    </div>
                 </section>
             )}
         </Fragment>

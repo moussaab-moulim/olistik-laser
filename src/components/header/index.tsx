@@ -96,7 +96,9 @@ export const Header: React.FC<HeaderProps> = ({ navigation, logo }) => {
                                     passHref
                                     prefetch={false}
                                 >
-                                    <a>{navItem.button_label}</a>
+                                    <a className={`${Style.linkText}`}>
+                                        {navItem.button_label}
+                                    </a>
                                 </Link>
                             ),
                         )}

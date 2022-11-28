@@ -1,11 +1,23 @@
 import styled from "@emotion/styled";
 import { ImageField } from "@prismicio/types";
 import Image from "next/image";
-import React, { FC } from "react";
+import React, { FC, Fragment } from "react";
 
 const BackgroundWrapper = styled.div`
     position: absolute;
     height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+    @media only screen and (max-width: 576px) {
+        img {
+            object-position: 30% 50%;
+        }
+    }
+`;
+const NoActionBackgroundWrapper = styled.div`
+    position: absolute;
+    height: 50vh;
     width: 100%;
     overflow: hidden;
     z-index: -1;
@@ -39,25 +51,35 @@ const BackgroundWrapper = styled.div`
 
 interface IBackgroundPrismicProps {
     field: ImageField;
+    variation: string;
 }
 export const BackgroundPrismic: FC<IBackgroundPrismicProps> = ({
     field,
+    variation,
 }: IBackgroundPrismicProps) => {
     return (
-        <BackgroundWrapper>
-            {/* <PrismicNextImage
-                field={field}
-                layout="fill"
-                objectFit="cover"
-                quality={70}
-            /> */}
-            <Image
-                src={field.url!}
-                alt={field.alt ?? ""}
-                layout="fill"
-                objectFit="cover"
-                quality={70}
-            />
-        </BackgroundWrapper>
+        <Fragment>
+            {variation === "default" ? (
+                <BackgroundWrapper>
+                    <Image
+                        src={field.url!}
+                        alt={field.alt ?? ""}
+                        layout="fill"
+                        objectFit="cover"
+                        quality={70}
+                    />
+                </BackgroundWrapper>
+            ) : (
+                <NoActionBackgroundWrapper>
+                    <Image
+                        src={field.url!}
+                        alt={field.alt ?? ""}
+                        layout="fill"
+                        objectFit="cover"
+                        quality={70}
+                    />
+                </NoActionBackgroundWrapper>
+            )}
+        </Fragment>
     );
 };
