@@ -17,7 +17,7 @@ export const linkResolver = (
     if (typeof doc.link_type === typeof LinkType.Document) {
         const _doc = doc as FilledLinkToDocumentField;
         const langPrefix = _doc.lang === "fr" ? "/" : "/en";
-        if (_doc.uid === "home") {
+        if (_doc.uid === "promos") {
             return `${langPrefix}`;
         }
         if (_doc.type === "post") {
@@ -35,7 +35,7 @@ export const linkResolver = (
 };
 export const pageResolver = (doc: PrismicDocument): string => {
     const langPrefix = doc.lang === "fr" ? "/" : "/en";
-    if (doc.uid === "home") {
+    if (doc.uid === "promos") {
         return `${langPrefix}`;
     }
     if (doc.type === "post") {

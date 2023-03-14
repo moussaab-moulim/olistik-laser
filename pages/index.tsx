@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps<IProps> = async ({
             lang: locale,
         },
     );
-    const home = await client.getByUID<PageDocument>("page", "home", {
+    const home = await client.getByUID<PageDocument>("page", "promos", {
         lang: locale,
     });
     const Query = `{
