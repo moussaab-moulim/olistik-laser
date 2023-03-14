@@ -34,7 +34,7 @@ export const linkResolver = (
     return "/";
 };
 export const pageResolver = (doc: PrismicDocument): string => {
-    const langPrefix = doc.lang === "fr" ? "/" : "/en";
+    const langPrefix = doc.lang === "fr" ? "" : "/en";
     if (doc.uid === "home") {
         return `${langPrefix}`;
     }
