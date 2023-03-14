@@ -79,6 +79,10 @@ export const Layout: FC<IProps> = ({
                         name: "google-site-verification",
                         content: settings.search_console_key,
                     },
+                    {
+                        name: "robots",
+                        content: "noindex",
+                    },
                 ]}
                 additionalLinkTags={[
                     {
