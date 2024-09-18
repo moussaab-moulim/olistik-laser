@@ -30,7 +30,7 @@ const Page: NextPage<IProps> = ({
     return (
         <Layout navigation={navigation} settings={mapPageSeo(post, settings)}>
             <SliceZone slices={post.data.slices} components={components} />
-            <BLogList posts={posts.results} title={"Latest Posts"} />
+            <BLogList posts={posts.results} title={"Dernières nouvelles"} />
         </Layout>
     );
 };
