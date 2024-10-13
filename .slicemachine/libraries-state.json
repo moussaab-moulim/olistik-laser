@@ -137,7 +137,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Cards\\default\\preview.png",
+            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/Cards/default/preview.png",
             "width": 1331,
             "height": 688
           }
@@ -254,7 +254,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Cta\\default\\preview.png",
+            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/Cta/default/preview.png",
             "width": 3024,
             "height": 638
           }
@@ -476,7 +476,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Hero\\default\\preview.png",
+            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/Hero/default/preview.png",
             "width": 2946,
             "height": 1666
           }
@@ -610,11 +610,69 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\.slicemachine\\assets\\slices\\Reviews\\default\\preview.png",
+            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/.slicemachine/assets/slices/Reviews/default/preview.png",
             "width": 800,
             "height": 24
           }
         }
+      },
+      "script": {
+        "library": "slices",
+        "id": "script",
+        "name": "Script",
+        "description": "Script",
+        "model": {
+          "id": "script",
+          "type": "SharedSlice",
+          "name": "Script",
+          "description": "Script",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Script",
+              "primary": {
+                "html": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Html",
+                    "placeholder": "",
+                    "allowTargetBlank": false,
+                    "single": "preformatted,embed"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "html": [
+                {
+                  "type": "paragraph",
+                  "text": "Incididunt anim sit est eu.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "script"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
       },
       "tarifs": {
         "library": "slices",
@@ -760,7 +818,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\Tarifs\\default\\preview.jpeg",
+            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/Tarifs/default/preview.jpeg",
             "width": 1600,
             "height": 1037
           }
@@ -832,7 +890,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\.slicemachine\\assets\\slices\\Text\\default\\preview.png",
+            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/.slicemachine/assets/slices/Text/default/preview.png",
             "width": 1280,
             "height": 800
           }
@@ -1081,7 +1139,7 @@
         },
         "screenshotPaths": {
           "default": {
-            "path": "C:\\Users\\Maxito\\Documents\\GitHub\\olistik-laser\\slices\\TextWithImage\\default\\preview.png",
+            "path": "/Users/moussaabmma/Documents/GitHub/olistik-laser/slices/TextWithImage/default/preview.png",
             "width": 3024,
             "height": 1448
           }

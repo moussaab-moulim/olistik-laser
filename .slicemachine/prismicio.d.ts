@@ -192,7 +192,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = HeroSlice | CtaSlice | CardsSlice | TextWithImageSlice | TarifsSlice | ReviewsSlice;
+type PageDocumentDataSlicesSlice = HeroSlice | CtaSlice | CardsSlice | TextWithImageSlice | TarifsSlice | ReviewsSlice | ScriptSlice;
 /**
  * Page document from Prismic
  *
@@ -432,121 +432,6 @@ type SettingsDocumentDataSlices1Slice = never;
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
 export type AllDocumentTypes = NavigationDocument | PageDocument | PostDocument | SettingsDocument;
-/**
- * Primary content in Blog → Primary
- *
- */
-interface BlogSliceDefaultPrimary {
-    /**
-     * slice id field in *Blog → Primary*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blog.primary.slice_id
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    slice_id: prismicT.KeyTextField;
-    /**
-     * Title field in *Blog → Primary*
-     *
-     * - **Field Type**: Title
-     * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: blog.primary.title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    title: prismicT.TitleField;
-    /**
-     * Description field in *Blog → Primary*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: A nice description of your feature
-     * - **API ID Path**: blog.primary.description
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    description: prismicT.RichTextField;
-}
-/**
- * Item in Blog → Items
- *
- */
-export interface BlogSliceDefaultItem {
-    /**
-     * post date field in *Blog → Items*
-     *
-     * - **Field Type**: Date
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blog.items[].post_date
-     * - **Documentation**: https://prismic.io/docs/core-concepts/date
-     *
-     */
-    post_date: prismicT.DateField;
-    /**
-     * Title field in *Blog → Items*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blog.items[].title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    title: prismicT.RichTextField;
-    /**
-     * Description field in *Blog → Items*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blog.items[].description
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    description: prismicT.RichTextField;
-    /**
-     * background image field in *Blog → Items*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blog.items[].background_image
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    background_image: prismicT.ImageField<never>;
-    /**
-     * button url field in *Blog → Items*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: *None*
-     * - **API ID Path**: blog.items[].button_url
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    button_url: prismicT.LinkField;
-}
-/**
- * Default variation for Blog Slice
- *
- * - **API ID**: `default`
- * - **Description**: `Blog`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type BlogSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<BlogSliceDefaultPrimary>, Simplify<BlogSliceDefaultItem>>;
-/**
- * Slice variation for *Blog*
- *
- */
-type BlogSliceVariation = BlogSliceDefault;
-/**
- * Blog Shared Slice
- *
- * - **API ID**: `blog`
- * - **Description**: `Blog`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type BlogSlice = prismicT.SharedSlice<"blog", BlogSliceVariation>;
 /**
  * Primary content in Cards → Primary
  *
@@ -1033,6 +918,45 @@ type ReviewsSliceVariation = ReviewsSliceDefault;
  */
 export type ReviewsSlice = prismicT.SharedSlice<"reviews", ReviewsSliceVariation>;
 /**
+ * Primary content in Script → Primary
+ *
+ */
+interface ScriptSliceDefaultPrimary {
+    /**
+     * Html field in *Script → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: script.primary.html
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    html: prismicT.RichTextField;
+}
+/**
+ * Default variation for Script Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Script`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ScriptSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<ScriptSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *Script*
+ *
+ */
+type ScriptSliceVariation = ScriptSliceDefault;
+/**
+ * Script Shared Slice
+ *
+ * - **API ID**: `script`
+ * - **Description**: `Script`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ScriptSlice = prismicT.SharedSlice<"script", ScriptSliceVariation>;
+/**
  * Primary content in Tarifs → Primary
  *
  */
@@ -1397,6 +1321,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocumentDataActionGroupItem, NavigationDocumentDataSlicesSlice, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, PostDocumentData, PostDocumentDataSlicesSlice, PostDocument, SettingsDocumentData, SettingsDocumentDataSlicesSlice, SettingsDocumentDataSlices1Slice, SettingsDocument, AllDocumentTypes, BlogSliceDefaultPrimary, BlogSliceDefaultItem, BlogSliceDefault, BlogSliceVariation, BlogSlice, CardsSliceDefaultPrimary, CardsSliceDefaultItem, CardsSliceDefault, CardsSliceVariation, CardsSlice, CtaSliceDefaultPrimary, CtaSliceDefaultItem, CtaSliceDefault, CtaSliceVariation, CtaSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceNoActionHeroPrimary, HeroSliceNoActionHero, HeroSliceVariation, HeroSlice, ReviewsSliceDefaultPrimary, ReviewsSliceDefaultItem, ReviewsSliceDefault, ReviewsSliceVariation, ReviewsSlice, TarifsSliceDefaultPrimary, TarifsSliceDefaultItem, TarifsSliceDefault, TarifsSliceVariation, TarifsSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefaultItem, TextWithImageSliceDefault, TextWithImageSliceRightTextPrimary, TextWithImageSliceRightTextItem, TextWithImageSliceRightText, TextWithImageSliceVariation, TextWithImageSlice };
+        export type { NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocumentDataActionGroupItem, NavigationDocumentDataSlicesSlice, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, PostDocumentData, PostDocumentDataSlicesSlice, PostDocument, SettingsDocumentData, SettingsDocumentDataSlicesSlice, SettingsDocumentDataSlices1Slice, SettingsDocument, AllDocumentTypes, CardsSliceDefaultPrimary, CardsSliceDefaultItem, CardsSliceDefault, CardsSliceVariation, CardsSlice, CtaSliceDefaultPrimary, CtaSliceDefaultItem, CtaSliceDefault, CtaSliceVariation, CtaSlice, HeroSliceDefaultPrimary, HeroSliceDefaultItem, HeroSliceDefault, HeroSliceNoActionHeroPrimary, HeroSliceNoActionHero, HeroSliceVariation, HeroSlice, ReviewsSliceDefaultPrimary, ReviewsSliceDefaultItem, ReviewsSliceDefault, ReviewsSliceVariation, ReviewsSlice, ScriptSliceDefaultPrimary, ScriptSliceDefault, ScriptSliceVariation, ScriptSlice, TarifsSliceDefaultPrimary, TarifsSliceDefaultItem, TarifsSliceDefault, TarifsSliceVariation, TarifsSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice, TextWithImageSliceDefaultPrimary, TextWithImageSliceDefaultItem, TextWithImageSliceDefault, TextWithImageSliceRightTextPrimary, TextWithImageSliceRightTextItem, TextWithImageSliceRightText, TextWithImageSliceVariation, TextWithImageSlice };
     }
 }

@@ -14,6 +14,7 @@ import {
 import { createRestClient } from "@services/client";
 import BLogList from "@components/Blog/BlogList";
 import { Query } from "@prismicio/types";
+import Script from "next/script";
 
 interface IProps {
     navigation: NavigationDocument;
@@ -29,6 +30,10 @@ const Home: NextPage<IProps> = ({
 }: IProps) => {
     return (
         <Layout navigation={navigation} settings={mapPageSeo(home, settings)}>
+            <Script
+                src="https://widget.agenda.ch/javascripts/widget_over_2.js"
+                strategy="afterInteractive"
+            />
             <SliceZone slices={home.data.slices} components={components} />
             <BLogList posts={posts.results} title={"Blog"} />
         </Layout>

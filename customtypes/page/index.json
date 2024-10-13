@@ -63,6 +63,9 @@
             },
             "reviews": {
               "type": "SharedSlice"
+            },
+            "script": {
+              "type": "SharedSlice"
             }
           }
         }

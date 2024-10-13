@@ -187,6 +187,18 @@
           }
         }
       }
+    },
+    "Script": {
+      "default": {
+        "primary": {
+          "html": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
     }
   }
 }
